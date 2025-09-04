@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuzamo</title>
+    <meta name="description" content="Kuzamo: Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin." />
+    <link rel="canonical" href="https://kuzamo.com/" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Kuzamo — AI Destekli İçerik Planlama" />
+    <meta property="og:description" content="Küçük ekipler için içerik planlama ve yayınlamayı tek yerden yönetin." />
+    <meta property="og:url" content="https://kuzamo.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kuzamo — AI Destekli İçerik Planlama" />
+    <meta name="twitter:description" content="Blog, sosyal medya ve e-postalarınızı tek yerden yönetin." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <script>
+      // Tema FOUC engelleme: sayfa yüklenmeden önce tema sınıfını uygula
+      (function(){
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Use saved theme, or auto-detect if no saved preference
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cookie Consent -->
+    <script src="cookie-consent.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                800: '#3730a3', 900: '#312e81'
+              }
+            },
+            boxShadow: { 'soft': '0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)'},
+            backgroundSize: { '400%': '400% 400%' },
+            keyframes: {
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(16px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              float: {
+                '0%,100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-8px)' }
+              },
+              shine: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '100% 50%' }
+              }
+            },
+            animation: {
+              'fade-in-up': 'fade-in-up 0.6s ease-out both',
+              'float': 'float 6s ease-in-out infinite',
+              'shine': 'shine 8s linear infinite'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100 relative overflow-x-clip">
+    <!-- Decorative background blobs -->
+    <div aria-hidden="true" class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-400/20 blur-3xl animate-float"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute top-32 -right-16 h-80 w-80 rounded-full bg-cyan-300/20 dark:bg-cyan-400/10 blur-3xl animate-float"></div>
+    <!-- Navbar -->
+    <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="/index.html" class="flex items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+            <span class="text-2xl font-bold text-brand-600">Kuzamo</span>
+          </a>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+          <a href="/pricing.html" class="hover:text-brand-600">Fiyatlar</a>
+          <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+          <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" aria-label="Tema değiştir" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-900">🌙/☀️</button>
+          <button id="langToggle" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">TR/EN</button>
+          <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">Menü</button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800">
+        <nav class="px-6 py-3 flex flex-col gap-3 text-sm bg-white dark:bg-gray-900">
+          <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+          <a href="/pricing.html" class="hover:text-brand-600">Fiyatlar</a>
+          <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+          <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero text-center py-20 bg-gradient-to-b from-brand-50 to-white dark:from-gray-900 dark:to-gray-950 mt-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 reveal">
+        İçerik planlamanızı 
+        <span class="bg-clip-text text-transparent bg-[linear-gradient(90deg,#6366f1,#22d3ee,#6366f1)] bg-400% animate-shine">AI ile kolaylaştırın</span>
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto reveal">
+        Kuzamo, küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı sunar. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.
+      </p>
+      <div class="mt-8 flex justify-center flex-wrap gap-4 reveal">
+        <a href="/contact.html" class="group inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white rounded-lg shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-700">
+          Erken Erişim İste
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 transition-transform group-hover:translate-x-0.5">
+            <path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h12.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.5A.75.75 0 0 1 3.75 12Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="/index.html#features" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-lg transition hover:-translate-y-0.5 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700">
+          Özellikleri Gör
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M11.25 3.75a.75.75 0 0 1 1.5 0v4.5h4.5a.75.75 0 0 1 0 1.5h-4.5v4.5a.75.75 0 0 1-1.5 0v-4.5h-4.5a.75.75 0 0 1 0-1.5h4.5v-4.5Z" />
+          </svg>
+        </a>
+      </div>
+      <div class="mt-10 flex items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-400 reveal">
+        <span>🤖 AI destekli içerik üretimi</span>
+        <span>📅 Akıllı planlama takvimi</span>
+        <span>🚀 Çoklu platform yayınlama</span>
+      </div>
+    </section>
+
+    <script>
+      // Load language data and render content
+      (function() {
+        // Get saved language preference or auto-detect
+        const userLang = navigator.language || navigator.userLanguage;
+        let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
+        
+        // Set initial language to prevent flicker
+        if (currentLang === 'en') {
+          document.documentElement.lang = 'en';
+        }
+        
+        fetch('languages.json')
+          .then(response => response.json())
+          .then(data => {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Update toggle button text
+            if (langToggle) {
+              langToggle.textContent = currentLang.toUpperCase();
+            }
+
+            function renderContent(lang) {
+              // Navbar - Only update navigation links, preserve logo
+              const aboutLink = document.querySelector('nav a[href="/about.html"]');
+              const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
+              const faqLink = document.querySelector('nav a[href="/faq.html"]');
+              const contactLink = document.querySelector('nav a[href="/contact.html"]');
+              
+              if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
+              if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
+              if (faqLink) faqLink.textContent = data[lang].navbar.faq;
+              if (contactLink) contactLink.textContent = data[lang].navbar.contact;
+              
+              // Theme toggle and mobile menu button
+              const themeToggle = document.getElementById('themeToggle');
+              if (themeToggle) {
+                themeToggle.setAttribute('aria-label', data[lang].navbar.theme_toggle);
+              }
+              
+              const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+              if (mobileMenuBtn) {
+                mobileMenuBtn.textContent = data[lang].navbar.mobile_menu;
+              }
+              
+              // Hero section
+              const heroTitleElement = document.querySelector('.hero h2');
+              if (heroTitleElement) {
+                heroTitleElement.innerHTML = data[lang].hero.title;
+              }
+              
+              const heroDescriptionElement = document.querySelector('.hero p');
+              if (heroDescriptionElement) heroDescriptionElement.textContent = data[lang].hero.description;
+              
+              const earlyAccessBtnElement = document.querySelector('.hero a[href="/contact.html"]');
+              if (earlyAccessBtnElement) earlyAccessBtnElement.textContent = data[lang].hero.earlyAccess;
+              
+              const viewFeaturesBtnElement = document.querySelector('.hero a[href="/index.html#features"]');
+              if (viewFeaturesBtnElement) {
+                viewFeaturesBtnElement.textContent = data[lang].hero.viewFeatures;
+              }
+              
+              // Hero features
+              const heroFeatures = document.querySelectorAll('.hero .mt-10 span');
+              if (heroFeatures.length >= 3) {
+                heroFeatures[0].textContent = data[lang].hero.features.ai_content;
+                heroFeatures[1].textContent = data[lang].hero.features.planning;
+                heroFeatures[2].textContent = data[lang].hero.features.publishing;
+              }
+              
+              // Links to Other Pages section
+              const featuresTitle = document.querySelector('section:nth-of-type(2) h3:nth-of-type(1)');
+              if (featuresTitle) featuresTitle.textContent = data[lang].index_links.features.title;
+              
+              const featuresDescription = document.querySelector('section:nth-of-type(2) p:nth-of-type(1)');
+              if (featuresDescription) featuresDescription.textContent = data[lang].index_links.features.description;
+              
+              const featuresButton = document.querySelector('section:nth-of-type(2) a:nth-of-type(1)');
+              if (featuresButton) featuresButton.textContent = data[lang].index_links.features.button;
+              
+              const pricingTitle = document.querySelector('section:nth-of-type(2) h3:nth-of-type(2)');
+              if (pricingTitle) pricingTitle.textContent = data[lang].index_links.pricing.title;
+              
+              const pricingDescription = document.querySelector('section:nth-of-type(2) p:nth-of-type(2)');
+              if (pricingDescription) pricingDescription.textContent = data[lang].index_links.pricing.description;
+              
+              const pricingButton = document.querySelector('section:nth-of-type(2) a:nth-of-type(2)');
+              if (pricingButton) pricingButton.textContent = data[lang].index_links.pricing.button;
+              
+              const aboutTitle = document.querySelector('section:nth-of-type(2) h3:nth-of-type(3)');
+              if (aboutTitle) aboutTitle.textContent = data[lang].index_links.about.title;
+              
+              const aboutDescription = document.querySelector('section:nth-of-type(2) p:nth-of-type(3)');
+              if (aboutDescription) aboutDescription.textContent = data[lang].index_links.about.description;
+              
+              const aboutButton = document.querySelector('section:nth-of-type(2) a:nth-of-type(3)');
+              if (aboutButton) aboutButton.textContent = data[lang].index_links.about.button;
+              
+              const faqTitle = document.querySelector('section:nth-of-type(2) h3:nth-of-type(4)');
+              if (faqTitle) faqTitle.textContent = data[lang].index_links.faq.title;
+              
+              const faqDescription = document.querySelector('section:nth-of-type(2) p:nth-of-type(4)');
+              if (faqDescription) faqDescription.textContent = data[lang].index_links.faq.description;
+              
+              const faqButton = document.querySelector('section:nth-of-type(2) a:nth-of-type(4)');
+              if (faqButton) faqButton.textContent = data[lang].index_links.faq.button;
+              
+              // Contact section
+              const contactTitle = document.querySelector('#contact h3');
+              if (contactTitle) contactTitle.textContent = data[lang].contact.title;
+              
+              const contactDescription = document.querySelector('#contact p');
+              if (contactDescription) contactDescription.textContent = data[lang].contact.description;
+              
+              // Contact form labels
+              const nameLabel = document.querySelector('label[for="mainName"]');
+              if (nameLabel) nameLabel.textContent = data[lang].contact.form.name + ' *';
+              
+              const emailLabel = document.querySelector('label[for="mainEmail"]');
+              if (emailLabel) emailLabel.textContent = data[lang].contact.form.email + ' *';
+              
+              const companyLabel = document.querySelector('label[for="mainCompany"]');
+              if (companyLabel) companyLabel.textContent = data[lang].contact.form.company;
+              
+              
+              // Contact form placeholders
+              const nameInput = document.getElementById('mainName');
+              if (nameInput) nameInput.placeholder = data[lang].contact.form.name_placeholder;
+              
+              const emailInput = document.getElementById('mainEmail');
+              if (emailInput) emailInput.placeholder = data[lang].contact.form.email_placeholder;
+              
+              const companyInput = document.getElementById('mainCompany');
+              if (companyInput) companyInput.placeholder = data[lang].contact.form.company_placeholder;
+              
+              
+              // Contact form consent labels
+              const consentLabel = document.querySelector('label[for="mainConsent"]');
+              if (consentLabel) consentLabel.innerHTML = data[lang].contact.form.consent_label;
+              
+              const privacyConsentLabel = document.querySelector('label[for="mainPrivacyConsent"]');
+              if (privacyConsentLabel) privacyConsentLabel.innerHTML = data[lang].contact.form.privacy_consent_label;
+              
+              const termsConsentLabel = document.querySelector('label[for="mainTermsConsent"]');
+              if (termsConsentLabel) termsConsentLabel.innerHTML = data[lang].contact.form.terms_consent_label;
+              
+              // Contact form submit button
+              const submitBtn = document.getElementById('mainSubmitBtn');
+              if (submitBtn) submitBtn.textContent = data[lang].contact.form.submit;
+              
+              // Footer
+              const footerDescription = document.querySelector('.footer-description');
+              if (footerDescription) {
+                footerDescription.textContent = data[lang].footer.description;
+              }
+              
+              const footerAddress = document.querySelector('.footer-address');
+              if (footerAddress) {
+                footerAddress.textContent = data[lang].footer.address;
+              }
+              
+              const footerCopyright = document.querySelector('.footer-copyright');
+              if (footerCopyright) {
+                footerCopyright.textContent = data[lang].footer.copyright;
+              }
+              
+              // Footer links
+              const footerAboutLink = document.querySelector('.footer-about');
+              if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
+              
+              const footerPricingLink = document.querySelector('.footer-pricing');
+              if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
+              
+              const footerFaqLink = document.querySelector('.footer-faq');
+              if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
+              
+              const footerContactLink = document.querySelector('.footer-contact');
+              if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
+              
+              const footerPrivacyLink = document.querySelector('.footer-privacy');
+              if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
+              
+              const footerTermsLink = document.querySelector('.footer-terms');
+              if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
+              
+              const footerCookiePolicyLink = document.querySelector('.footer-cookie-policy');
+              if (footerCookiePolicyLink) footerCookiePolicyLink.textContent = data[lang].footer.links.cookie_policy;
+              
+              const footerCookieSettingsBtn = document.querySelector('.footer-cookie-settings');
+              if (footerCookieSettingsBtn) footerCookieSettingsBtn.textContent = data[lang].footer.links.cookie_settings;
+            }
+
+            renderContent(currentLang);
+
+            if (langToggle) {
+              langToggle.addEventListener('click', function() {
+                currentLang = currentLang === 'en' ? 'tr' : 'en';
+                localStorage.setItem('language', currentLang);
+                document.documentElement.lang = currentLang;
+                renderContent(currentLang);
+                langToggle.textContent = currentLang.toUpperCase();
+                
+                // Trigger language change event for cookie consent widget
+                document.dispatchEvent(new CustomEvent('languageChanged', { 
+                  detail: { language: currentLang } 
+                }));
+              });
+            }
+          })
+          .catch(error => {
+            console.error('Error loading language data:', error);
+          });
+      })();
+    </script>
+
+    <!-- Links to Other Pages -->
+    <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Özellikler</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">AI destekli içerik planlama ve yayınlama platformunun temel özelliklerini keşfedin.</p>
+        <a href="/about.html" class="mt-4 inline-flex items-center text-brand-600 hover:text-brand-700 text-sm font-medium">
+          Detayları Gör
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 ml-1"><path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h12.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.5A.75.75 0 0 1 3.75 12Z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Fiyatlandırma</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Erken erişim döneminde esnek planlarımızı inceleyin.</p>
+        <a href="/pricing.html" class="mt-4 inline-flex items-center text-brand-600 hover:text-brand-700 text-sm font-medium">
+          Fiyatları Gör
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 ml-1"><path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h12.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.5A.75.75 0 0 1 3.75 12Z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Hakkımızda</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Kuzamo'nun hikayesini ve misyonunu öğrenin.</p>
+        <a href="/about.html" class="mt-4 inline-flex items-center text-brand-600 hover:text-brand-700 text-sm font-medium">
+          Hakkımızda Sayfasını Gör
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 ml-1"><path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h12.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.5A.75.75 0 0 1 3.75 12Z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">SSS</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Kuzamo hakkında sık sorulan sorular ve cevaplar.</p>
+        <a href="/faq.html" class="mt-4 inline-flex items-center text-brand-600 hover:text-brand-700 text-sm font-medium">
+          SSS Sayfasını Gör
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 ml-1"><path fill-rule="evenodd" d="M3.75 12a.75.75 0 0 1 .75-.75h12.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.5A.75.75 0 0 1 3.75 12Z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-3xl mx-auto px-6 py-16 reveal">
+      <h3 class="text-3xl font-bold text-center">İletişim / Erken Erişim</h3>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-300">Aşağıdaki formu doldurun, size dönüş yapalım. Pazarlama izniniz olmadan e-posta göndermiyoruz.</p>
+      <form action="#" method="POST" class="mt-8 bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700" novalidate id="mainContactForm">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="mainName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Ad Soyad *</label>
+            <input 
+              id="mainName" 
+              name="name" 
+              type="text" 
+              required 
+              autocomplete="name" 
+              class="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors" 
+              placeholder="Adınız ve soyadınız"
+            />
+            <div class="hidden text-red-600 dark:text-red-400 text-sm mt-1" id="mainNameError">Ad soyad alanı zorunludur.</div>
+          </div>
+          <div>
+            <label for="mainEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">E-posta *</label>
+            <input 
+              id="mainEmail" 
+              name="email" 
+              type="email" 
+              required 
+              autocomplete="email" 
+              class="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors" 
+              placeholder="ornek@email.com"
+            />
+            <div class="hidden text-red-600 dark:text-red-400 text-sm mt-1" id="mainEmailError">Geçerli bir e-posta adresi giriniz.</div>
+          </div>
+          <div class="md:col-span-2">
+            <label for="mainCompany" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Şirket (opsiyonel)</label>
+            <input 
+              id="mainCompany" 
+              name="company" 
+              type="text" 
+              autocomplete="organization" 
+              class="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors" 
+              placeholder="Şirket adınız"
+            />
+          </div>
+          
+          
+          <!-- Honeypot -->
+          <div class="hidden">
+            <label for="mainWebsite">Website</label>
+            <input id="mainWebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          
+                     <!-- Cloudflare Turnstile Captcha -->
+           <div class="md:col-span-2">
+             <div class="cf-turnstile" data-sitekey="0x4AAAAAAByoJZuq8ScynmWW" data-theme="auto"></div>
+             <div class="hidden text-red-600 dark:text-red-400 text-sm mt-1" id="mainCaptchaError">Lütfen captcha doğrulamasını tamamlayın.</div>
+           </div>
+          
+          <!-- Consent Checkboxes -->
+          <div class="md:col-span-2 space-y-3">
+            <div class="flex items-start gap-2">
+              <input 
+                id="mainConsent" 
+                name="consent" 
+                type="checkbox" 
+                required
+                class="mt-1 h-4 w-4 text-brand-600 focus:ring-brand-500 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800" 
+              />
+              <label for="mainConsent" class="text-sm text-gray-700 dark:text-gray-300">
+                İletişim bilgilerimi Kuzamo'nun benimle iletişime geçmesi amacıyla işlemesine <strong class="text-gray-900 dark:text-gray-100">açık rıza</strong> veriyorum.
+              </label>
+            </div>
+            <div class="flex items-start gap-2">
+              <input 
+                id="mainPrivacyConsent" 
+                name="privacyConsent" 
+                type="checkbox" 
+                required 
+                class="mt-1 h-4 w-4 text-brand-600 focus:ring-brand-500 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800" 
+              />
+              <label for="mainPrivacyConsent" class="text-sm text-gray-700 dark:text-gray-300">
+                <a href="/privacy.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum.
+              </label>
+            </div>
+            <div class="flex items-start gap-2">
+              <input 
+                id="mainTermsConsent" 
+                name="termsConsent" 
+                type="checkbox" 
+                required 
+                class="mt-1 h-4 w-4 text-brand-600 focus:ring-brand-500 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800" 
+              />
+              <label for="mainTermsConsent" class="text-sm text-gray-700 dark:text-gray-300">
+                <a href="/terms.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">Kullanım Şartları</a>'nı okudum ve kabul ediyorum.
+              </label>
+            </div>
+            <div class="hidden text-red-600 dark:text-red-400 text-sm" id="mainConsentError">Lütfen tüm onay kutularını işaretleyin.</div>
+          </div>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="mt-6 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          id="mainSubmitBtn"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            Gönder
+          </span>
+        </button>
+        
+        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">
+          Form verileri yalnızca talebinize yanıt için işlenir; e‑posta gönderimi kendi tercih ettiğiniz altyapı üzerinden sağlanır; bu site herhangi bir sağlayıcıya doğrudan hizmet sunmaz.
+        </p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 py-10 text-gray-600 dark:text-gray-300">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+            <span class="text-xl font-bold text-brand-600">Kuzamo</span>
+          </div>
+          <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
+          <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
+        </div>
+        <div class="text-sm space-y-2">
+          <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
+          <a href="/pricing.html" class="block hover:text-brand-600 footer-pricing">Fiyatlar</a>
+          <a href="/faq.html" class="block hover:text-brand-600 footer-faq">SSS</a>
+          <a href="/contact.html" class="block hover:text-brand-600 footer-contact">İletişim</a>
+        </div>
+        <div class="text-sm space-y-2">
+          <a href="/privacy.html" class="block hover:text-brand-600 footer-privacy">Gizlilik</a>
+          <a href="/cookie-policy.html" class="block hover:text-brand-600 footer-cookie-policy">Çerez Politikası</a>
+          <a href="/terms.html" class="block hover:text-brand-600 footer-terms">Kullanım Şartları</a>
+          <a href="mailto:hello@kuzamo.com" class="block hover:text-brand-600">hello@kuzamo.com</a>
+          <button id="footer-cookie-settings" class="block hover:text-brand-600 text-left footer-cookie-settings">🍪 Çerez Ayarları</button>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-xs footer-copyright">&copy; 2025 Kuzamo. Tüm hakları saklıdır.</div>
+    </footer>
+
+    <script>
+      // Tema değiştirici
+      document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+          // Update button text based on current theme
+          const isDark = document.documentElement.classList.contains('dark');
+          themeToggle.textContent = isDark ? '☀️' : '🌙';
+          
+          themeToggle.addEventListener('click', function(){
+        const el = document.documentElement;
+        const isDark = el.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+      });
+        }
+        
+      // Mobil menü
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', function(){
+        const m = document.getElementById('mobileMenu');
+        if (m) m.classList.toggle('hidden');
+      });
+        }
+        
+          // Footer cookie settings button
+          const footerCookieSettings = document.getElementById('footer-cookie-settings');
+          if (footerCookieSettings) {
+            footerCookieSettings.addEventListener('click', function() {
+              if (window.cookieConsent) {
+                window.cookieConsent.showSettingsModal();
+              }
+            });
+          }
+
+          function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+              type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+              notification.remove();
+            }, 3000);
+          }
+        
+      // Reveal on scroll
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach((entry)=>{
+            if (entry.isIntersecting) {
+              entry.target.classList.add('motion-safe:animate-fade-in-up');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el)=> io.observe(el));
+      }
+        
+        // Main Contact Form Validation
+        const mainForm = document.getElementById('mainContactForm');
+        const mainSubmitBtn = document.getElementById('mainSubmitBtn');
+        
+        if (mainForm && mainSubmitBtn) {
+          // Form validation
+          function validateMainForm() {
+            let isValid = true;
+            
+            // Reset all error messages
+            document.querySelectorAll('[id^="main"][id$="Error"]').forEach(el => el.classList.add('hidden'));
+            
+            // Validate name
+            const name = document.getElementById('mainName').value.trim();
+            if (!name) {
+              document.getElementById('mainNameError').classList.remove('hidden');
+              isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('mainEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+              document.getElementById('mainEmailError').classList.remove('hidden');
+              isValid = false;
+            }
+            
+            // Message removed
+            
+            // Validate captcha
+            if (typeof turnstile !== 'undefined') {
+              const turnstileResponse = turnstile.getResponse();
+              if (!turnstileResponse) {
+                document.getElementById('mainCaptchaError').classList.remove('hidden');
+                isValid = false;
+              }
+            }
+            
+            // Validate consents
+            const marketingConsent = document.getElementById('mainConsent').checked;
+            const privacyConsent = document.getElementById('mainPrivacyConsent').checked;
+            const termsConsent = document.getElementById('mainTermsConsent').checked;
+            
+            if (!marketingConsent || !privacyConsent || !termsConsent) {
+              document.getElementById('mainConsentError').classList.remove('hidden');
+              isValid = false;
+            }
+            
+            return isValid;
+          }
+          
+          // Form submission
+          mainForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateMainForm()) {
+              return;
+            }
+            
+            // Disable submit button and show loading state (robust to missing span)
+            mainSubmitBtn.disabled = true;
+            const spanEl = mainSubmitBtn.querySelector('span');
+            const originalHTML = spanEl ? spanEl.innerHTML : mainSubmitBtn.innerHTML;
+            const loadingHTML = `
+              <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Gönderiliyor...
+            `;
+            if (spanEl) { spanEl.innerHTML = loadingHTML; } else { mainSubmitBtn.innerHTML = loadingHTML; }
+            
+            try {
+              // Build payload
+              const payload = {
+                name: document.getElementById('mainName').value.trim(),
+                email: document.getElementById('mainEmail').value.trim(),
+                company: document.getElementById('mainCompany').value.trim(),
+                lang: (localStorage.getItem('language') || ((navigator.language||'').includes('en') ? 'en' : 'tr'))
+              };
+              
+              // Call Cloudflare Pages Function (double opt-in)
+              const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+              
+              if (!res.ok) {
+                const err = await safeJson(res);
+                throw new Error(err?.error || 'Server error');
+              }
+              
+              // Success modal
+              openSuccessModal();
+              mainForm.reset();
+              if (typeof turnstile !== 'undefined') turnstile.reset();
+            } catch (error) {
+              console.error('Form submission error:', error);
+              showMainMessage('Gönderim başarısız. Lütfen tekrar deneyin.', 'error');
+            } finally {
+              // Re-enable submit button
+              mainSubmitBtn.disabled = false;
+              if (spanEl) { spanEl.innerHTML = originalHTML; } else { mainSubmitBtn.innerHTML = originalHTML; }
+            }
+          });
+          
+          // Show message function
+          function showMainMessage(message, type) {
+            // Remove existing messages
+            const existingMessage = document.querySelector('.main-message-toast');
+            if (existingMessage) {
+              existingMessage.remove();
+            }
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `main-message-toast fixed top-20 right-6 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+              type === 'success' 
+                ? 'bg-green-500 text-white' 
+                : 'bg-red-500 text-white'
+            }`;
+            messageDiv.textContent = message;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+              messageDiv.remove();
+            }, 5000);
+          }
+          
+          // Real-time validation
+          const mainInputs = mainForm.querySelectorAll('input[required], textarea[required]');
+          mainInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+              validateMainField(input);
+            });
+            
+            input.addEventListener('input', function() {
+              // Clear error when user starts typing
+              const errorId = input.id + 'Error';
+              const errorElement = document.getElementById(errorId);
+              if (errorElement) {
+                errorElement.classList.add('hidden');
+              }
+            });
+          });
+          
+          function validateMainField(field) {
+            const value = field.value.trim();
+            const errorId = field.id + 'Error';
+            const errorElement = document.getElementById(errorId);
+            
+            if (!errorElement) return;
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            switch (field.id) {
+              case 'mainName':
+                if (!value) {
+                  isValid = false;
+                  errorMessage = 'Ad soyad alanı zorunludur.';
+                }
+                break;
+                
+              case 'mainEmail':
+                if (!value) {
+                  isValid = false;
+                  errorMessage = 'E-posta alanı zorunludur.';
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                  isValid = false;
+                  errorMessage = 'Geçerli bir e-posta adresi giriniz.';
+                }
+                break;
+                
+              
+            }
+            
+            if (!isValid) {
+              errorElement.textContent = errorMessage;
+              errorElement.classList.remove('hidden');
+            } else {
+              errorElement.classList.add('hidden');
+            }
+          }
+          
+          // Checkbox validation
+          const mainCheckboxes = mainForm.querySelectorAll('input[type="checkbox"][required]');
+          mainCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+              const allChecked = Array.from(mainCheckboxes).every(cb => cb.checked);
+              const consentError = document.getElementById('mainConsentError');
+              
+              if (consentError) {
+                if (allChecked) {
+                  consentError.classList.add('hidden');
+                } else {
+                  consentError.classList.remove('hidden');
+                }
+              }
+            });
+          });
+        }
+
+        // Utils
+        async function safeJson(res){
+          try { return await res.json(); } catch { return null; }
+        }
+
+        // Modern success modal (double opt-in)
+        function openSuccessModal(){
+          const existing = document.getElementById('success-modal');
+          if (existing) existing.remove();
+          const overlay = document.createElement('div');
+          overlay.id = 'success-modal';
+          overlay.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4';
+          const isEn = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+          const title = isEn ? 'Request Received' : 'Talebiniz Alındı';
+          const desc = isEn ? 'We sent a confirmation link to your email. Please check your inbox.' : 'E‑postanıza bir onay bağlantısı gönderdik. Lütfen e‑postanızı kontrol edin.';
+          const okText = isEn ? 'OK' : 'Tamam';
+          overlay.innerHTML = `
+            <div class="w-full max-w-md rounded-2xl bg-white dark:bg-gray-900 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div class="p-6 text-center">
+                <div class="mx-auto mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-100 dark:bg-green-900">
+                  <svg class="h-7 w-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">${title}</h3>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">${desc}</p>
+                <div class="mt-6 flex justify-center gap-3">
+                  <button id="success-close" class="px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">${okText}</button>
+                </div>
+              </div>
+            </div>`;
+          document.body.appendChild(overlay);
+          document.getElementById('success-close').addEventListener('click', ()=> overlay.remove());
+          overlay.addEventListener('click', (e)=>{ if(e.target===overlay) overlay.remove(); });
+        }
+      });
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Kuzamo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı.",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "0",
+          "priceCurrency": "TRY"
+        },
+        "url": "https://kuzamo.com/"
+      }
+    </script>
+  </body>
+</html>

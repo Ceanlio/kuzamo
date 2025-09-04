@@ -1,0 +1,424 @@
+{
+  "en": {
+    "navbar": {
+      "about": "About",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "theme_toggle": "Toggle theme",
+      "mobile_menu": "Menu"
+    },
+    "hero": {
+      "title": "Simplify your content planning with AI",
+      "description": "Kuzamo offers an AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
+      "earlyAccess": "Request Early Access",
+      "viewFeatures": "View Features",
+      "features": {
+        "ai_content": "🤖 AI-powered content generation",
+        "planning": "📅 Smart planning calendar",
+        "publishing": "🚀 Multi-platform publishing"
+      }
+    },
+    "about": {
+      "title": "What is Kuzamo?",
+      "description": "Kuzamo is a comprehensive workflow platform that enables small and agile teams to plan, produce, and publish blog, social media, and email content with AI support.",
+      "features": {
+        "ai_planning": "AI-powered planning",
+        "multi_platform": "Multi-platform integration",
+        "team_collaboration": "Team collaboration tools",
+        "analytics": "Analytics and reporting"
+      },
+      "technical_features": "Technical Features",
+      "tech_list": [
+        "Developed with modern web technologies",
+        "API integrations (WordPress, social media)",
+        "Secure authentication and authorization",
+        "Real-time collaboration features",
+        "AI-powered content generation",
+        "Multi-language support (TR/EN)"
+      ]
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "Flexible plans during early access period.",
+      "starter": {
+        "title": "Starter",
+        "price": "₺0",
+        "features": [
+          "1 team member",
+          "3 projects",
+          "Basic AI suggestions"
+        ],
+        "button": "Start"
+      },
+      "team": {
+        "title": "Team",
+        "price": "₺299/month",
+        "features": [
+          "5 team members",
+          "Unlimited projects",
+          "Advanced AI features"
+        ],
+        "button": "Try"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "price": "Custom",
+        "features": [
+          "SSO, SLA",
+          "Custom AI models",
+          "Priority support"
+        ],
+        "button": "Contact Us"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "ai_content": {
+          "question": "How does AI content generation work?",
+          "answer": "Kuzamo provides AI-powered content suggestions based on your brief and target audience. You receive tone, length, and style recommendations for blog posts, social media posts, and email topics."
+        },
+        "platforms": {
+          "question": "Which platforms do you support?",
+          "answer": "We provide integration with WordPress, LinkedIn, X (Twitter), Instagram, Facebook, and email platforms. New platforms are continuously added."
+        },
+        "collaboration": {
+          "question": "What are the team collaboration features?",
+          "answer": "We offer content approval workflows, task assignment, comment and feedback systems, real-time editing, and version tracking."
+        },
+        "analytics": {
+          "question": "Is there analytics and reporting?",
+          "answer": "Yes, you can track your content performance, see which content performs better, and improve AI suggestions with this data."
+        },
+        "languages": {
+          "question": "Is there multi-language support?",
+          "answer": "Yes, you can generate AI-powered content in Turkish and English. We offer language options suitable for your target audience."
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact / Early Access",
+      "description": "Apply for early access to Kuzamo's AI-powered content planning and publishing platform. Start managing your blog, social media, and email content from one place.",
+      "privacy_note": "We do not send emails without your marketing permission.",
+      "form": {
+        "name": "Full Name",
+        "email": "Email",
+        "company": "Company (optional)",
+        "message": "Your Message",
+        "name_placeholder": "Your full name",
+        "email_placeholder": "example@email.com",
+        "company_placeholder": "Your company name",
+        "message_placeholder": "Write your message here...",
+        "consent_label": "I give <strong class=\"text-gray-900 dark:text-gray-100\">explicit consent</strong> for Kuzamo to process my contact information to contact me.",
+        "privacy_consent_label": "I have read and accept the <a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Privacy Policy</a>.",
+        "terms_consent_label": "I have read and accept the <a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Terms of Service</a>.",
+        "submit": "Send",
+        "footer_note": "Form data is processed only to respond to your request; email sending is provided through your preferred infrastructure; this site does not provide direct service to any provider."
+      }
+    },
+    "index_links": {
+      "features": {
+        "title": "Features",
+        "description": "Discover the core features of the AI-powered content planning and publishing platform.",
+        "button": "View Details"
+      },
+      "pricing": {
+        "title": "Pricing",
+        "description": "Explore our flexible plans during the early access period.",
+        "button": "View Pricing"
+      },
+      "about": {
+        "title": "About",
+        "description": "Learn about Kuzamo's story and mission.",
+        "button": "View About Page"
+      },
+      "faq": {
+        "title": "FAQ",
+        "description": "Frequently asked questions and answers about Kuzamo.",
+        "button": "View FAQ Page"
+      }
+    },
+    "footer": {
+      "description": "AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
+      "address": "Address: (Company name) (Address line) (City/Country)",
+      "copyright": "© 2025 Kuzamo. All rights reserved.",
+      "links": {
+        "about": "About",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "contact": "Contact",
+        "privacy": "Privacy",
+        "terms": "Terms of Service",
+        "cookie_policy": "Cookie Policy",
+        "cookie_settings": "🍪 Cookie Settings"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "effective_date": "Effective date: September 3, 2025",
+      "data_collection": "Data We Collect",
+      "data_list": [
+        "Contact form: full name, email, optional company and message content.",
+        "Platform usage data: content planning, AI suggestions, and publishing statistics.",
+        "Log files and basic analytics (IP, browser information) — only for technical security and usage statistics."
+      ],
+      "processing_purposes": "Processing Purposes",
+      "purposes_list": [
+        "To respond to your request and provide support,",
+        "To provide AI-powered content suggestions,",
+        "To provide the service securely, quickly, and error-free,",
+        "To fulfill legal obligations."
+      ],
+      "legal_basis": "Legal Basis",
+      "legal_text": "Explicit consent, contract performance, and legitimate interest within the scope of KVKK and GDPR.",
+      "data_retention": "Data Retention Period",
+      "retention_text": "As long as necessary for the purpose, without exceeding legal periods.",
+      "third_parties": "Third Parties",
+      "third_parties_text": "Social media platforms, WordPress and email platforms for content publishing, and hosting/analytics services.",
+      "your_rights": "Your Rights",
+      "rights_list": [
+        "Access, correction, deletion, restriction of processing, objection.",
+        "Application rights within the scope of KVKK in Turkey."
+      ],
+      "contact": "Contact",
+      "contact_text": "For all privacy-related matters:"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "effective_date": "Effective date: September 3, 2025",
+      "service_scope": "Service Scope",
+      "scope_text": "Kuzamo is a web application that facilitates AI-powered content planning, draft generation, and multi-platform publishing workflows. It allows you to manage your blog, social media, and email content from one place.",
+      "account_responsibility": "Account and Responsibility",
+      "responsibility_list": [
+        "Account security and password protection are the user's responsibility.",
+        "Platform terms of the relevant platform apply to publications made to third-party platforms (WordPress, LinkedIn, X, Instagram, etc.).",
+        "AI-powered content suggestions are for guidance only; final responsibility belongs to the user."
+      ],
+      "acceptable_use": "Acceptable Use",
+      "use_list": [
+        "Spam, harmful software distribution, or illegal content is prohibited.",
+        "Explicit consent must be obtained from recipients in bulk email campaigns.",
+        "Copyright and ethical rules must be followed when using AI suggestions."
+      ],
+      "pricing_cancellation": "Pricing and Cancellation",
+      "pricing_text": "Plans are specified on the Pricing page. Current legislation applies to subscription cancellations.",
+      "liability_limit": "Liability Limit",
+      "liability_text": "Kuzamo is not responsible for indirect damages, data loss, and results arising from AI suggestions. The service is provided 'as is'.",
+      "changes": "Changes",
+      "terms_text": "Terms can be updated with announcements. The current version is published on this page.",
+      "contact": "Contact"
+    }
+  },
+  "tr": {
+    "navbar": {
+      "about": "Hakkımızda",
+      "pricing": "Fiyatlar",
+      "faq": "SSS",
+      "contact": "İletişim",
+      "theme_toggle": "Tema değiştir",
+      "mobile_menu": "Menü"
+    },
+    "hero": {
+      "title": "İçerik planlamanızı AI ile kolaylaştırın",
+      "description": "Kuzamo, küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı sunar. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
+      "earlyAccess": "Erken Erişim İste",
+      "viewFeatures": "Özellikleri Gör",
+      "features": {
+        "ai_content": "🤖 AI destekli içerik üretimi",
+        "planning": "📅 Akıllı planlama takvimi",
+        "publishing": "🚀 Çoklu platform yayınlama"
+      }
+    },
+    "about": {
+      "title": "Kuzamo Nedir?",
+      "description": "Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e-posta içeriklerini AI destekli olarak planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur.",
+      "features": {
+        "ai_planning": "AI destekli planlama",
+        "multi_platform": "Çoklu platform entegrasyonu",
+        "team_collaboration": "Ekip işbirliği araçları",
+        "analytics": "Analitik ve raporlama"
+      },
+      "technical_features": "Teknik Özellikler",
+      "tech_list": [
+        "Modern web teknolojileri ile geliştirildi",
+        "API entegrasyonları (WordPress, sosyal medya)",
+        "Güvenli kimlik doğrulama ve yetkilendirme",
+        "Gerçek zamanlı işbirliği özellikleri",
+        "AI destekli içerik üretimi",
+        "Çoklu dil desteği (TR/EN)"
+      ]
+    },
+    "pricing": {
+      "title": "Fiyatlandırma",
+      "subtitle": "Erken erişim döneminde esnek planlar.",
+      "starter": {
+        "title": "Başlangıç",
+        "price": "₺0",
+        "features": [
+          "1 ekip üyesi",
+          "3 proje",
+          "Temel AI önerileri"
+        ],
+        "button": "Başla"
+      },
+      "team": {
+        "title": "Ekip",
+        "price": "₺299/ay",
+        "features": [
+          "5 ekip üyesi",
+          "Sınırsız proje",
+          "Gelişmiş AI özellikleri"
+        ],
+        "button": "Deneyin"
+      },
+      "enterprise": {
+        "title": "Kurumsal",
+        "price": "Özel",
+        "features": [
+          "SSO, SLA",
+          "Özel AI modelleri",
+          "Öncelikli destek"
+        ],
+        "button": "İletişime Geçin"
+      }
+    },
+    "faq": {
+      "title": "Sık Sorulan Sorular",
+      "questions": {
+        "ai_content": {
+          "question": "AI içerik üretimi nasıl çalışır?",
+          "answer": "Kuzamo, verdiğiniz brief ve hedef kitlenize göre AI destekli içerik önerileri sunar. Blog yazıları, sosyal medya gönderileri ve e-posta konuları için ton, uzunluk ve stil önerileri alırsınız."
+        },
+        "platforms": {
+          "question": "Hangi platformları destekliyor?",
+          "answer": "WordPress, LinkedIn, X (Twitter), Instagram, Facebook ve e-posta platformları ile entegrasyon sağlıyoruz. Yeni platformlar sürekli ekleniyor."
+        },
+        "collaboration": {
+          "question": "Ekip işbirliği özellikleri neler?",
+          "answer": "İçerik onay akışları, görev atama, yorum ve geri bildirim sistemi, gerçek zamanlı düzenleme ve versiyon takibi sunuyoruz."
+        },
+        "analytics": {
+          "question": "Analitik ve raporlama var mı?",
+          "answer": "Evet, içerik performansınızı takip edebilir, hangi içeriklerin daha iyi sonuç verdiğini görebilir ve AI önerilerini bu verilerle iyileştirebilirsiniz."
+        },
+        "languages": {
+          "question": "Çoklu dil desteği var mı?",
+          "answer": "Evet, Türkçe ve İngilizce dillerinde AI destekli içerik üretimi yapabilirsiniz. Hedef kitlenize uygun dil seçenekleri sunuyoruz."
+        }
+      }
+    },
+    "contact": {
+      "title": "İletişim / Erken Erişim",
+      "description": "Kuzamo'nun AI destekli içerik planlama ve yayınlama platformuna erken erişim için başvurun. Blog, sosyal medya ve e-posta içeriklerinizi tek yerden yönetmeye başlayın.",
+      "privacy_note": "Pazarlama izniniz olmadan e-posta göndermiyoruz.",
+      "form": {
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "company": "Şirket (opsiyonel)",
+        "message": "Mesajınız",
+        "name_placeholder": "Adınız ve soyadınız",
+        "email_placeholder": "ornek@email.com",
+        "company_placeholder": "Şirket adınız",
+        "message_placeholder": "Mesajınızı buraya yazın...",
+        "consent_label": "İletişim bilgilerimi Kuzamo'nun benimle iletişime geçmesi amacıyla işlemesine <strong class=\"text-gray-900 dark:text-gray-100\">açık rıza</strong> veriyorum.",
+        "privacy_consent_label": "<a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum.",
+        "terms_consent_label": "<a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Kullanım Şartları</a>'nı okudum ve kabul ediyorum.",
+        "submit": "Gönder",
+        "footer_note": "Form verileri yalnızca talebinize yanıt için işlenir; e‑posta gönderimi kendi tercih ettiğiniz altyapı üzerinden sağlanır; bu site herhangi bir sağlayıcıya doğrudan hizmet sunmaz."
+      }
+    },
+    "index_links": {
+      "features": {
+        "title": "Özellikler",
+        "description": "AI destekli içerik planlama ve yayınlama platformunun temel özelliklerini keşfedin.",
+        "button": "Detayları Gör"
+      },
+      "pricing": {
+        "title": "Fiyatlandırma",
+        "description": "Erken erişim döneminde esnek planlarımızı inceleyin.",
+        "button": "Fiyatları Gör"
+      },
+      "about": {
+        "title": "Hakkımızda",
+        "description": "Kuzamo'nun hikayesini ve misyonunu öğrenin.",
+        "button": "Hakkımızda Sayfasını Gör"
+      },
+      "faq": {
+        "title": "SSS",
+        "description": "Kuzamo hakkında sık sorulan sorular ve cevaplar.",
+        "button": "SSS Sayfasını Gör"
+      }
+    },
+    "footer": {
+      "description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
+      "address": "Adres: (Şirket adı) (Adres satırı) (İl/Ülke)",
+      "copyright": "© 2025 Kuzamo. Tüm hakları saklıdır.",
+      "links": {
+        "about": "Hakkımızda",
+        "pricing": "Fiyatlar",
+        "faq": "SSS",
+        "contact": "İletişim",
+        "privacy": "Gizlilik",
+        "terms": "Kullanım Şartları",
+        "cookie_policy": "Çerez Politikası",
+        "cookie_settings": "🍪 Çerez Ayarları"
+      }
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "effective_date": "Yürürlük tarihi: 03 Eylül 2025",
+      "data_collection": "Topladığımız Veriler",
+      "data_list": [
+        "İletişim formu: ad soyad, e-posta, isteğe bağlı şirket ve mesaj içeriği.",
+        "Platform kullanım verileri: içerik planlama, AI önerileri ve yayınlama istatistikleri.",
+        "Günlük kayıtları ve temel analitik (IP, tarayıcı bilgisi) — sadece teknik güvenlik ve kullanım istatistiği için."
+      ],
+      "processing_purposes": "İşleme Amaçları",
+      "purposes_list": [
+        "Talebinize yanıt vermek ve destek sağlamak,",
+        "AI destekli içerik önerileri sunmak,",
+        "Hizmeti güvenli, hızlı ve hatasız sunmak,",
+        "Yasal yükümlülükleri yerine getirmek."
+      ],
+      "legal_basis": "Hukuki Dayanak",
+      "legal_text": "KVKK ve GDPR kapsamında açık rıza, sözleşmenin ifası ve meşru menfaat.",
+      "data_retention": "Veri Saklama Süresi",
+      "retention_text": "Yasal süreleri aşmamak kaydıyla, amaç için gerekli olduğu kadar.",
+      "third_parties": "Üçüncü Taraflar",
+      "third_parties_text": "İçerik yayınlama için sosyal medya platformları, WordPress ve e-posta platformları ile barındırma ve analitik hizmetleri.",
+      "your_rights": "Haklarınız",
+      "rights_list": [
+        "Erişim, düzeltme, silme, işlemeyi kısıtlama, itiraz.",
+        "Türkiye'de KVKK kapsamındaki başvuru hakları."
+      ],
+      "contact": "İletişim",
+      "contact_text": "Gizlilikle ilgili tüm konular için:"
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "effective_date": "Yürürlük tarihi: 03 Eylül 2025",
+      "service_scope": "Hizmetin Kapsamı",
+      "scope_text": "Kuzamo; AI destekli içerik planlama, taslak üretimi ve çoklu platform yayınlama iş akışlarını kolaylaştıran bir web uygulamasıdır. Blog, sosyal medya ve e-posta içeriklerinizi tek yerden yönetmenizi sağlar.",
+      "account_responsibility": "Hesap ve Sorumluluk",
+      "responsibility_list": [
+        "Hesap güvenliği ve şifre korunması kullanıcı sorumluluğundadır.",
+        "Üçüncü taraf platformlara (WordPress, LinkedIn, X, Instagram vb.) yapılan yayınlarda ilgili platform şartları geçerlidir.",
+        "AI destekli içerik önerileri rehber niteliğindedir, nihai sorumluluk kullanıcıya aittir."
+      ],
+      "acceptable_use": "Kabul Edilebilir Kullanım",
+      "use_list": [
+        "Spam, zararlı yazılım dağıtımı veya yasa dışı içerik yasaktır.",
+        "Toplu e-posta gönderimlerinde alıcıdan açık rıza alınmalıdır.",
+        "AI önerilerini kullanırken telif hakkı ve etik kurallara uyulmalıdır."
+      ],
+      "pricing_cancellation": "Ücretlendirme ve İptal",
+      "pricing_text": "Planlar Fiyatlandırma sayfasında belirtilir. Abonelik iptallerinde yürürlükteki mevzuat uygulanır.",
+      "liability_limit": "Sorumluluk Sınırı",
+      "liability_text": "Dolaylı zararlar, veri kaybı ve AI önerilerinden kaynaklanan sonuçlardan Kuzamo sorumlu değildir. Hizmet 'olduğu gibi' sunulur.",
+      "changes": "Değişiklikler",
+      "terms_text": "Şartlar duyurularak güncellenebilir. Güncel sürüm bu sayfada yayınlanır.",
+      "contact": "İletişim"
+    }
+  }
+}

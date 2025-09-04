@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="h-full">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kuzamo — Fiyatlar</title>
+  <meta name="description" content="Kuzamo fiyatlandırma planları: Başlangıç, Ekip ve Kurumsal." />
+  <link rel="canonical" href="https://kuzamo.com/pricing.html" />
+  <meta property="og:title" content="Kuzamo — Fiyatlandırma" />
+  <meta property="og:description" content="Erken erişim döneminde esnek planlar." />
+  <meta property="og:image" content="/og-image.png" />
+  <link rel="icon" href="/favicon.ico" />
+  <script>(function(){const t=localStorage.getItem('theme');const d=matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');})();</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81'}}}}}</script>
+</head>
+<body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+  <!-- Navbar (same as about) -->
+  <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/index.html" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+          <span class="text-2xl font-bold text-brand-600">Kuzamo</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+        <a href="/pricing.html" class="text-brand-600 font-medium">Fiyatlar</a>
+        <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+        <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" aria-label="Tema değiştir" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-900">🌙/☀️</button>
+        <button id="langToggle" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">TR/EN</button>
+        <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">Menü</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800">
+              <nav class="px-6 py-3 flex flex-col gap-3 text-sm bg-white dark:bg-gray-900">
+          <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+          <a href="/pricing.html" class="hover:text-brand-600">Fiyatlar</a>
+          <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+          <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+        </nav>
+    </div>
+  </header>
+
+      <main class="bg-white dark:bg-gray-900 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="text-3xl font-bold text-center">Fiyatlandırma</h1>
+      <p class="mt-3 text-center text-gray-600 dark:text-gray-300 pricing-subtitle">AI destekli içerik planlama ve yayınlama için esnek planlar.</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+          <h2 class="text-xl font-semibold starter-title">Başlangıç</h2>
+          <p class="mt-2 text-3xl font-bold starter-price">₺0</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 starter-features">
+            <li>• 1 ekip üyesi</li>
+            <li>• 3 proje</li>
+            <li>• Temel AI önerileri</li>
+          </ul>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 starter-button">Başla</a>
+        </div>
+        <div class="rounded-2xl border-2 border-brand-600 p-6 shadow">
+          <h2 class="text-xl font-semibold team-title">Ekip</h2>
+          <p class="mt-2 text-3xl font-bold team-price">₺299/ay</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 team-features">
+            <li>• 5 ekip üyesi</li>
+            <li>• Sınırsız proje</li>
+            <li>• Gelişmiş AI özellikleri</li>
+          </ul>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-brand-600 text-white team-button">Deneyin</a>
+        </div>
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+          <h2 class="text-xl font-semibold enterprise-title">Kurumsal</h2>
+          <p class="mt-2 text-3xl font-bold enterprise-price">Özel</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 enterprise-features">
+            <li>• SSO, SLA</li>
+            <li>• Özel AI modelleri</li>
+            <li>• Öncelikli destek</li>
+          </ul>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 enterprise-button">İletişime Geçin</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (same as about) -->
+  <footer class="bg-gray-100 dark:bg-gray-900 py-10 text-gray-600 dark:text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+          <span class="text-xl font-bold text-brand-600">Kuzamo</span>
+        </div>
+        <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
+        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
+      </div>
+              <div class="text-sm space-y-2">
+          <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
+          <a href="/pricing.html" class="block hover:text-brand-600 footer-pricing">Fiyatlar</a>
+          <a href="/faq.html" class="block hover:text-brand-600 footer-faq">SSS</a>
+          <a href="/contact.html" class="block hover:text-brand-600 footer-contact">İletişim</a>
+        </div>
+        <div class="text-sm space-y-2">
+          <a href="/privacy.html" class="block hover:text-brand-600 footer-privacy">Gizlilik</a>
+          <a href="/terms.html" class="block hover:text-brand-600 footer-terms">Kullanım Şartları</a>
+          <a href="mailto:hello@kuzamo.com" class="block hover:text-brand-600">hello@kuzamo.com</a>
+        </div>
+    </div>
+    <div class="mt-8 text-center text-xs footer-copyright">&copy; 2025 Kuzamo. Tüm hakları saklıdır.</div>
+  </footer>
+
+  <script>
+    // Tema değiştirici
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        // Update button text based on current theme
+        const isDark = document.documentElement.classList.contains('dark');
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        
+        themeToggle.addEventListener('click', function(){
+          const el = document.documentElement;
+          const isDark = el.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          themeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+      }
+      
+      // Mobil menü
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function(){
+          const m = document.getElementById('mobileMenu');
+          if (m) m.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+  <script>
+    // Auto-detect language and theme
+    (function() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const langToggle = document.getElementById('langToggle');
+
+      // Set initial theme
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+
+      // Set initial language
+      if (userLang.includes('en')) {
+        langToggle.textContent = 'EN';
+      } else {
+        langToggle.textContent = 'TR';
+      }
+
+      // Language switcher
+      langToggle.addEventListener('click', function() {
+        if (langToggle.textContent === 'EN') {
+          langToggle.textContent = 'TR';
+          // Logic to switch to Turkish
+        } else {
+          langToggle.textContent = 'EN';
+          // Logic to switch to English
+        }
+      });
+    })();
+  </script>
+      <script>
+      // Load language data and render content
+      (function() {
+        // Get saved language preference or auto-detect
+        const userLang = navigator.language || navigator.userLanguage;
+        let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
+        
+        // Set initial language to prevent flicker
+        if (currentLang === 'en') {
+          document.documentElement.lang = 'en';
+        }
+        
+        fetch('languages.json')
+          .then(response => response.json())
+          .then(data => {
+            const langToggle = document.getElementById('langToggle');
+            
+            // Update toggle button text
+            if (langToggle) {
+              langToggle.textContent = currentLang.toUpperCase();
+            }
+
+            function renderContent(lang) {
+              // Navbar - Only update navigation links, preserve logo
+              const aboutLink = document.querySelector('nav a[href="/about.html"]');
+              const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
+              const faqLink = document.querySelector('nav a[href="/faq.html"]');
+              const contactLink = document.querySelector('nav a[href="/contact.html"]');
+              
+              if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
+              if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
+              if (faqLink) faqLink.textContent = data[lang].navbar.faq;
+              if (contactLink) contactLink.textContent = data[lang].navbar.contact;
+              
+              // Pricing page content
+              const title = document.querySelector('h1');
+              if (title) title.textContent = data[lang].pricing.title;
+              
+              const subtitle = document.querySelector('.pricing-subtitle');
+              if (subtitle) subtitle.textContent = data[lang].pricing.subtitle;
+              
+              // Starter plan
+              const starterTitle = document.querySelector('.starter-title');
+              if (starterTitle) starterTitle.textContent = data[lang].pricing.starter.title;
+              
+              const starterPrice = document.querySelector('.starter-price');
+              if (starterPrice) starterPrice.textContent = data[lang].pricing.starter.price;
+              
+              const starterButton = document.querySelector('.starter-button');
+              if (starterButton) starterButton.textContent = data[lang].pricing.starter.button;
+              
+              // Team plan
+              const teamTitle = document.querySelector('.team-title');
+              if (teamTitle) teamTitle.textContent = data[lang].pricing.team.title;
+              
+              const teamPrice = document.querySelector('.team-price');
+              if (teamPrice) teamPrice.textContent = data[lang].pricing.team.price;
+              
+              const teamButton = document.querySelector('.team-button');
+              if (teamButton) teamButton.textContent = data[lang].pricing.team.button;
+              
+              // Enterprise plan
+              const enterpriseTitle = document.querySelector('.enterprise-title');
+              if (enterpriseTitle) enterpriseTitle.textContent = data[lang].pricing.enterprise.title;
+              
+              const enterprisePrice = document.querySelector('.enterprise-price');
+              if (enterprisePrice) enterprisePrice.textContent = data[lang].pricing.enterprise.price;
+              
+              const enterpriseButton = document.querySelector('.enterprise-button');
+              if (enterpriseButton) enterpriseButton.textContent = data[lang].pricing.enterprise.button;
+              
+              // Features lists
+              const starterFeatures = document.querySelectorAll('.starter-features li');
+              const teamFeatures = document.querySelectorAll('.team-features li');
+              const enterpriseFeatures = document.querySelectorAll('.enterprise-features li');
+              
+              if (starterFeatures.length >= 3) {
+                data[lang].pricing.starter.features.forEach((feature, index) => {
+                  if (starterFeatures[index]) {
+                    starterFeatures[index].textContent = '• ' + feature;
+                  }
+                });
+              }
+              
+              if (teamFeatures.length >= 3) {
+                data[lang].pricing.team.features.forEach((feature, index) => {
+                  if (teamFeatures[index]) {
+                    teamFeatures[index].textContent = '• ' + feature;
+                  }
+                });
+              }
+              
+              if (enterpriseFeatures.length >= 3) {
+                data[lang].pricing.enterprise.features.forEach((feature, index) => {
+                  if (enterpriseFeatures[index]) {
+                    enterpriseFeatures[index].textContent = '• ' + feature;
+                  }
+                });
+              }
+              
+              // Footer
+              const footerDescription = document.querySelector('.footer-description');
+              if (footerDescription) {
+                footerDescription.textContent = data[lang].footer.description;
+              }
+              
+              const footerAddress = document.querySelector('.footer-address');
+              if (footerAddress) {
+                footerAddress.textContent = data[lang].footer.address;
+              }
+              
+              const footerCopyright = document.querySelector('.footer-copyright');
+              if (footerCopyright) {
+                footerCopyright.textContent = data[lang].footer.copyright;
+              }
+              
+              // Footer links
+              const footerAboutLink = document.querySelector('.footer-about');
+              if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
+              
+              const footerPricingLink = document.querySelector('.footer-pricing');
+              if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
+              
+              const footerFaqLink = document.querySelector('.footer-faq');
+              if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
+              
+              const footerContactLink = document.querySelector('.footer-contact');
+              if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
+              
+              const footerPrivacyLink = document.querySelector('.footer-privacy');
+              if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
+              
+              const footerTermsLink = document.querySelector('.footer-terms');
+              if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
+            }
+
+            renderContent(currentLang);
+
+            if (langToggle) {
+              langToggle.addEventListener('click', function() {
+                currentLang = currentLang === 'en' ? 'tr' : 'en';
+                localStorage.setItem('language', currentLang);
+                document.documentElement.lang = currentLang;
+                renderContent(currentLang);
+                langToggle.textContent = currentLang.toUpperCase();
+                
+                // Trigger language change event for cookie consent widget
+                document.dispatchEvent(new CustomEvent('languageChanged', { 
+                  detail: { language: currentLang } 
+                }));
+              });
+            }
+          })
+          .catch(error => {
+            console.error('Error loading language data:', error);
+          });
+      })();
+    </script>
+</body>
+</html>

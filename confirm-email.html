@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Email - Kuzamo</title>
+  <meta name="description" content="Confirm your email address to complete your Kuzamo registration">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-shine {
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+  <!-- Decorative background blobs -->
+  <div aria-hidden="true" class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-400/20 blur-3xl animate-float"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute top-32 -right-16 h-80 w-80 rounded-full bg-cyan-300/20 dark:bg-cyan-400/10 blur-3xl animate-float"></div>
+  
+  <!-- Navbar -->
+  <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/index.html" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+          <span class="text-2xl font-bold text-brand-600">Kuzamo</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+        <a href="/pricing.html" class="hover:text-brand-600">Fiyatlar</a>
+        <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+        <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" aria-label="Tema değiştir" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-900">🌙/☀️</button>
+        <button id="langToggle" class="rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">TR/EN</button>
+        <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm">Menü</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800">
+      <nav class="px-6 py-3 flex flex-col gap-3 text-sm bg-white dark:bg-gray-900">
+        <a href="/about.html" class="hover:text-brand-600">Hakkımızda</a>
+        <a href="/pricing.html" class="hover:text-brand-600">Fiyatlar</a>
+        <a href="/faq.html" class="hover:text-brand-600">SSS</a>
+        <a href="/contact.html" class="hover:text-brand-600">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-20 mt-16">
+    <div class="text-center">
+      <div class="mb-8">
+        <div class="inline-flex h-20 w-20 items-center justify-center rounded-full bg-brand-100 dark:bg-brand-900 mb-4">
+          <svg class="h-10 w-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">Confirm Your Email</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          We're processing your email confirmation. Please wait while we verify your account.
+        </p>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loadingState" class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 mb-8">
+        <div class="flex items-center justify-center mb-4">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600"></div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">Verifying your email address...</p>
+      </div>
+
+      <!-- Success State -->
+      <div id="successState" class="hidden bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 mb-8">
+        <div class="flex items-center justify-center mb-4">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900">
+            <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+        <h2 class="text-2xl font-semibold mb-2">Email Confirmed Successfully!</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
+          Welcome to Kuzamo! Your email has been verified and your account is now active.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/dashboard" class="inline-flex items-center justify-center px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">
+            Access Dashboard
+            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a href="/index.html" class="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700">
+            Back to Home
+          </a>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="hidden bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 mb-8">
+        <div class="flex items-center justify-center mb-4">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900">
+            <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </div>
+        </div>
+        <h2 class="text-2xl font-semibold mb-2">Confirmation Failed</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-6" id="errorMessage">
+          We couldn't confirm your email address. This could be due to an expired or invalid confirmation link.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact.html" class="inline-flex items-center justify-center px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">
+            Contact Support
+          </a>
+          <a href="/index.html" class="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700">
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-900 py-10 text-gray-600 dark:text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">K</span>
+          <span class="text-xl font-bold text-brand-600">Kuzamo</span>
+        </div>
+        <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
+        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
+      </div>
+      <div class="text-sm space-y-2">
+        <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
+        <a href="/pricing.html" class="block hover:text-brand-600 footer-pricing">Fiyatlar</a>
+        <a href="/faq.html" class="block hover:text-brand-600 footer-faq">SSS</a>
+        <a href="/contact.html" class="block hover:text-brand-600 footer-contact">İletişim</a>
+      </div>
+      <div class="text-sm space-y-2">
+        <a href="/privacy.html" class="block hover:text-brand-600 footer-privacy">Gizlilik</a>
+        <a href="/cookie-policy.html" class="block hover:text-brand-600 footer-cookie-policy">Çerez Politikası</a>
+        <a href="/terms.html" class="block hover:text-brand-600 footer-terms">Kullanım Şartları</a>
+        <a href="mailto:hello@kuzamo.com" class="block hover:text-brand-600">hello@kuzamo.com</a>
+        <button id="footer-cookie-settings" class="block hover:text-brand-600 text-left footer-cookie-settings">🍪 Çerez Ayarları</button>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-xs footer-copyright">&copy; 2025 Kuzamo. Tüm hakları saklıdır.</div>
+  </footer>
+
+  <script>
+    // Load language data and render content
+    (function() {
+      // Get saved language preference or auto-detect
+      const userLang = navigator.language || navigator.userLanguage;
+      let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
+      
+      // Set initial language to prevent flicker
+      if (currentLang === 'en') {
+        document.documentElement.lang = 'en';
+      }
+      
+      fetch('languages.json')
+        .then(response => response.json())
+        .then(data => {
+          const langToggle = document.getElementById('langToggle');
+          
+          // Update toggle button text
+          if (langToggle) {
+            langToggle.textContent = currentLang.toUpperCase();
+          }
+
+          function renderContent(lang) {
+            // Navbar - Only update navigation links, preserve logo
+            const aboutLink = document.querySelector('nav a[href="/about.html"]');
+            const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
+            const faqLink = document.querySelector('nav a[href="/faq.html"]');
+            const contactLink = document.querySelector('nav a[href="/contact.html"]');
+            
+            if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
+            if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
+            if (faqLink) faqLink.textContent = data[lang].navbar.faq;
+            if (contactLink) contactLink.textContent = data[lang].navbar.contact;
+            
+            // Theme toggle and mobile menu button
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+              themeToggle.setAttribute('aria-label', data[lang].navbar.theme_toggle);
+            }
+            
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (mobileMenuBtn) {
+              mobileMenuBtn.textContent = data[lang].navbar.mobile_menu;
+            }
+            
+            // Footer
+            const footerDescription = document.querySelector('.footer-description');
+            if (footerDescription) {
+              footerDescription.textContent = data[lang].footer.description;
+            }
+            
+            const footerAddress = document.querySelector('.footer-address');
+            if (footerAddress) {
+              footerAddress.textContent = data[lang].footer.address;
+            }
+            
+            const footerCopyright = document.querySelector('.footer-copyright');
+            if (footerCopyright) {
+              footerCopyright.textContent = data[lang].footer.copyright;
+            }
+            
+            // Footer links
+            const footerAboutLink = document.querySelector('.footer-about');
+            if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
+            
+            const footerPricingLink = document.querySelector('.footer-pricing');
+            if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
+            
+            const footerFaqLink = document.querySelector('.footer-faq');
+            if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
+            
+            const footerContactLink = document.querySelector('.footer-contact');
+            if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
+            
+            const footerPrivacyLink = document.querySelector('.footer-privacy');
+            if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
+            
+            const footerTermsLink = document.querySelector('.footer-terms');
+            if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
+            
+            const footerCookiePolicyLink = document.querySelector('.footer-cookie-policy');
+            if (footerCookiePolicyLink) footerCookiePolicyLink.textContent = data[lang].footer.links.cookie_policy;
+            
+            const footerCookieSettingsBtn = document.querySelector('.footer-cookie-settings');
+            if (footerCookieSettingsBtn) footerCookieSettingsBtn.textContent = data[lang].footer.links.cookie_settings;
+          }
+
+          renderContent(currentLang);
+
+          if (langToggle) {
+            langToggle.addEventListener('click', function() {
+              currentLang = currentLang === 'en' ? 'tr' : 'en';
+              localStorage.setItem('language', currentLang);
+              document.documentElement.lang = currentLang;
+              renderContent(currentLang);
+              langToggle.textContent = currentLang.toUpperCase();
+              
+              // Trigger language change event for cookie consent widget
+              document.dispatchEvent(new CustomEvent('languageChanged', { 
+                detail: { language: currentLang } 
+              }));
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error loading language data:', error);
+        });
+    })();
+
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        // Update button text based on current theme
+        const isDark = document.documentElement.classList.contains('dark');
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        
+        themeToggle.addEventListener('click', function(){
+          const el = document.documentElement;
+          const isDark = el.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          themeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+      }
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Process email confirmation
+      processEmailConfirmation();
+    });
+
+    // Process email confirmation
+    async function processEmailConfirmation() {
+      const urlParams = new URLSearchParams(window.location.search);
+      // If redirected with flags, honor them immediately
+      if (urlParams.get('ok') === '1') { showSuccess(''); return; }
+      if (urlParams.get('error') === '1') { showError('Failed to confirm email. Please try again.'); return; }
+
+      const token = urlParams.get('token');
+      if (!token) { showError('No confirmation token provided'); return; }
+
+      try {
+        const response = await fetch(`/api/confirm-email?token=${encodeURIComponent(token)}`, {
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          const data = await safeJson(response);
+          showSuccess(data?.message || '');
+        } else {
+          const err = await safeJson(response);
+          showError(err?.error || 'Failed to confirm email. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error confirming email:', error);
+        showError('Failed to confirm email. Please try again.');
+      }
+    }
+
+    function showSuccess(message) {
+      document.getElementById('loadingState').classList.add('hidden');
+      document.getElementById('successState').classList.remove('hidden');
+      document.getElementById('errorState').classList.add('hidden');
+    }
+
+    function showError(message) {
+      document.getElementById('loadingState').classList.add('hidden');
+      document.getElementById('successState').classList.add('hidden');
+      document.getElementById('errorState').classList.remove('hidden');
+      document.getElementById('errorMessage').textContent = message;
+    }
+
+    async function safeJson(res){ try { return await res.json(); } catch { return null; } }
+
+    // Footer cookie settings button
+    const footerCookieSettings = document.getElementById('footer-cookie-settings');
+    if (footerCookieSettings) {
+      footerCookieSettings.addEventListener('click', function() {
+        if (window.cookieConsent) {
+          window.cookieConsent.showSettingsModal();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
