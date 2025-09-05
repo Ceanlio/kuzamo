@@ -7,12 +7,13 @@
   <link rel="canonical" href="https://kuzamo.com/privacy.html" />
   <meta property="og:title" content="Kuzamo — Gizlilik Politikası" />
   <meta property="og:description" content="Veri işleme ve KVKK/GDPR uyumu." />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <script>(function(){const t=localStorage.getItem('theme');const d=matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');})();</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81'}}}}}</script>
 </head>
 <body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+  <script src="main.js" defer></script>
   <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -255,7 +256,6 @@
           <span class="text-xl font-bold text-brand-600">Kuzamo</span>
         </div>
         <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
-        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
       </div>
       <div class="text-sm space-y-2">
         <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
@@ -337,18 +337,56 @@
             const title = document.querySelector('h1');
             if (title) title.textContent = data[lang].privacy.title;
             
-            const effectiveDate = document.querySelector('.effective-date');
-            if (effectiveDate) effectiveDate.innerHTML = '<em>' + data[lang].privacy.effective_date + '</em>';
+            // Introduction paragraph
+            const introP = document.querySelector('.prose p:first-of-type');
+            if (introP) introP.textContent = data[lang].privacy.intro;
             
-            // Data collection
+            // Effective date
+            const effectiveDate = document.querySelector('.bg-blue-50 p strong');
+            if (effectiveDate) effectiveDate.textContent = data[lang].privacy.effective_date;
+            
+            // Data collection section
             const dataCollectionTitle = document.querySelector('h2:nth-of-type(1)');
             if (dataCollectionTitle) dataCollectionTitle.textContent = data[lang].privacy.data_collection;
             
-            const dataList = document.querySelectorAll('ul:nth-of-type(1) li');
-            if (dataList.length >= 3) {
-              data[lang].privacy.data_list.forEach((item, index) => {
-                if (dataList[index]) {
-                  dataList[index].textContent = item;
+            const dataCollectionIntro = document.querySelector('h2:nth-of-type(1) + p');
+            if (dataCollectionIntro) dataCollectionIntro.textContent = data[lang].privacy.data_collection_intro;
+            
+            // Contact form data
+            const contactFormTitle = document.querySelector('.space-y-4 > div:nth-child(1) h3');
+            if (contactFormTitle) contactFormTitle.textContent = data[lang].privacy.contact_form_data;
+            
+            const contactFormList = document.querySelectorAll('.space-y-4 > div:nth-child(1) ul li');
+            if (contactFormList.length >= 4) {
+              data[lang].privacy.contact_form_list.forEach((item, index) => {
+                if (contactFormList[index]) {
+                  contactFormList[index].textContent = item;
+                }
+              });
+            }
+            
+            // Platform usage data
+            const platformUsageTitle = document.querySelector('.space-y-4 > div:nth-child(2) h3');
+            if (platformUsageTitle) platformUsageTitle.textContent = data[lang].privacy.platform_usage_data;
+            
+            const platformUsageList = document.querySelectorAll('.space-y-4 > div:nth-child(2) ul li');
+            if (platformUsageList.length >= 4) {
+              data[lang].privacy.platform_usage_list.forEach((item, index) => {
+                if (platformUsageList[index]) {
+                  platformUsageList[index].textContent = item;
+                }
+              });
+            }
+            
+            // Technical data
+            const technicalDataTitle = document.querySelector('.space-y-4 > div:nth-child(3) h3');
+            if (technicalDataTitle) technicalDataTitle.textContent = data[lang].privacy.technical_data;
+            
+            const technicalDataList = document.querySelectorAll('.space-y-4 > div:nth-child(3) ul li');
+            if (technicalDataList.length >= 4) {
+              data[lang].privacy.technical_data_list.forEach((item, index) => {
+                if (technicalDataList[index]) {
+                  technicalDataList[index].textContent = item;
                 }
               });
             }
@@ -357,7 +395,10 @@
             const processingTitle = document.querySelector('h2:nth-of-type(2)');
             if (processingTitle) processingTitle.textContent = data[lang].privacy.processing_purposes;
             
-            const purposesList = document.querySelectorAll('ul:nth-of-type(2) li');
+            const processingIntro = document.querySelector('h2:nth-of-type(2) + p');
+            if (processingIntro) processingIntro.textContent = data[lang].privacy.processing_purposes_intro;
+            
+            const purposesList = document.querySelectorAll('.space-y-3 p');
             if (purposesList.length >= 4) {
               data[lang].privacy.purposes_list.forEach((item, index) => {
                 if (purposesList[index]) {
@@ -370,44 +411,126 @@
             const legalTitle = document.querySelector('h2:nth-of-type(3)');
             if (legalTitle) legalTitle.textContent = data[lang].privacy.legal_basis;
             
-            const legalText = document.querySelector('p:nth-of-type(3)');
-            if (legalText) legalText.textContent = data[lang].privacy.legal_text;
+            const legalIntro = document.querySelector('h2:nth-of-type(3) + div p');
+            if (legalIntro) legalIntro.textContent = data[lang].privacy.legal_basis_intro;
+            
+            const legalBasisList = document.querySelectorAll('h2:nth-of-type(3) + div ul li');
+            if (legalBasisList.length >= 4) {
+              data[lang].privacy.legal_basis_list.forEach((item, index) => {
+                if (legalBasisList[index]) {
+                  legalBasisList[index].textContent = item;
+                }
+              });
+            }
             
             // Data retention
             const retentionTitle = document.querySelector('h2:nth-of-type(4)');
             if (retentionTitle) retentionTitle.textContent = data[lang].privacy.data_retention;
             
-            const retentionText = document.querySelector('p:nth-of-type(4)');
-            if (retentionText) retentionText.textContent = data[lang].privacy.retention_text;
+            const retentionWarning = document.querySelector('.bg-yellow-50 p strong');
+            if (retentionWarning) retentionWarning.textContent = data[lang].privacy.retention_warning;
             
             // Third parties
             const thirdPartiesTitle = document.querySelector('h2:nth-of-type(5)');
             if (thirdPartiesTitle) thirdPartiesTitle.textContent = data[lang].privacy.third_parties;
             
-            const thirdPartiesText = document.querySelector('p:nth-of-type(5)');
-            if (thirdPartiesText) thirdPartiesText.textContent = data[lang].privacy.third_parties_text;
+            const thirdPartiesIntro = document.querySelector('h2:nth-of-type(5) + p');
+            if (thirdPartiesIntro) thirdPartiesIntro.textContent = data[lang].privacy.third_parties_intro;
+            
+            // Platform integrations
+            const platformIntegrationsTitle = document.querySelector('h2:nth-of-type(5) + p + .space-y-4 > div:nth-child(1) h3');
+            if (platformIntegrationsTitle) platformIntegrationsTitle.textContent = data[lang].privacy.platform_integrations;
+            
+            const platformIntegrationsList = document.querySelectorAll('h2:nth-of-type(5) + p + .space-y-4 > div:nth-child(1) ul li');
+            if (platformIntegrationsList.length >= 3) {
+              data[lang].privacy.platform_integrations_list.forEach((item, index) => {
+                if (platformIntegrationsList[index]) {
+                  platformIntegrationsList[index].textContent = item;
+                }
+              });
+            }
+            
+            // Technical services
+            const technicalServicesTitle = document.querySelector('h2:nth-of-type(5) + p + .space-y-4 > div:nth-child(2) h3');
+            if (technicalServicesTitle) technicalServicesTitle.textContent = data[lang].privacy.technical_services;
+            
+            const technicalServicesList = document.querySelectorAll('h2:nth-of-type(5) + p + .space-y-4 > div:nth-child(2) ul li');
+            if (technicalServicesList.length >= 3) {
+              data[lang].privacy.technical_services_list.forEach((item, index) => {
+                if (technicalServicesList[index]) {
+                  technicalServicesList[index].textContent = item;
+                }
+              });
+            }
             
             // Your rights
             const rightsTitle = document.querySelector('h2:nth-of-type(6)');
             if (rightsTitle) rightsTitle.textContent = data[lang].privacy.your_rights;
             
-            const rightsList = document.querySelectorAll('ul:nth-of-type(3) li');
-            if (rightsList.length >= 2) {
-              data[lang].privacy.rights_list.forEach((item, index) => {
-                if (rightsList[index]) {
-                  rightsList[index].textContent = item;
+            const rightsIntro = document.querySelector('h2:nth-of-type(6) + p');
+            if (rightsIntro) rightsIntro.textContent = data[lang].privacy.your_rights_intro;
+            
+            // Basic rights
+            const basicRightsTitle = document.querySelector('h2:nth-of-type(6) + p + .grid > div:nth-child(1) h3');
+            if (basicRightsTitle) basicRightsTitle.textContent = data[lang].privacy.basic_rights;
+            
+            const basicRightsList = document.querySelectorAll('h2:nth-of-type(6) + p + .grid > div:nth-child(1) ul li');
+            if (basicRightsList.length >= 4) {
+              data[lang].privacy.basic_rights_list.forEach((item, index) => {
+                if (basicRightsList[index]) {
+                  basicRightsList[index].textContent = item;
+                }
+              });
+            }
+            
+            // Objection rights
+            const objectionRightsTitle = document.querySelector('h2:nth-of-type(6) + p + .grid > div:nth-child(2) h3');
+            if (objectionRightsTitle) objectionRightsTitle.textContent = data[lang].privacy.objection_rights;
+            
+            const objectionRightsList = document.querySelectorAll('h2:nth-of-type(6) + p + .grid > div:nth-child(2) ul li');
+            if (objectionRightsList.length >= 4) {
+              data[lang].privacy.objection_rights_list.forEach((item, index) => {
+                if (objectionRightsList[index]) {
+                  objectionRightsList[index].textContent = item;
+                }
+              });
+            }
+            
+            // Security measures
+            const securityTitle = document.querySelector('h2:nth-of-type(7)');
+            if (securityTitle) securityTitle.textContent = data[lang].privacy.security_measures;
+            
+            const securityIntro = document.querySelector('.bg-green-50 p strong');
+            if (securityIntro) securityIntro.textContent = data[lang].privacy.security_intro;
+            
+            const securityList = document.querySelectorAll('.bg-green-50 ul li');
+            if (securityList.length >= 4) {
+              data[lang].privacy.security_list.forEach((item, index) => {
+                if (securityList[index]) {
+                  securityList[index].textContent = item;
                 }
               });
             }
             
             // Contact
-            const contactTitle = document.querySelector('h2:nth-of-type(7)');
+            const contactTitle = document.querySelector('h2:nth-of-type(8)');
             if (contactTitle) contactTitle.textContent = data[lang].privacy.contact;
             
-            const contactText = document.querySelector('p:nth-of-type(6)');
-            if (contactText) {
-              contactText.innerHTML = data[lang].privacy.contact_text + ' <a href="mailto:hello@kuzamo.com">hello@kuzamo.com</a>';
-            }
+            const contactIntro = document.querySelector('.bg-gray-50 p strong');
+            if (contactIntro) contactIntro.textContent = data[lang].privacy.contact_intro;
+            
+            const contactEmail = document.querySelector('.bg-gray-50 p:nth-child(2) strong');
+            if (contactEmail) contactEmail.textContent = data[lang].privacy.contact_email;
+            
+            const contactWeb = document.querySelector('.bg-gray-50 p:nth-child(3) strong');
+            if (contactWeb) contactWeb.textContent = data[lang].privacy.contact_web;
+            
+            // Last updated
+            const lastUpdated = document.querySelector('.bg-blue-50 p strong:first-child');
+            if (lastUpdated) lastUpdated.textContent = data[lang].privacy.last_updated;
+            
+            const version = document.querySelector('.bg-blue-50 p strong:last-child');
+            if (version) version.textContent = data[lang].privacy.version;
             
             // Footer
             const footerDescription = document.querySelector('.footer-description');
@@ -415,10 +538,6 @@
               footerDescription.textContent = data[lang].footer.description;
             }
             
-            const footerAddress = document.querySelector('.footer-address');
-            if (footerAddress) {
-              footerAddress.textContent = data[lang].footer.address;
-            }
             
             const footerCopyright = document.querySelector('.footer-copyright');
             if (footerCopyright) {

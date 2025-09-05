@@ -145,9 +145,7 @@ The Kuzamo Team</textarea>
 
 Great! Your email has been confirmed successfully.
 
-You can now access your Kuzamo dashboard and start planning your content with AI:
-
-[Access Dashboard]
+You're now part of our early access community! We'll notify you when Kuzamo is ready for you to start planning your content with AI.
 
 If you have any questions, feel free to reach out to our support team.
 
@@ -222,7 +220,6 @@ The Kuzamo Team</textarea>
           <span class="text-xl font-bold text-brand-600">Kuzamo</span>
         </div>
         <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
-        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
       </div>
       <div class="text-sm space-y-2">
         <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
@@ -235,7 +232,6 @@ The Kuzamo Team</textarea>
         <a href="/cookie-policy.html" class="block hover:text-brand-600 footer-cookie-policy">Çerez Politikası</a>
         <a href="/terms.html" class="block hover:text-brand-600 footer-terms">Kullanım Şartları</a>
         <a href="mailto:hello@kuzamo.com" class="block hover:text-brand-600">hello@kuzamo.com</a>
-        <button id="footer-cookie-settings" class="block hover:text-brand-600 text-left footer-cookie-settings">🍪 Çerez Ayarları</button>
       </div>
     </div>
     <div class="mt-8 text-center text-xs footer-copyright">&copy; 2025 Kuzamo. Tüm hakları saklıdır.</div>
@@ -292,10 +288,6 @@ The Kuzamo Team</textarea>
               footerDescription.textContent = data[lang].footer.description;
             }
             
-            const footerAddress = document.querySelector('.footer-address');
-            if (footerAddress) {
-              footerAddress.textContent = data[lang].footer.address;
-            }
             
             const footerCopyright = document.querySelector('.footer-copyright');
             if (footerCopyright) {
@@ -324,8 +316,6 @@ The Kuzamo Team</textarea>
             const footerCookiePolicyLink = document.querySelector('.footer-cookie-policy');
             if (footerCookiePolicyLink) footerCookiePolicyLink.textContent = data[lang].footer.links.cookie_policy;
             
-            const footerCookieSettingsBtn = document.querySelector('.footer-cookie-settings');
-            if (footerCookieSettingsBtn) footerCookieSettingsBtn.textContent = data[lang].footer.links.cookie_settings;
           }
 
           renderContent(currentLang);
@@ -456,14 +446,6 @@ The Kuzamo Team</textarea>
     }
 
     // Footer cookie settings button
-    const footerCookieSettings = document.getElementById('footer-cookie-settings');
-    if (footerCookieSettings) {
-      footerCookieSettings.addEventListener('click', function() {
-        if (window.cookieConsent) {
-          window.cookieConsent.showSettingsModal();
-        }
-      });
-    }
   </script>
 </body>
 </html>

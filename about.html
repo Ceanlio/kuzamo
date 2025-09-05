@@ -11,7 +11,7 @@
   <meta property="og:description" content="Küçük ekipler için içerik planlama ve yayınlamayı tek yerden yönetin." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.png" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <script>(function(){const t=localStorage.getItem('theme');const d=matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');})();</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,6 +19,7 @@
   </script>
 </head>
 <body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+  <script src="main.js" defer></script>
   <!-- Navbar -->
   <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -50,34 +51,52 @@
     </div>
   </header>
 
-      <main class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10">
+  <main class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 mt-12">
     <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow">
-      <h1 class="text-3xl font-bold">Kuzamo Nedir?</h1>
-      <p class="mt-4 text-gray-600 dark:text-gray-300 about-description">
-        Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e-posta içeriklerini AI destekli olarak planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur. 
+      <h1 class="text-3xl font-bold" data-lang="about_page.title">Kuzamo Nedir?</h1>
+      <p class="mt-4 text-gray-600 dark:text-gray-300 about-description" data-lang="about_page.description1">
+        Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e‑posta içeriklerini AI destekli olarak planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur.
       </p>
-      <p class="mt-4 text-gray-600 dark:text-gray-300">
-        Modern API entegrasyonları ile WordPress, LinkedIn, X, Instagram ve e-posta platformlarına tek yerden erişim sağlayın. AI destekli içerik önerileri, ekip işbirliği araçları ve kapsamlı analitik ile içerik stratejinizi güçlendirin.
+      <p class="mt-4 text-gray-600 dark:text-gray-300" data-lang="about_page.description2">
+        Modern API entegrasyonları ile WordPress, LinkedIn, X, Instagram ve e‑posta platformlarına tek yerden erişim sağlayın. AI destekli içerik önerileri, ekip işbirliği araçları ve kapsamlı analitik ile içerik stratejinizi güçlendirin.
       </p>
       <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
-        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item">AI destekli planlama</div>
-        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item">Çoklu platform entegrasyonu</div>
-        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item">Ekip işbirliği araçları</div>
-        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item">Analitik ve raporlama</div>
+        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item" data-lang="about_page.features.ai_planning">AI destekli planlama</div>
+        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item" data-lang="about_page.features.multi_platform">Çoklu platform entegrasyonu</div>
+        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item" data-lang="about_page.features.team_collaboration">Ekip işbirliği araçları</div>
+        <div class="p-4 rounded-lg bg-brand-50 dark:bg-gray-800 feature-item" data-lang="about_page.features.analytics">Analitik ve raporlama</div>
       </div>
     </div>
     <div class="rounded-2xl p-8 border border-dashed border-gray-200 dark:border-gray-800">
-      <h2 class="text-xl font-semibold mb-3">Teknik Özellikler</h2>
+      <h2 class="text-xl font-semibold mb-3" data-lang="about_page.tech_title">Teknik Özellikler</h2>
       <ul class="space-y-2 text-gray-600 dark:text-gray-300 tech-list">
-        <li>• Modern web teknolojileri ile geliştirildi</li>
-        <li>• API entegrasyonları (WordPress, sosyal medya)</li>
-        <li>• Güvenli kimlik doğrulama ve yetkilendirme</li>
-        <li>• Gerçek zamanlı işbirliği özellikleri</li>
-        <li>• AI destekli içerik üretimi</li>
-        <li>• Çoklu dil desteği (TR/EN)</li>
+        <li data-lang="about_page.tech_list.0">• Modern web teknolojileri ile geliştirildi</li>
+        <li data-lang="about_page.tech_list.1">• API entegrasyonları (WordPress, sosyal medya)</li>
+        <li data-lang="about_page.tech_list.2">• Güvenli kimlik doğrulama ve yetkilendirme</li>
+        <li data-lang="about_page.tech_list.3">• Gerçek zamanlı işbirliği özellikleri</li>
+        <li data-lang="about_page.tech_list.4">• AI destekli içerik üretimi</li>
+        <li data-lang="about_page.tech_list.5">• Çoklu dil desteği (TR/EN)</li>
       </ul>
     </div>
   </main>
+
+  <section class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6 -mt-6">
+    <div class="rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6">
+      <h3 class="text-lg font-semibold" data-lang="about_page.values_title">İlkelerimiz</h3>
+      <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-300">
+        <li>• <span data-lang="about_page.values.focus">Sonuç odaklılık</span></li>
+        <li>• <span data-lang="about_page.values.simple">Basit ve güvenilir iş akışları</span></li>
+        <li>• <span data-lang="about_page.values.privacy">Gizlilik odaklı tasarım</span></li>
+      </ul>
+    </div>
+    <div class="rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white p-6 shadow-soft md:col-span-2 flex items-center justify-between gap-4">
+      <div>
+        <div class="text-2xl font-bold" data-lang="about_page.cta_title">Kuzamo ile hızlanın</div>
+        <div class="text-brand-100 mt-1" data-lang="about_page.cta_desc">Erken erişime katılın, ürünü birlikte şekillendirelim.</div>
+      </div>
+      <a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg bg-white text-brand-700 px-5 py-2.5 font-medium hover:bg-brand-50" data-lang="about_page.cta_button">Erken Erişim İste</a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-100 dark:bg-gray-900 py-10 text-gray-600 dark:text-gray-300">
@@ -88,7 +107,6 @@
           <span class="text-xl font-bold text-brand-600">Kuzamo</span>
         </div>
         <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
-        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
       </div>
               <div class="text-sm space-y-2">
           <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
@@ -105,185 +123,67 @@
     <div class="mt-8 text-center text-xs footer-copyright">&copy; 2025 Kuzamo. Tüm hakları saklıdır.</div>
   </footer>
 
-  <script>
-    // Tema değiştirici
-    document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('themeToggle');
-      if (themeToggle) {
-        // Update button text based on current theme
-        const isDark = document.documentElement.classList.contains('dark');
-        themeToggle.textContent = isDark ? '☀️' : '🌙';
-        
-        themeToggle.addEventListener('click', function(){
-          const el = document.documentElement;
-          const isDark = el.classList.toggle('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-          themeToggle.textContent = isDark ? '☀️' : '🌙';
-        });
-      }
-      
-      // Mobil menü
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function(){
-          const m = document.getElementById('mobileMenu');
-          if (m) m.classList.toggle('hidden');
-        });
-      }
-    });
-  </script>
-  <script>
-    // Auto-detect language and theme
-    (function() {
-      const userLang = navigator.language || navigator.userLanguage;
-      const theme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const langToggle = document.getElementById('langToggle');
-
-      // Set initial theme
-      if (theme === 'dark' || (!theme && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      }
-
-      // Set initial language
-      if (userLang.includes('en')) {
-        langToggle.textContent = 'EN';
-      } else {
-        langToggle.textContent = 'TR';
-      }
-
-      // Language switcher
-      langToggle.addEventListener('click', function() {
-        if (langToggle.textContent === 'EN') {
-          langToggle.textContent = 'TR';
-          // Logic to switch to Turkish
-        } else {
-          langToggle.textContent = 'EN';
-          // Logic to switch to English
+  <script type="application/json" id="languages">
+    {
+      "en": {
+        "navbar": {"about":"About","pricing":"Pricing","faq":"FAQ","contact":"Contact"},
+        "footer": {
+          "description": "AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
+          "address": "Address: (Company name) (Address line) (City/Country)",
+          "copyright": "© 2025 Kuzamo. All rights reserved.",
+          "links": {"about":"About","pricing":"Pricing","faq":"FAQ","contact":"Contact","privacy":"Privacy","terms":"Terms of Service","cookie_policy":"Cookie Policy"}
+        },
+        "about_page": {
+          "title": "What is Kuzamo?",
+          "description1": "Kuzamo is a comprehensive workflow platform that helps small and agile teams plan, create, and publish blog, social, and email content with AI.",
+          "description2": "With modern API integrations, access WordPress, LinkedIn, X, Instagram, and email platforms from one place. Strengthen your content strategy with AI suggestions, team collaboration tools, and analytics.",
+          "features": {"ai_planning":"AI‑powered planning","multi_platform":"Multi‑platform integration","team_collaboration":"Team collaboration tools","analytics":"Analytics and reporting"},
+          "tech_title": "Technical Capabilities",
+          "tech_list": [
+            "Built with modern web technologies",
+            "API integrations (WordPress, social media)",
+            "Secure authentication and authorization",
+            "Real‑time collaboration",
+            "AI‑assisted content generation",
+            "Multi‑language support (TR/EN)"
+          ],
+          "values_title": "Our Principles",
+          "values": {"focus":"Focus on outcomes","simple":"Simple, reliable workflows","privacy":"Privacy‑first by design"},
+          "cta_title": "Move faster with Kuzamo",
+          "cta_desc": "Join early access and help shape the product.",
+          "cta_button": "Request Early Access"
         }
-      });
-    })();
-  </script>
-  <script>
-    // Load language data and render content
-    (function() {
-      // Get saved language preference or auto-detect
-      const userLang = navigator.language || navigator.userLanguage;
-      let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
-      
-      // Set initial language to prevent flicker
-      if (currentLang === 'en') {
-        document.documentElement.lang = 'en';
+      },
+      "tr": {
+        "navbar": {"about":"Hakkımızda","pricing":"Fiyatlar","faq":"SSS","contact":"İletişim"},
+        "footer": {
+          "description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
+          "address": "Adres: (Şirket adı) (Adres satırı) (İl/Ülke)",
+          "copyright": "© 2025 Kuzamo. Tüm hakları saklıdır.",
+          "links": {"about":"Hakkımızda","pricing":"Fiyatlar","faq":"SSS","contact":"İletişim","privacy":"Gizlilik","terms":"Kullanım Şartları","cookie_policy":"Çerez Politikası"}
+        },
+        "about_page": {
+          "title": "Kuzamo Nedir?",
+          "description1": "Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e‑posta içeriklerini AI desteğiyle planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur.",
+          "description2": "Modern API entegrasyonlarıyla WordPress, LinkedIn, X, Instagram ve e‑posta platformlarına tek yerden erişin. AI önerileri, ekip işbirliği araçları ve analitik ile stratejinizi güçlendirin.",
+          "features": {"ai_planning":"AI destekli planlama","multi_platform":"Çoklu platform entegrasyonu","team_collaboration":"Ekip işbirliği araçları","analytics":"Analitik ve raporlama"},
+          "tech_title": "Teknik Yetenekler",
+          "tech_list": [
+            "Modern web teknolojileri ile geliştirildi",
+            "API entegrasyonları (WordPress, sosyal medya)",
+            "Güvenli kimlik doğrulama ve yetkilendirme",
+            "Gerçek zamanlı işbirliği",
+            "AI destekli içerik üretimi",
+            "Çoklu dil desteği (TR/EN)"
+          ],
+          "values_title": "İlkelerimiz",
+          "values": {"focus":"Sonuç odaklılık","simple":"Basit ve güvenilir iş akışları","privacy":"Gizlilik odaklı tasarım"},
+          "cta_title": "Kuzamo ile hızlanın",
+          "cta_desc": "Erken erişime katılın, ürünü birlikte şekillendirelim.",
+          "cta_button": "Erken Erişim İste"
+        }
       }
-      
-      fetch('languages.json')
-        .then(response => response.json())
-        .then(data => {
-          const langToggle = document.getElementById('langToggle');
-          
-          // Update toggle button text
-          if (langToggle) {
-            langToggle.textContent = currentLang.toUpperCase();
-          }
-
-          function renderContent(lang) {
-            // Navbar - Only update navigation links, preserve logo
-            const aboutLink = document.querySelector('nav a[href="/about.html"]');
-            const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
-            const faqLink = document.querySelector('nav a[href="/faq.html"]');
-            const contactLink = document.querySelector('nav a[href="/contact.html"]');
-            
-            if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
-            if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
-            if (faqLink) faqLink.textContent = data[lang].navbar.faq;
-            if (contactLink) contactLink.textContent = data[lang].navbar.contact;
-            
-            // About page content
-            const title = document.querySelector('h1');
-            if (title) title.textContent = data[lang].about.title;
-            
-            const description = document.querySelector('.about-description');
-            if (description) description.textContent = data[lang].about.description;
-            
-            // Features
-            const featureElements = document.querySelectorAll('.feature-item');
-            if (featureElements.length >= 4) {
-              featureElements[0].textContent = data[lang].about.features.ai_planning;
-              featureElements[1].textContent = data[lang].about.features.multi_platform;
-              featureElements[2].textContent = data[lang].about.features.team_collaboration;
-              featureElements[3].textContent = data[lang].about.features.analytics;
-            }
-            
-            // Technical features
-            const techTitle = document.querySelector('h2');
-            if (techTitle) techTitle.textContent = data[lang].about.technical_features;
-            
-            const techList = document.querySelectorAll('.tech-list li');
-            if (techList.length >= 6) {
-              data[lang].about.tech_list.forEach((item, index) => {
-                if (techList[index]) {
-                  techList[index].textContent = '• ' + item;
-                }
-              });
-            }
-            
-            // Footer
-            const footerDescription = document.querySelector('.footer-description');
-            if (footerDescription) {
-              footerDescription.textContent = data[lang].footer.description;
-            }
-            
-            const footerAddress = document.querySelector('.footer-address');
-            if (footerAddress) {
-              footerAddress.textContent = data[lang].footer.address;
-            }
-            
-            const footerCopyright = document.querySelector('.footer-copyright');
-            if (footerCopyright) {
-              footerCopyright.textContent = data[lang].footer.copyright;
-            }
-            
-            // Footer links
-            const footerAboutLink = document.querySelector('.footer-about');
-            if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
-            
-            const footerPricingLink = document.querySelector('.footer-pricing');
-            if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
-            
-            const footerFaqLink = document.querySelector('.footer-faq');
-            if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
-            
-            const footerContactLink = document.querySelector('.footer-contact');
-            if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
-            
-            const footerPrivacyLink = document.querySelector('.footer-privacy');
-            if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
-            
-            const footerTermsLink = document.querySelector('.footer-terms');
-            if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
-          }
-
-          renderContent(currentLang);
-
-          if (langToggle) {
-            langToggle.addEventListener('click', function() {
-              currentLang = currentLang === 'en' ? 'tr' : 'en';
-              localStorage.setItem('language', currentLang);
-              document.documentElement.lang = currentLang;
-              renderContent(currentLang);
-              langToggle.textContent = currentLang.toUpperCase();
-              
-              // Trigger language change event for cookie consent widget
-              document.dispatchEvent(new CustomEvent('languageChanged', { 
-                detail: { language: currentLang } 
-              }));
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Error loading language data:', error);
-        });
-    })();
+    }
   </script>
 </body>
 </html>

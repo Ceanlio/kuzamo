@@ -13,135 +13,273 @@
       "description": "Kuzamo offers an AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
       "earlyAccess": "Request Early Access",
       "viewFeatures": "View Features",
+      "ribbon": "Move faster with AI — strategy, creation, publishing in one flow",
+      "mock_title": "Dashboard — Kuzamo",
+      "mock_labels": {
+        "ai": "AI Suggestion",
+        "performance": "Performance"
+      },
+      "mock_calendar": "Content Calendar",
+      "mock_badges": {
+        "blog": "Blog — Published",
+        "linkedin": "LinkedIn — Draft",
+        "email": "Email — Scheduled"
+      },
       "features": {
         "ai_content": "🤖 AI-powered content generation",
         "planning": "📅 Smart planning calendar",
         "publishing": "🚀 Multi-platform publishing"
       }
     },
-    "about": {
-      "title": "What is Kuzamo?",
-      "description": "Kuzamo is a comprehensive workflow platform that enables small and agile teams to plan, produce, and publish blog, social media, and email content with AI support.",
-      "features": {
-        "ai_planning": "AI-powered planning",
-        "multi_platform": "Multi-platform integration",
-        "team_collaboration": "Team collaboration tools",
-        "analytics": "Analytics and reporting"
-      },
-      "technical_features": "Technical Features",
-      "tech_list": [
-        "Developed with modern web technologies",
-        "API integrations (WordPress, social media)",
-        "Secure authentication and authorization",
-        "Real-time collaboration features",
-        "AI-powered content generation",
-        "Multi-language support (TR/EN)"
-      ]
+    "features_title": "Features",
+    "features_description": "Discover the core features of the AI-powered content planning and publishing platform.",
+    "features_button": "View Details",
+    "features": {
+      "heading": "From content creation to publishing — one flow",
+      "description": "Reduce chaos, automate repetitions, and bring your team together around one modern interface.",
+      "card1_title": "AI Content Studio",
+      "card1_desc": "Generate titles, outlines, and multiple variations from your brief; instantly adjust tone and length.",
+      "card2_title": "Calendar and Approvals",
+      "card2_desc": "Assign tasks, track statuses, manage deadlines, and control everything from a single screen.",
+      "card3_title": "Multi‑Platform Publishing",
+      "card3_desc": "Publish to WordPress, LinkedIn, X, and email with one click and see performance."
     },
+    "pricing_title": "Pricing",
+    "pricing_description": "Explore our flexible plans during the early access period.",
+    "pricing_button": "View Pricing",
     "pricing": {
       "title": "Pricing",
-      "subtitle": "Flexible plans during early access period.",
-      "starter": {
-        "title": "Starter",
-        "price": "₺0",
+      "subtitle": "Flexible plans for AI-powered content planning and publishing.",
+      "billing": {"monthly": "Monthly", "yearly": "Yearly", "save_badge": "2 months free"},
+      "free": {
+        "title": "Free",
+        "price": "$0",
+        "price_monthly": "$0",
+        "price_yearly": "$0",
+        "button": "Start",
         "features": [
-          "1 team member",
-          "3 projects",
-          "Basic AI suggestions"
-        ],
-        "button": "Start"
+          "1 user",
+          "2 projects",
+          "20 content plans/mo",
+          "100 AI credits/mo",
+          "2 connected channels (e.g., Instagram, X)",
+          "Scheduling: 7 days ahead"
+        ]
       },
       "team": {
         "title": "Team",
-        "price": "₺299/month",
+        "price": "$29/mo",
+        "price_monthly": "$29/mo",
+        "price_yearly": "$299/yr",
+        "button": "Try",
         "features": [
           "5 team members",
+          "Near‑unlimited projects (50)",
+          "200 content plans/mo",
+          "2,000 AI credits/mo",
+          "10 connected channels",
+          "Multi‑step approvals",
+          "Advanced reporting and calendar",
+          "Email support (48h SLA)"
+        ]
+      },
+      "business": {
+        "title": "Business",
+        "price": "$79/mo",
+        "price_monthly": "$79/mo",
+        "price_yearly": "$799/yr",
+        "button": "Buy",
+        "features": [
+          "15 users",
           "Unlimited projects",
-          "Advanced AI features"
-        ],
-        "button": "Try"
+          "600 content plans/mo",
+          "8,000 AI credits/mo",
+          "20 connected channels",
+          "Advanced workflows + roles",
+          "Integrations: Slack, Notion, Google Drive",
+          "Priority support (24h SLA)"
+        ]
       },
       "enterprise": {
         "title": "Enterprise",
         "price": "Custom",
+        "price_monthly": "Custom",
+        "price_yearly": "Custom",
+        "button": "Contact",
         "features": [
-          "SSO, SLA",
-          "Custom AI models",
-          "Priority support"
-        ],
+          "SSO (SAML/OAuth), SCIM",
+          "Custom AI models and data training",
+          "Security, audit logs, IP restriction",
+          "Dedicated SLA and account manager",
+          "Custom integrations and on‑site training"
+        ]
+      },
+      "popular_badge": "Most popular",
+      "comparison_title": "Plan Comparison",
+      "comparison_cols": {"feature":"Feature","free":"Free","team":"Team","business":"Business","enterprise":"Enterprise"},
+      "comparison_rows": {"users":"Users","projects":"Projects","ai":"AI content studio","ai_credits":"AI credits/mo","channels":"Connected channels limit","monthly_content":"Monthly schedulable content","approvals":"Approval workflows","support":"Priority support","sso":"SSO (SAML/OAuth)","audit":"Audit logs","ai_values":{"basic":"Basic","advanced":"Advanced","custom":"Custom models"},"boolean":{"yes":"✔","no":"-"},"unlimited":"Unlimited","custom":"Custom","approval_values":{"none":"-","multi_step":"Multi-step","multi_step_roles":"Multi-step + roles","enterprise":"Enterprise"}},
+      "faq_title": "Frequently Asked Questions",
+      "faq": {
+        "q1": "Is there a yearly discount?",
+        "a1": "Yes, yearly billing includes two months free.",
+        "q2": "Can I switch plans?",
+        "a2": "You can upgrade or downgrade anytime; prorated billing applies.",
+        "q3": "What's included in the Enterprise plan?",
+        "a3": "SSO, custom AI models, SLA, security reviews, and training are included.",
+        "q4": "Is there a trial?",
+        "a4": "During early access, the Free plan is available."
+      },
+      "faq_page": {
+        "subtitle": "Can't find an answer? Contact us.",
+        "cta": "Still have questions? Contact us"
+      },
+      "cta": {
+        "title": "Choose the right plan for your team",
+        "desc": "Questions? Reach out and we'll help you pick the best plan.",
         "button": "Contact Us"
       }
     },
+    "about_title": "About",
+    "about_description": "Learn about Kuzamo's story and mission.",
+    "about_button": "View About Page",
+    "faq_title": "FAQ",
+    "faq_description": "Frequently asked questions and answers about Kuzamo.",
+    "faq_button": "View FAQ Page",
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "FAQ",
       "questions": {
         "ai_content": {
           "question": "How does AI content generation work?",
-          "answer": "Kuzamo provides AI-powered content suggestions based on your brief and target audience. You receive tone, length, and style recommendations for blog posts, social media posts, and email topics."
+          "answer": "Kuzamo provides AI-powered content suggestions based on your brief and target audience. You get tone, length, and style suggestions for blog posts, social media, and emails."
         },
         "platforms": {
           "question": "Which platforms do you support?",
-          "answer": "We provide integration with WordPress, LinkedIn, X (Twitter), Instagram, Facebook, and email platforms. New platforms are continuously added."
+          "answer": "We integrate with WordPress, LinkedIn, X (Twitter), Instagram, Facebook and email platforms. New platforms are continuously added."
         },
         "collaboration": {
-          "question": "What are the team collaboration features?",
-          "answer": "We offer content approval workflows, task assignment, comment and feedback systems, real-time editing, and version tracking."
+          "question": "What collaboration features are available?",
+          "answer": "We provide approval workflows, task assignment, commenting and feedback system, real-time editing and version tracking."
         },
         "analytics": {
-          "question": "Is there analytics and reporting?",
-          "answer": "Yes, you can track your content performance, see which content performs better, and improve AI suggestions with this data."
+          "question": "Do you offer analytics and reporting?",
+          "answer": "Yes, you can track content performance, see which content performs better, and improve AI suggestions with these insights."
         },
         "languages": {
-          "question": "Is there multi-language support?",
-          "answer": "Yes, you can generate AI-powered content in Turkish and English. We offer language options suitable for your target audience."
+          "question": "Is multi-language supported?",
+          "answer": "Yes, you can generate AI-powered content in Turkish and English with options suitable for your audience."
         }
       }
     },
-    "contact": {
-      "title": "Contact / Early Access",
-      "description": "Apply for early access to Kuzamo's AI-powered content planning and publishing platform. Start managing your blog, social media, and email content from one place.",
-      "privacy_note": "We do not send emails without your marketing permission.",
-      "form": {
-        "name": "Full Name",
-        "email": "Email",
-        "company": "Company (optional)",
-        "message": "Your Message",
-        "name_placeholder": "Your full name",
-        "email_placeholder": "example@email.com",
-        "company_placeholder": "Your company name",
-        "message_placeholder": "Write your message here...",
-        "consent_label": "I give <strong class=\"text-gray-900 dark:text-gray-100\">explicit consent</strong> for Kuzamo to process my contact information to contact me.",
-        "privacy_consent_label": "I have read and accept the <a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Privacy Policy</a>.",
-        "terms_consent_label": "I have read and accept the <a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Terms of Service</a>.",
-        "submit": "Send",
-        "footer_note": "Form data is processed only to respond to your request; email sending is provided through your preferred infrastructure; this site does not provide direct service to any provider."
+    "faq_page": {
+      "subtitle": "Can't find an answer? Contact us.",
+      "cta": "Still have questions? Contact us"
+    },
+    "logos_trusted": "Trusted by teams",
+    "contact_title": "Contact / Early Access",
+    "contact_description": "Apply for early access to Kuzamo's AI-powered content planning and publishing platform. Start managing your blog, social media, and email content from one place.",
+    "form_name": "Full Name *",
+    "form_email": "Email *",
+    "form_company": "Company (optional)",
+    "form_message": "Message (optional)",
+    "form_name_placeholder": "Your full name",
+    "form_email_placeholder": "example@email.com",
+    "form_company_placeholder": "Your company name",
+    "form_message_placeholder": "Write your questions or special requests here...",
+    "form_consent": "I give <strong class=\"text-gray-900 dark:text-gray-100\">explicit consent</strong> for Kuzamo to process my contact information to contact me. I have read and accept the <a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Privacy Policy</a> and <a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Terms of Service</a>.",
+    "form_consent_error": "Please check the consent checkbox.",
+    "form_email_duplicate": "This email has already been submitted recently. Please check your inbox or try again later.",
+    "form_email_pending": "A confirmation email has already been sent to this address. Please check your inbox.",
+    "form_email_confirmed": "This email is already confirmed and you are on our list.",
+    "form_rate_limit": "Too many requests. Please wait a moment before trying again.",
+    "form_disposable_email": "Disposable email addresses are not allowed. Please use a valid email address.",
+    "form_invalid_domain": "Invalid email domain. Please use a valid email address.",
+    "form_unsubscribed": "This email was previously unsubscribed. You can resubscribe by submitting the form again.",
+    "form_submit": "Send",
+    "form_sending": "Sending...",
+    "confirm_title": "Confirm Your Email",
+    "confirm_description": "We're verifying your email address for early access. Please wait.",
+    "confirm_loading": "Verifying your email address...",
+    "confirm_success_title": "Email Confirmed Successfully!",
+    "confirm_success_message": "Welcome to Kuzamo! Your email has been verified and you've been added to our early access list. We'll notify you when the product is ready and you can start using it.",
+    "confirm_error_title": "Confirmation Failed",
+    "confirm_error_message": "We couldn't confirm your email address. This could be due to an expired or invalid confirmation link.",
+    "confirm_back_home": "Back to Home",
+    "confirm_contact": "Contact Us",
+    "confirm_support": "Contact Support",
+    "unsubscribe_title": "Unsubscribe",
+    "unsubscribe_description": "Manage your email preferences",
+    "unsubscribe_success_title": "Successfully Unsubscribed",
+    "unsubscribe_success_message": "You have been successfully unsubscribed from our emails. You will no longer receive notifications from us.",
+    "unsubscribe_error_title": "Unsubscribe Failed",
+    "unsubscribe_error_message": "There was an error processing your unsubscribe request. The link may be invalid or expired.",
+    "unsubscribe_loading": "Processing Unsubscribe...",
+    "unsubscribe_loading_message": "Please wait while we process your request.",
+    "unsubscribe_back_home": "Back to Home",
+    "form_footer": "Form data is processed only to respond to your request; email sending is provided through your preferred infrastructure; this site does not provide direct service to any provider.",
+    "how": {
+      "heading": "How it works",
+      "step1_title": "Plan",
+      "step1_desc": "Define channels and goals; build your content calendar.",
+      "step2_title": "Create",
+      "step2_desc": "Use the AI studio to generate, revise, and submit for approval.",
+      "step3_title": "Publish",
+      "step3_desc": "Schedule, publish with one click, and track performance on the dashboard."
+    },
+    "integrations": {
+      "heading": "Integrates with the tools you love",
+      "description": "Works with WordPress, LinkedIn, X (Twitter), and email services.",
+      "bullets": {
+        "cms": "WordPress and CMS integrations",
+        "social": "Multi-account publishing for LinkedIn and X",
+        "email": "Automatic sending with email services"
       }
     },
-    "index_links": {
-      "features": {
-        "title": "Features",
-        "description": "Discover the core features of the AI-powered content planning and publishing platform.",
-        "button": "View Details"
-      },
-      "pricing": {
-        "title": "Pricing",
-        "description": "Explore our flexible plans during the early access period.",
-        "button": "View Pricing"
-      },
-      "about": {
-        "title": "About",
-        "description": "Learn about Kuzamo's story and mission.",
-        "button": "View About Page"
-      },
-      "faq": {
-        "title": "FAQ",
-        "description": "Frequently asked questions and answers about Kuzamo.",
-        "button": "View FAQ Page"
+    "testimonials": {
+      "section_heading": "A workflow teams love",
+      "section_subtext": "Kuzamo reduces chaos and speeds up the process so small teams can focus.",
+      "q1": "“With Kuzamo, our social and blog flow converged in one screen. We save 6+ hours weekly.”",
+      "a1_name": "Ayse K.",
+      "a1_role": "Content Manager",
+      "q2": "“Calendar and approvals are very simple. AI suggestions significantly reduce editors’ workload.”",
+      "a2_name": "Mehmet D.",
+      "a2_role": "Marketing Lead",
+      "q3": "“With email and blog integrations, the publishing flow finishes with one click.”",
+      "a3_name": "Selin A.",
+      "a3_role": "Content Specialist"
+    },
+    "benefits": {
+      "label_gain": "Average gain",
+      "value_gain": "6+ hours per week",
+      "label_flow": "Operational flow",
+      "value_flow": "Plan → Create → Publish",
+      "label_scope": "Scope",
+      "value_scope": "Blog, Social, Email"
+    },
+    "why": {
+      "title": "Why Kuzamo?",
+      "points": {
+        "one": "Plan, create, and publish on a single screen",
+        "two": "Processes optimized for small teams",
+        "three": "Multi-channel integrations and publishing accuracy"
       }
     },
+    "finalcta": {
+      "heading": "Accelerate your content team",
+      "description": "Join during early access and be among the first to give feedback.",
+      "btn_early": "Early Access",
+      "btn_pricing": "View Pricing"
+    },
+    "footer_description": "AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
+    "footer_copyright": "© 2025 Kuzamo. All rights reserved.",
+    "footer_about": "About",
+    "footer_pricing": "Pricing",
+    "footer_faq": "FAQ",
+    "footer_contact": "Contact",
+    "footer_privacy": "Privacy",
+    "footer_terms": "Terms of Service",
+    "footer_cookie_policy": "Cookie Policy",
     "footer": {
       "description": "AI-powered content planning and publishing workflow for small teams. Manage your blogs, social media, and emails from one place.",
-      "address": "Address: (Company name) (Address line) (City/Country)",
       "copyright": "© 2025 Kuzamo. All rights reserved.",
       "links": {
         "about": "About",
@@ -150,64 +288,191 @@
         "contact": "Contact",
         "privacy": "Privacy",
         "terms": "Terms of Service",
-        "cookie_policy": "Cookie Policy",
-        "cookie_settings": "🍪 Cookie Settings"
+        "cookie_policy": "Cookie Policy"
       }
+    },
+    "about_page": {
+      "title": "What is Kuzamo?",
+      "description1": "Kuzamo is a comprehensive workflow platform that helps small and agile teams plan, create, and publish blog, social, and email content with AI.",
+      "description2": "With modern API integrations, access WordPress, LinkedIn, X, Instagram, and email platforms from one place. Strengthen your content strategy with AI suggestions, team collaboration tools, and analytics.",
+      "features": {
+        "ai_planning": "AI‑powered planning",
+        "multi_platform": "Multi‑platform integration",
+        "team_collaboration": "Team collaboration tools",
+        "analytics": "Analytics and reporting"
+      },
+      "tech_title": "Technical Capabilities",
+      "tech_list": [
+        "Built with modern web technologies",
+        "API integrations (WordPress, social media)",
+        "Secure authentication and authorization",
+        "Real‑time collaboration",
+        "AI‑assisted content generation",
+        "Multi‑language support (TR/EN)"
+      ],
+      "values_title": "Our Principles",
+      "values": {
+        "focus": "Focus on outcomes",
+        "simple": "Simple, reliable workflows",
+        "privacy": "Privacy‑first by design"
+      },
+      "cta_title": "Move faster with Kuzamo",
+      "cta_desc": "Join early access and help shape the product.",
+      "cta_button": "Request Early Access"
     },
     "privacy": {
       "title": "Privacy Policy",
-      "effective_date": "Effective date: September 3, 2025",
+      "effective_date": "Effective Date: September 3, 2025",
+      "intro": "This privacy policy provides information about the personal data collected, used, and protected on the Kuzamo website. The security of your data is important to us.",
       "data_collection": "Data We Collect",
-      "data_list": [
-        "Contact form: full name, email, optional company and message content.",
-        "Platform usage data: content planning, AI suggestions, and publishing statistics.",
-        "Log files and basic analytics (IP, browser information) — only for technical security and usage statistics."
-      ],
-      "processing_purposes": "Processing Purposes",
-      "purposes_list": [
-        "To respond to your request and provide support,",
-        "To provide AI-powered content suggestions,",
-        "To provide the service securely, quickly, and error-free,",
-        "To fulfill legal obligations."
-      ],
+      "data_collection_intro": "At Kuzamo, we collect the following data to improve our services and provide you with a better experience:",
+      "contact_form_data": "Contact Form Data",
+      "contact_form_list": ["Full name information", "Email address", "Company name (optional)", "Message content"],
+      "platform_usage_data": "Platform Usage Data",
+      "platform_usage_list": ["Content planning activities", "AI recommendations usage", "Publishing statistics", "User interaction data"],
+      "technical_data": "Technical Data",
+      "technical_data_list": ["IP address", "Browser information", "Operating system", "Page view statistics"],
+      "processing_purposes": "Data Processing Purposes",
+      "processing_purposes_intro": "We process the collected data for the following purposes:",
+      "purposes_list": ["To respond to your requests and provide support", "To provide AI-powered content recommendations", "To provide secure, fast, and error-free service", "To fulfill legal obligations"],
       "legal_basis": "Legal Basis",
-      "legal_text": "Explicit consent, contract performance, and legitimate interest within the scope of KVKK and GDPR.",
+      "legal_basis_intro": "Our data processing activities are based on the following legal grounds within the scope of KVKK and GDPR:",
+      "legal_basis_list": ["Explicit consent", "Contract performance", "Legitimate interest", "Legal obligation"],
       "data_retention": "Data Retention Period",
-      "retention_text": "As long as necessary for the purpose, without exceeding legal periods.",
+      "retention_warning": "Important: Your personal data is retained for as long as necessary for the purpose and does not exceed legal periods.",
       "third_parties": "Third Parties",
-      "third_parties_text": "Social media platforms, WordPress and email platforms for content publishing, and hosting/analytics services.",
+      "third_parties_intro": "Your data may be shared with third parties in the following situations:",
+      "platform_integrations": "Platform Integrations",
+      "platform_integrations_list": ["WordPress and social media platforms", "Email sending services", "Analytics and performance tools"],
+      "technical_services": "Technical Services",
+      "technical_services_list": ["Hosting and server services", "Security and backup services", "CDN and performance optimization"],
       "your_rights": "Your Rights",
-      "rights_list": [
-        "Access, correction, deletion, restriction of processing, objection.",
-        "Application rights within the scope of KVKK in Turkey."
-      ],
+      "your_rights_intro": "Under KVKK and GDPR, you have the following rights:",
+      "basic_rights": "Basic Rights",
+      "basic_rights_list": ["Right to access data", "Right to rectification", "Right to erasure", "Right to restrict processing"],
+      "objection_rights": "Objection Rights",
+      "objection_rights_list": ["Right to object to processing", "Right to data portability", "Automated decision making", "KVKK application rights"],
+      "security_measures": "Security Measures",
+      "security_intro": "Security: We take the following measures to protect your data:",
+      "security_list": ["SSL encryption and secure connections", "Regular security updates", "Access control and authorization", "Data backup and disaster recovery"],
       "contact": "Contact",
-      "contact_text": "For all privacy-related matters:"
+      "contact_intro": "For all privacy-related matters:",
+      "contact_email": "Email:",
+      "contact_web": "Web:",
+      "last_updated": "Last Updated:",
+      "version": "Version:"
+    },
+    "cookie_policy": {
+      "title": "Cookie Policy",
+      "intro": "This cookie policy provides information about cookies and similar technologies used on the Kuzamo website. Cookies are used to provide you with a better experience on our website.",
+      "what_are_cookies": "What Are Cookies?",
+      "what_are_cookies_text": "Cookies are small text files sent to your browser by the website. These files are stored on your computer and help the website recognize you, remember your preferences, and improve the overall user experience.",
+      "types_of_cookies": "Types of Cookies We Use",
+      "necessary_cookies": "Necessary Cookies",
+      "necessary_cookies_desc": "These cookies are essential for the basic functions of the website and are used for security, session management, and basic site functionality.",
+      "necessary_cookies_list": ["Security and authentication", "Session management", "Form data processing", "Basic site functionality"],
+      "necessary_cookies_note": "Note: These cookies cannot be disabled as they are required for the website to function.",
+      "analytics_cookies": "Analytics Cookies",
+      "analytics_cookies_desc": "These cookies help us analyze site usage, measure performance, and improve user experience.",
+      "analytics_cookies_list": ["Page view statistics", "User behavior analysis", "Site performance measurement", "Error reporting"],
+      "analytics_cookies_note": "Note: These cookies are optional and are not used without your consent.",
+      "marketing_cookies": "Marketing Cookies",
+      "marketing_cookies_desc": "These cookies help us provide you with personalized ads and content.",
+      "marketing_cookies_list": ["Targeted advertisements", "Content personalization", "Marketing campaigns", "Conversion tracking"],
+      "marketing_cookies_note": "Note: These cookies are optional and are not used without your consent.",
+      "preference_cookies": "Preference Cookies",
+      "preference_cookies_desc": "These cookies remember your language preferences, theme choices, and other personalization settings.",
+      "preference_cookies_list": ["Language preferences", "Theme choices (light/dark)", "User settings", "Personalization preferences"],
+      "preference_cookies_note": "Note: These cookies are optional and are not used without your consent.",
+      "management": "Cookie Management",
+      "management_intro": "You can manage your cookie preferences at any time:",
+      "consent_banner": "Cookie Consent Banner",
+      "consent_banner_desc": "When you first visit our website, you'll see a cookie consent banner that allows you to accept all cookies or customize your preferences.",
+      "cookie_settings": "Cookie Settings",
+      "cookie_settings_desc": "You can access detailed cookie settings through the floating widget (bottom-right corner) or by clicking \"Cookie Settings\" in the banner.",
+      "update_preferences": "Update Preferences",
+      "update_preferences_desc": "You can update your cookie preferences at any time by revisiting the cookie settings modal.",
+      "third_party": "Third-Party Cookies",
+      "third_party_intro": "Some cookies on our website are set by third-party services:",
+      "analytics_services": "Analytics Services",
+      "analytics_services_list": ["Google Analytics for website performance", "Performance monitoring tools", "Error tracking services"],
+      "social_media": "Social Media Platforms",
+      "social_media_list": ["LinkedIn integration cookies", "X (Twitter) sharing cookies", "Instagram embedding cookies"],
+      "duration": "Cookie Duration",
+      "duration_intro": "Cookie Lifespan:",
+      "duration_list": ["Session Cookies: Deleted when you close your browser", "Persistent Cookies: Remain until expiration date or manual deletion", "Necessary Cookies: Automatically renewed for site functionality"],
+      "browser_settings": "Browser Settings",
+      "browser_settings_intro": "You can also control cookies through your browser settings:",
+      "browser_controls": "Browser Controls",
+      "browser_controls_list": ["Block all cookies", "Block third-party cookies", "Delete existing cookies", "Set cookie preferences"],
+      "mobile_devices": "Mobile Devices",
+      "mobile_devices_list": ["iOS Safari settings", "Android Chrome settings", "Mobile app preferences", "Privacy settings"],
+      "updates": "Updates to This Policy",
+      "updates_intro": "Policy Updates:",
+      "updates_list": ["This policy may be updated periodically", "Changes will be posted on this page", "Significant changes will be notified via email", "Continued use constitutes acceptance of changes"],
+      "contact": "Contact Information",
+      "contact_intro": "For questions about our cookie policy:",
+      "contact_email": "Email:",
+      "contact_web": "Web:",
+      "contact_cookie_settings": "Cookie Settings:",
+      "last_updated": "Last Updated:",
+      "version": "Version:"
     },
     "terms": {
       "title": "Terms of Service",
-      "effective_date": "Effective date: September 3, 2025",
-      "service_scope": "Service Scope",
-      "scope_text": "Kuzamo is a web application that facilitates AI-powered content planning, draft generation, and multi-platform publishing workflows. It allows you to manage your blog, social media, and email content from one place.",
+      "effective_date": "Effective Date: September 3, 2025",
+      "intro": "These terms of service define the rules and conditions you must follow when using the Kuzamo platform. By using the platform, you are deemed to have accepted these terms.",
+      "service_scope": "Scope of Service",
+      "service_scope_text": "Kuzamo is a web application that facilitates AI-powered content planning, draft generation, and multi-platform publishing workflows. It allows you to manage your blog, social media, and email content from a single location.",
       "account_responsibility": "Account and Responsibility",
-      "responsibility_list": [
-        "Account security and password protection are the user's responsibility.",
-        "Platform terms of the relevant platform apply to publications made to third-party platforms (WordPress, LinkedIn, X, Instagram, etc.).",
-        "AI-powered content suggestions are for guidance only; final responsibility belongs to the user."
-      ],
+      "account_responsibility_intro": "During platform usage, you have the following responsibilities:",
+      "account_security": "Account Security",
+      "account_security_list": ["Account security and password protection are user responsibilities", "Strong password usage and regular updates are recommended", "Suspicious activities must be reported immediately"],
+      "platform_integrations": "Platform Integrations",
+      "platform_integrations_list": ["Third-party platform terms apply", "WordPress, LinkedIn, X, Instagram, etc. platform rules", "Compliance with each platform's own terms of use"],
+      "ai_content_responsibility": "AI Content Responsibility",
+      "ai_content_responsibility_list": ["AI recommendations are for guidance only", "Final content responsibility lies with the user", "Content quality and appropriateness must be verified"],
       "acceptable_use": "Acceptable Use",
-      "use_list": [
-        "Spam, harmful software distribution, or illegal content is prohibited.",
-        "Explicit consent must be obtained from recipients in bulk email campaigns.",
-        "Copyright and ethical rules must be followed when using AI suggestions."
-      ],
+      "acceptable_use_intro": "You must follow the following rules when using the platform:",
+      "permitted_uses": "Permitted Uses",
+      "permitted_uses_list": ["Legal and ethical content creation", "Business and educational purposes", "Creative and original content development", "Professional communication and marketing"],
+      "prohibited_uses": "Prohibited Uses",
+      "prohibited_uses_list": ["Spam and harmful content distribution", "Copyright infringement and copying", "Misleading or false information publishing", "Activities threatening platform security"],
+      "email_usage_rules": "Email Usage Rules",
+      "email_usage_warning": "Important: The following rules must be followed for bulk email sending:",
+      "email_usage_list": ["Explicit consent must be obtained from recipients", "Unsubscribe option must be provided", "Sender information must be accurate", "KVKK and GDPR compliance must be ensured"],
       "pricing_cancellation": "Pricing and Cancellation",
-      "pricing_text": "Plans are specified on the Pricing page. Current legislation applies to subscription cancellations.",
-      "liability_limit": "Liability Limit",
-      "liability_text": "Kuzamo is not responsible for indirect damages, data loss, and results arising from AI suggestions. The service is provided 'as is'.",
-      "changes": "Changes",
-      "terms_text": "Terms can be updated with announcements. The current version is published on this page.",
-      "contact": "Contact"
+      "plan_details": "Plan Details:",
+      "pricing_text": "Current plans and prices are detailed on the",
+      "pricing_page": "Pricing",
+      "pricing_page_link": "page.",
+      "subscription_cancellation": "Subscription Cancellation:",
+      "subscription_cancellation_text": "Current legislation applies",
+      "payment": "Payment:",
+      "payment_text": "Secure payment systems are used",
+      "invoice": "Invoice:",
+      "invoice_text": "Electronic invoice system is available",
+      "liability_limit": "Limitation of Liability",
+      "liability_warning": "Important Warning:",
+      "liability_intro": "Kuzamo is not responsible in the following cases:",
+      "liability_list": ["Indirect damages and losses", "Results arising from AI recommendations", "Third-party platform issues", "User errors and misuse"],
+      "liability_note": "Note:",
+      "liability_note_text": "Service is provided \"as is\" and no warranty is given.",
+      "service_quality": "Service Quality",
+      "performance": "Performance",
+      "performance_list": ["99.9% uptime target", "Fast response times", "24/7 system monitoring", "Proactive issue detection"],
+      "security": "Security",
+      "security_list": ["SSL encryption", "Regular security testing", "Data backup", "Access control"],
+      "changes": "Changes and Updates",
+      "update_process": "Update Process:",
+      "changes_list": ["Terms may be updated with announcements", "Important changes are notified via email", "Current version is published on this page", "Changes are announced 30 days in advance"],
+      "contact": "Contact and Support",
+      "contact_intro": "For questions about terms of service:",
+      "contact_email": "Email:",
+      "contact_web": "Web:",
+      "contact_support": "Support:",
+      "last_updated": "Last Updated:",
+      "version": "Version:"
     }
   },
   "tr": {
@@ -224,65 +489,136 @@
       "description": "Kuzamo, küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı sunar. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
       "earlyAccess": "Erken Erişim İste",
       "viewFeatures": "Özellikleri Gör",
+      "ribbon": "AI ile hızlanın — strateji, üretim ve yayın tek akışta",
+      "mock_title": "Dashboard — Kuzamo",
+      "mock_labels": {
+        "ai": "AI Öneri",
+        "performance": "Performans"
+      },
+      "mock_calendar": "İçerik Takvimi",
+      "mock_badges": {
+        "blog": "Blog — Yayında",
+        "linkedin": "LinkedIn — Taslak",
+        "email": "E‑posta — Planlandı"
+      },
       "features": {
         "ai_content": "🤖 AI destekli içerik üretimi",
         "planning": "📅 Akıllı planlama takvimi",
         "publishing": "🚀 Çoklu platform yayınlama"
       }
     },
-    "about": {
-      "title": "Kuzamo Nedir?",
-      "description": "Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e-posta içeriklerini AI destekli olarak planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur.",
-      "features": {
-        "ai_planning": "AI destekli planlama",
-        "multi_platform": "Çoklu platform entegrasyonu",
-        "team_collaboration": "Ekip işbirliği araçları",
-        "analytics": "Analitik ve raporlama"
-      },
-      "technical_features": "Teknik Özellikler",
-      "tech_list": [
-        "Modern web teknolojileri ile geliştirildi",
-        "API entegrasyonları (WordPress, sosyal medya)",
-        "Güvenli kimlik doğrulama ve yetkilendirme",
-        "Gerçek zamanlı işbirliği özellikleri",
-        "AI destekli içerik üretimi",
-        "Çoklu dil desteği (TR/EN)"
-      ]
+    "features_title": "Özellikler",
+    "features_description": "AI destekli içerik planlama ve yayınlama platformunun temel özelliklerini keşfedin.",
+    "features_button": "Detayları Gör",
+    "features": {
+      "heading": "İçerik üretiminden yayına kadar — tek akış",
+      "description": "Karmaşayı azaltın, tekrarları otomatikleştirin ve ekiplerinizi tek bir modern arayüz etrafında toplayın.",
+      "card1_title": "AI İçerik Stüdyosu",
+      "card1_desc": "Brief’inizden başlık, outline ve çoklu varyasyonlar üretin; tonu ve uzunluğu anında ayarlayın.",
+      "card2_title": "Takvim ve Onay Akışları",
+      "card2_desc": "Görev atayın, durumları izleyin, son teslim tarihlerini yönetin ve tek ekrandan kontrol edin.",
+      "card3_title": "Çoklu Platform Yayınlama",
+      "card3_desc": "WordPress, LinkedIn, X ve e‑posta entegrasyonları ile tek tıkla yayınlayın ve performansı görün."
     },
+    "pricing_title": "Fiyatlandırma",
+    "pricing_description": "Erken erişim döneminde esnek planlarımızı inceleyin.",
+    "pricing_button": "Fiyatları Gör",
     "pricing": {
       "title": "Fiyatlandırma",
-      "subtitle": "Erken erişim döneminde esnek planlar.",
-      "starter": {
-        "title": "Başlangıç",
+      "subtitle": "AI destekli içerik planlama ve yayınlama için esnek planlar.",
+      "billing": {"monthly": "Aylık", "yearly": "Yıllık", "save_badge": "2 ay ücretsiz"},
+      "free": {
+        "title": "Ücretsiz",
         "price": "₺0",
+        "price_monthly": "₺0",
+        "price_yearly": "₺0",
+        "button": "Başla",
         "features": [
-          "1 ekip üyesi",
-          "3 proje",
-          "Temel AI önerileri"
-        ],
-        "button": "Başla"
+          "1 kullanıcı",
+          "2 proje",
+          "Aylık 20 içerik planı",
+          "100 AI kredi/ay",
+          "2 bağlı kanal (ör. Instagram, X)",
+          "Zamanlama: 7 gün ileri"
+        ]
       },
       "team": {
         "title": "Ekip",
         "price": "₺299/ay",
+        "price_monthly": "₺299/ay",
+        "price_yearly": "₺2990/yıl",
+        "button": "Deneyin",
         "features": [
           "5 ekip üyesi",
+          "Sınırsıza yakın proje (50)",
+          "Aylık 200 içerik planı",
+          "2.000 AI kredi/ay",
+          "10 bağlı kanal",
+          "Onay akışları: çok adımlı",
+          "Gelişmiş raporlama ve takvim",
+          "E‑posta desteği (48 saat SLA)"
+        ]
+      },
+      "business": {
+        "title": "Business",
+        "price": "₺799/ay",
+        "price_monthly": "₺799/ay",
+        "price_yearly": "₺7990/yıl",
+        "button": "Satın Al",
+        "features": [
+          "15 kullanıcı",
           "Sınırsız proje",
-          "Gelişmiş AI özellikleri"
-        ],
-        "button": "Deneyin"
+          "Aylık 600 içerik planı",
+          "8.000 AI kredi/ay",
+          "20 bağlı kanal",
+          "Gelişmiş onay akışları + roller",
+          "Entegrasyonlar: Slack, Notion, Google Drive",
+          "Öncelikli destek (24 saat SLA)"
+        ]
       },
       "enterprise": {
         "title": "Kurumsal",
         "price": "Özel",
+        "price_monthly": "Özel",
+        "price_yearly": "Özel",
+        "button": "İletişime Geçin",
         "features": [
           "SSO, SLA",
           "Özel AI modelleri",
           "Öncelikli destek"
-        ],
+        ]
+      },
+      "popular_badge": "En popüler",
+      "comparison_title": "Plan Karşılaştırması",
+      "comparison_cols": {"feature":"Özellik","free":"Ücretsiz","team":"Pro","business":"Business","enterprise":"Kurumsal"},
+      "comparison_rows": {"users":"Kullanıcı sayısı","projects":"Proje sayısı","ai":"AI içerik stüdyosu","ai_credits":"AI kredi/ay","channels":"Bağlı kanal limiti","monthly_content":"Aylık planlanabilir içerik","approvals":"Onay akışları","support":"Öncelikli destek","sso":"SSO (SAML/OAuth)","audit":"Denetim kayıtları","ai_values":{"basic":"Temel","advanced":"Gelişmiş","custom":"Özel modeller"},"boolean":{"yes":"✔","no":"-"},"unlimited":"Sınırsız","custom":"Özel","approval_values":{"none":"-","multi_step":"Çok adımlı","multi_step_roles":"Çok adımlı + roller","enterprise":"Kurumsal"}},
+      "faq_title": "Sık Sorulan Sorular",
+      "faq": {
+        "q1": "Yıllık ödeme indirimi var mı?",
+        "a1": "Evet, yıllık ödemede iki ay ücretsiz olacak şekilde indirim sunuyoruz.",
+        "q2": "Planlar arası geçiş yapabilir miyim?",
+        "a2": "İstediğiniz zaman yükseltme veya düşürme yapabilirsiniz; ücret farkı dönemsel olarak yansır.",
+        "q3": "Kurumsal planda neler var?",
+        "a3": "SSO, özel AI modelleri, SLA, güvenlik ve eğitim paketleri dahildir.",
+        "q4": "Deneme sürümü var mı?",
+        "a4": "Erken erişim döneminde Ücretsiz plan mevcuttur."
+      },
+      "faq_page": {
+        "subtitle": "Yanıtı bulamazsanız bize yazın.",
+        "cta": "Daha fazla sorunuz mu var? İletişime geçin"
+      },
+      "cta": {
+        "title": "Ekibiniz için doğru planı seçin",
+        "desc": "Sorularınız mı var? Hemen bize ulaşın; size en uygun planı birlikte belirleyelim.",
         "button": "İletişime Geçin"
       }
     },
+    "about_title": "Hakkımızda",
+    "about_description": "Kuzamo'nun hikayesini ve misyonunu öğrenin.",
+    "about_button": "Hakkımızda Sayfasını Gör",
+    "faq_title": "SSS",
+    "faq_description": "Kuzamo hakkında sık sorulan sorular ve cevaplar.",
+    "faq_button": "SSS Sayfasını Gör",
     "faq": {
       "title": "Sık Sorulan Sorular",
       "questions": {
@@ -308,51 +644,116 @@
         }
       }
     },
-    "contact": {
-      "title": "İletişim / Erken Erişim",
-      "description": "Kuzamo'nun AI destekli içerik planlama ve yayınlama platformuna erken erişim için başvurun. Blog, sosyal medya ve e-posta içeriklerinizi tek yerden yönetmeye başlayın.",
-      "privacy_note": "Pazarlama izniniz olmadan e-posta göndermiyoruz.",
-      "form": {
-        "name": "Ad Soyad",
-        "email": "E-posta",
-        "company": "Şirket (opsiyonel)",
-        "message": "Mesajınız",
-        "name_placeholder": "Adınız ve soyadınız",
-        "email_placeholder": "ornek@email.com",
-        "company_placeholder": "Şirket adınız",
-        "message_placeholder": "Mesajınızı buraya yazın...",
-        "consent_label": "İletişim bilgilerimi Kuzamo'nun benimle iletişime geçmesi amacıyla işlemesine <strong class=\"text-gray-900 dark:text-gray-100\">açık rıza</strong> veriyorum.",
-        "privacy_consent_label": "<a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum.",
-        "terms_consent_label": "<a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Kullanım Şartları</a>'nı okudum ve kabul ediyorum.",
-        "submit": "Gönder",
-        "footer_note": "Form verileri yalnızca talebinize yanıt için işlenir; e‑posta gönderimi kendi tercih ettiğiniz altyapı üzerinden sağlanır; bu site herhangi bir sağlayıcıya doğrudan hizmet sunmaz."
+    "faq_page": {
+      "subtitle": "Yanıtı bulamazsanız bize yazın.",
+      "cta": "Daha fazla sorunuz mu var? İletişime geçin"
+    },
+    "logos_trusted": "Ekipler güveniyor",
+    "contact_title": "İletişim / Erken Erişim",
+    "contact_description": "Aşağıdaki formu doldurun, size dönüş yapalım. Pazarlama izniniz olmadan e-posta göndermiyoruz.",
+    "form_name": "Ad Soyad *",
+    "form_email": "E-posta *",
+    "form_company": "Şirket (opsiyonel)",
+    "form_message": "Mesaj (opsiyonel)",
+    "form_name_placeholder": "Adınız ve soyadınız",
+    "form_email_placeholder": "ornek@email.com",
+    "form_company_placeholder": "Şirket adınız",
+    "form_message_placeholder": "Sorularınızı veya özel taleplerinizi buraya yazabilirsiniz...",
+    "form_consent": "İletişim bilgilerimi Kuzamo'nun benimle iletişime geçmesi amacıyla işlemesine <strong class=\"text-gray-900 dark:text-gray-100\">açık rıza</strong> veriyorum. <a href=\"/privacy.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Gizlilik Politikası</a> ve <a href=\"/terms.html\" class=\"text-brand-600 dark:text-brand-400 hover:underline font-medium\">Kullanım Şartları</a>'nı okudum ve kabul ediyorum.",
+    "form_consent_error": "Lütfen onay kutusunu işaretleyin.",
+    "form_email_duplicate": "Bu e-posta adresi yakın zamanda zaten gönderilmiş. Lütfen gelen kutunuzu kontrol edin veya daha sonra tekrar deneyin.",
+    "form_email_pending": "Bu adrese zaten bir doğrulama e-postası gönderilmiş. Lütfen gelen kutunuzu kontrol edin.",
+    "form_email_confirmed": "Bu e-posta adresi zaten doğrulanmış ve listemizdesiniz.",
+    "form_rate_limit": "Çok fazla istek. Lütfen tekrar denemeden önce biraz bekleyin.",
+    "form_disposable_email": "Geçici e-posta adresleri kabul edilmez. Lütfen geçerli bir e-posta adresi kullanın.",
+    "form_invalid_domain": "Geçersiz e-posta domaini. Lütfen geçerli bir e-posta adresi kullanın.",
+    "form_unsubscribed": "Bu e-posta adresi daha önce abonelikten çıkarılmış. Formu tekrar göndererek yeniden abone olabilirsiniz.",
+    "form_submit": "Gönder",
+    "form_sending": "Gönderiliyor...",
+    "confirm_title": "E-posta Adresinizi Doğrulayın",
+    "confirm_description": "Erken erişim için e-posta adresinizi doğruluyoruz. Lütfen bekleyin.",
+    "confirm_loading": "E-posta adresiniz doğrulanıyor...",
+    "confirm_success_title": "E-posta Başarıyla Doğrulandı!",
+    "confirm_success_message": "Kuzamo'ya hoş geldiniz! E-posta adresiniz doğrulandı ve erken erişim listesine eklendiniz. Ürün hazır olduğunda size haber vereceğiz ve kullanmaya başlayabileceksiniz.",
+    "confirm_error_title": "Doğrulama Başarısız",
+    "confirm_error_message": "E-posta adresinizi doğrulayamadık. Bu durum süresi dolmuş veya geçersiz bir doğrulama bağlantısından kaynaklanabilir.",
+    "confirm_back_home": "Ana Sayfaya Dön",
+    "confirm_contact": "İletişime Geç",
+    "confirm_support": "Destek İletişimi",
+    "unsubscribe_title": "Abonelikten Çık",
+    "unsubscribe_description": "E-posta tercihlerinizi yönetin",
+    "unsubscribe_success_title": "Başarıyla Abonelikten Çıkıldı",
+    "unsubscribe_success_message": "E-posta listemizden başarıyla çıkarıldınız. Artık bizden bildirim almayacaksınız.",
+    "unsubscribe_error_title": "Abonelikten Çıkma Başarısız",
+    "unsubscribe_error_message": "Abonelikten çıkma talebiniz işlenirken bir hata oluştu. Bağlantı geçersiz veya süresi dolmuş olabilir.",
+    "unsubscribe_loading": "Abonelikten Çıkma İşleniyor...",
+    "unsubscribe_loading_message": "Lütfen talebiniz işlenirken bekleyin.",
+    "unsubscribe_back_home": "Ana Sayfaya Dön",
+    "form_footer": "Form verileri yalnızca talebinize yanıt için işlenir; e‑posta gönderimi kendi tercih ettiğiniz altyapı üzerinden sağlanır; bu site herhangi bir sağlayıcıya doğrudan hizmet sunmaz.",
+    "how": {
+      "heading": "Nasıl çalışır?",
+      "step1_title": "Planla",
+      "step1_desc": "Kanalları ve hedefleri belirleyin; içerik takviminizi oluşturun.",
+      "step2_title": "Üret",
+      "step2_desc": "AI destekli stüdyo ile metinleri üretin, revize edin ve onaya gönderin.",
+      "step3_title": "Yayınla",
+      "step3_desc": "Zamanlayın, tek tıkla yayınlayın ve performansı panoda izleyin."
+    },
+    "integrations": {
+      "heading": "Sevdiğiniz araçlarla entegre",
+      "description": "WordPress, LinkedIn, X (Twitter) ve e‑posta servisleri ile uyumlu.",
+      "bullets": {
+        "cms": "WordPress ve CMS entegrasyonları",
+        "social": "LinkedIn ve X çoklu hesap yayını",
+        "email": "E‑posta servisleri ile otomatik gönderim"
       }
     },
-    "index_links": {
-      "features": {
-        "title": "Özellikler",
-        "description": "AI destekli içerik planlama ve yayınlama platformunun temel özelliklerini keşfedin.",
-        "button": "Detayları Gör"
-      },
-      "pricing": {
-        "title": "Fiyatlandırma",
-        "description": "Erken erişim döneminde esnek planlarımızı inceleyin.",
-        "button": "Fiyatları Gör"
-      },
-      "about": {
-        "title": "Hakkımızda",
-        "description": "Kuzamo'nun hikayesini ve misyonunu öğrenin.",
-        "button": "Hakkımızda Sayfasını Gör"
-      },
-      "faq": {
-        "title": "SSS",
-        "description": "Kuzamo hakkında sık sorulan sorular ve cevaplar.",
-        "button": "SSS Sayfasını Gör"
+    "testimonials": {
+      "section_heading": "Ekiplerin sevdiği iş akışı",
+      "section_subtext": "Kuzamo, karmaşayı azaltıp süreci hızlandırarak küçük ekiplerin odaklanmasını sağlar.",
+      "q1": "\u201cKuzamo ile sosyal medya ve blog akışımız tek ekranda birleşti. Haftalık 6+ saat tasarruf ediyoruz.\u201d",
+      "a1_name": "Ayşe K.",
+      "a1_role": "İçerik Yöneticisi",
+      "q2": "\u201cTakvim ve onay süreci çok sade. AI önerileri editörlerin yükünü ciddi biçimde azaltıyor.\u201d",
+      "a2_name": "Mehmet D.",
+      "a2_role": "Pazarlama Lideri",
+      "q3": "“E-posta ve blog entegrasyonları ile yayın süreci tek tuşla tamamlanıyor.”",
+      "a3_name": "Selin A.",
+      "a3_role": "İçerik Uzmanı"
+    },
+    "benefits": {
+      "label_gain": "Ortalama kazanım",
+      "value_gain": "Haftada 6+ saat",
+      "label_flow": "Operasyon akışı",
+      "value_flow": "Planla → Üret → Yayınla",
+      "label_scope": "Kapsam",
+      "value_scope": "Blog, Sosyal, E‑posta"
+    },
+    "why": {
+      "title": "Neden Kuzamo?",
+      "points": {
+        "one": "Tek ekranda planlama, üretim ve yayın",
+        "two": "Küçük ekipler için optimize edilmiş süreçler",
+        "three": "Çoğul kanal entegrasyonları ve yayında doğruluk"
       }
     },
+    "finalcta": {
+      "heading": "İçerik ekibinizi hızlandırın",
+      "description": "Erken erişim döneminde kaydolun, ilk geri bildirim verenler arasında yer alın.",
+      "btn_early": "Erken Erişim",
+      "btn_pricing": "Fiyatları Gör"
+    },
+    "footer_description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
+    "footer_copyright": "© 2025 Kuzamo. Tüm hakları saklıdır.",
+    "footer_about": "Hakkımızda",
+    "footer_pricing": "Fiyatlar",
+    "footer_faq": "SSS",
+    "footer_contact": "İletişim",
+    "footer_privacy": "Gizlilik",
+    "footer_terms": "Kullanım Şartları",
+    "footer_cookie_policy": "Çerez Politikası",
     "footer": {
       "description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.",
-      "address": "Adres: (Şirket adı) (Adres satırı) (İl/Ülke)",
       "copyright": "© 2025 Kuzamo. Tüm hakları saklıdır.",
       "links": {
         "about": "Hakkımızda",
@@ -361,64 +762,191 @@
         "contact": "İletişim",
         "privacy": "Gizlilik",
         "terms": "Kullanım Şartları",
-        "cookie_policy": "Çerez Politikası",
-        "cookie_settings": "🍪 Çerez Ayarları"
+        "cookie_policy": "Çerez Politikası"
       }
+    },
+    "about_page": {
+      "title": "Kuzamo Nedir?",
+      "description1": "Kuzamo; küçük ve çevik ekiplerin blog, sosyal medya ve e‑posta içeriklerini AI desteğiyle planlamasını, üretmesini ve yayınlamasını sağlayan kapsamlı bir iş akışı platformudur.",
+      "description2": "Modern API entegrasyonlarıyla WordPress, LinkedIn, X, Instagram ve e‑posta platformlarına tek yerden erişin. AI önerileri, ekip işbirliği araçları ve analitik ile stratejinizi güçlendirin.",
+      "features": {
+        "ai_planning": "AI destekli planlama",
+        "multi_platform": "Çoklu platform entegrasyonu",
+        "team_collaboration": "Ekip işbirliği araçları",
+        "analytics": "Analitik ve raporlama"
+      },
+      "tech_title": "Teknik Yetenekler",
+      "tech_list": [
+        "Modern web teknolojileri ile geliştirildi",
+        "API entegrasyonları (WordPress, sosyal medya)",
+        "Güvenli kimlik doğrulama ve yetkilendirme",
+        "Gerçek zamanlı işbirliği",
+        "AI destekli içerik üretimi",
+        "Çoklu dil desteği (TR/EN)"
+      ],
+      "values_title": "İlkelerimiz",
+      "values": {
+        "focus": "Sonuç odaklılık",
+        "simple": "Basit ve güvenilir iş akışları",
+        "privacy": "Gizlilik odaklı tasarım"
+      },
+      "cta_title": "Kuzamo ile hızlanın",
+      "cta_desc": "Erken erişime katılın, ürünü birlikte şekillendirelim.",
+      "cta_button": "Erken Erişim İste"
     },
     "privacy": {
       "title": "Gizlilik Politikası",
-      "effective_date": "Yürürlük tarihi: 03 Eylül 2025",
+      "effective_date": "Yürürlük Tarihi: 3 Eylül 2025",
+      "intro": "Bu gizlilik politikası, Kuzamo web sitesinde toplanan, kullanılan ve korunan kişisel veriler hakkında bilgi sağlar. Verilerinizin güvenliği bizim için önemlidir.",
       "data_collection": "Topladığımız Veriler",
-      "data_list": [
-        "İletişim formu: ad soyad, e-posta, isteğe bağlı şirket ve mesaj içeriği.",
-        "Platform kullanım verileri: içerik planlama, AI önerileri ve yayınlama istatistikleri.",
-        "Günlük kayıtları ve temel analitik (IP, tarayıcı bilgisi) — sadece teknik güvenlik ve kullanım istatistiği için."
-      ],
-      "processing_purposes": "İşleme Amaçları",
-      "purposes_list": [
-        "Talebinize yanıt vermek ve destek sağlamak,",
-        "AI destekli içerik önerileri sunmak,",
-        "Hizmeti güvenli, hızlı ve hatasız sunmak,",
-        "Yasal yükümlülükleri yerine getirmek."
-      ],
+      "data_collection_intro": "Kuzamo'da, hizmetlerimizi geliştirmek ve size daha iyi bir deneyim sunmak için aşağıdaki verileri topluyoruz:",
+      "contact_form_data": "İletişim Formu Verileri",
+      "contact_form_list": ["Ad soyad bilgisi", "E-posta adresi", "Şirket adı (opsiyonel)", "Mesaj içeriği"],
+      "platform_usage_data": "Platform Kullanım Verileri",
+      "platform_usage_list": ["İçerik planlama aktiviteleri", "AI önerileri kullanımı", "Yayınlama istatistikleri", "Kullanıcı etkileşim verileri"],
+      "technical_data": "Teknik Veriler",
+      "technical_data_list": ["IP adresi", "Tarayıcı bilgileri", "İşletim sistemi", "Sayfa görüntüleme istatistikleri"],
+      "processing_purposes": "Veri İşleme Amaçları",
+      "processing_purposes_intro": "Toplanan verileri aşağıdaki amaçlar için işliyoruz:",
+      "purposes_list": ["Taleplerinize yanıt vermek ve destek sağlamak", "AI destekli içerik önerileri sunmak", "Güvenli, hızlı ve hatasız hizmet sağlamak", "Yasal yükümlülükleri yerine getirmek"],
       "legal_basis": "Hukuki Dayanak",
-      "legal_text": "KVKK ve GDPR kapsamında açık rıza, sözleşmenin ifası ve meşru menfaat.",
+      "legal_basis_intro": "Veri işleme faaliyetlerimiz KVKK ve GDPR kapsamında aşağıdaki hukuki dayanaklara dayanır:",
+      "legal_basis_list": ["Açık rıza", "Sözleşmenin ifası", "Meşru menfaat", "Hukuki yükümlülük"],
       "data_retention": "Veri Saklama Süresi",
-      "retention_text": "Yasal süreleri aşmamak kaydıyla, amaç için gerekli olduğu kadar.",
+      "retention_warning": "Önemli: Kişisel verileriniz, amaç için gerekli süre boyunca saklanır ve yasal süreleri aşmaz.",
       "third_parties": "Üçüncü Taraflar",
-      "third_parties_text": "İçerik yayınlama için sosyal medya platformları, WordPress ve e-posta platformları ile barındırma ve analitik hizmetleri.",
+      "third_parties_intro": "Verileriniz aşağıdaki durumlarda üçüncü taraflarla paylaşılabilir:",
+      "platform_integrations": "Platform Entegrasyonları",
+      "platform_integrations_list": ["WordPress ve sosyal medya platformları", "E-posta gönderim servisleri", "Analitik ve performans araçları"],
+      "technical_services": "Teknik Hizmetler",
+      "technical_services_list": ["Barındırma ve sunucu hizmetleri", "Güvenlik ve yedekleme hizmetleri", "CDN ve performans optimizasyonu"],
       "your_rights": "Haklarınız",
-      "rights_list": [
-        "Erişim, düzeltme, silme, işlemeyi kısıtlama, itiraz.",
-        "Türkiye'de KVKK kapsamındaki başvuru hakları."
-      ],
+      "your_rights_intro": "KVKK ve GDPR kapsamında aşağıdaki haklara sahipsiniz:",
+      "basic_rights": "Temel Haklar",
+      "basic_rights_list": ["Verilere erişim hakkı", "Düzeltme hakkı", "Silme hakkı", "İşlemeyi kısıtlama hakkı"],
+      "objection_rights": "İtiraz Hakları",
+      "objection_rights_list": ["İşlemeye itiraz hakkı", "Veri taşınabilirliği hakkı", "Otomatik karar verme", "KVKK başvuru hakları"],
+      "security_measures": "Güvenlik Önlemleri",
+      "security_intro": "Güvenlik: Verilerinizi korumak için aşağıdaki önlemleri alıyoruz:",
+      "security_list": ["SSL şifreleme ve güvenli bağlantılar", "Düzenli güvenlik güncellemeleri", "Erişim kontrolü ve yetkilendirme", "Veri yedekleme ve felaket kurtarma"],
       "contact": "İletişim",
-      "contact_text": "Gizlilikle ilgili tüm konular için:"
+      "contact_intro": "Gizlilikle ilgili tüm konular için:",
+      "contact_email": "E-posta:",
+      "contact_web": "Web:",
+      "last_updated": "Son Güncelleme:",
+      "version": "Sürüm:"
+    },
+    "cookie_policy": {
+      "title": "Çerez Politikası",
+      "intro": "Bu çerez politikası, Kuzamo web sitesinde kullanılan çerezler ve benzer teknolojiler hakkında bilgi sağlar. Çerezler, web sitemizde size daha iyi bir deneyim sunmak için kullanılır.",
+      "what_are_cookies": "Çerezler Nedir?",
+      "what_are_cookies_text": "Çerezler, web sitesi tarafından tarayıcınıza gönderilen küçük metin dosyalarıdır. Bu dosyalar bilgisayarınızda saklanır ve web sitesinin sizi tanımasına, tercihlerinizi hatırlamasına ve genel kullanıcı deneyimini iyileştirmesine yardımcı olur.",
+      "types_of_cookies": "Kullandığımız Çerez Türleri",
+      "necessary_cookies": "Gerekli Çerezler",
+      "necessary_cookies_desc": "Bu çerezler, web sitesinin temel işlevleri için gereklidir ve güvenlik, oturum yönetimi ve temel site işlevselliği için kullanılır.",
+      "necessary_cookies_list": ["Güvenlik ve kimlik doğrulama", "Oturum yönetimi", "Form verisi işleme", "Temel site işlevselliği"],
+      "necessary_cookies_note": "Not: Bu çerezler devre dışı bırakılamaz çünkü web sitesinin çalışması için gereklidir.",
+      "analytics_cookies": "Analitik Çerezler",
+      "analytics_cookies_desc": "Bu çerezler, site kullanımını analiz etmemize, performansı ölçmemize ve kullanıcı deneyimini iyileştirmemize yardımcı olur.",
+      "analytics_cookies_list": ["Sayfa görüntüleme istatistikleri", "Kullanıcı davranış analizi", "Site performans ölçümü", "Hata raporlama"],
+      "analytics_cookies_note": "Not: Bu çerezler isteğe bağlıdır ve rızanız olmadan kullanılmaz.",
+      "marketing_cookies": "Pazarlama Çerezleri",
+      "marketing_cookies_desc": "Bu çerezler, size kişiselleştirilmiş reklamlar ve içerik sunmamıza yardımcı olur.",
+      "marketing_cookies_list": ["Hedefli reklamlar", "İçerik kişiselleştirme", "Pazarlama kampanyaları", "Dönüşüm takibi"],
+      "marketing_cookies_note": "Not: Bu çerezler isteğe bağlıdır ve rızanız olmadan kullanılmaz.",
+      "preference_cookies": "Tercih Çerezleri",
+      "preference_cookies_desc": "Bu çerezler, dil tercihlerinizi, tema seçimlerinizi ve diğer kişiselleştirme ayarlarınızı hatırlar.",
+      "preference_cookies_list": ["Dil tercihleri", "Tema seçimleri (açık/koyu)", "Kullanıcı ayarları", "Kişiselleştirme tercihleri"],
+      "preference_cookies_note": "Not: Bu çerezler isteğe bağlıdır ve rızanız olmadan kullanılmaz.",
+      "management": "Çerez Yönetimi",
+      "management_intro": "Çerez tercihlerinizi istediğiniz zaman yönetebilirsiniz:",
+      "consent_banner": "Çerez Rıza Bildirimi",
+      "consent_banner_desc": "Web sitemizi ilk ziyaret ettiğinizde, tüm çerezleri kabul etmenize veya tercihlerinizi özelleştirmenize olanak tanıyan bir çerez rıza bildirimi göreceksiniz.",
+      "cookie_settings": "Çerez Ayarları",
+      "cookie_settings_desc": "Yüzen widget (sağ alt köşe) aracılığıyla veya bildirimdeki \"Çerez Ayarları\"na tıklayarak ayrıntılı çerez ayarlarına erişebilirsiniz.",
+      "update_preferences": "Tercihleri Güncelle",
+      "update_preferences_desc": "Çerez ayarları modalını tekrar ziyaret ederek çerez tercihlerinizi istediğiniz zaman güncelleyebilirsiniz.",
+      "third_party": "Üçüncü Taraf Çerezleri",
+      "third_party_intro": "Web sitemizdeki bazı çerezler üçüncü taraf hizmetler tarafından ayarlanır:",
+      "analytics_services": "Analitik Hizmetleri",
+      "analytics_services_list": ["Web sitesi performansı için Google Analytics", "Performans izleme araçları", "Hata takip hizmetleri"],
+      "social_media": "Sosyal Medya Platformları",
+      "social_media_list": ["LinkedIn entegrasyon çerezleri", "X (Twitter) paylaşım çerezleri", "Instagram gömme çerezleri"],
+      "duration": "Çerez Süresi",
+      "duration_intro": "Çerez Yaşam Süresi:",
+      "duration_list": ["Oturum Çerezleri: Tarayıcınızı kapattığınızda silinir", "Kalıcı Çerezler: Son kullanma tarihine kadar veya manuel silinene kadar kalır", "Gerekli Çerezler: Site işlevselliği için otomatik olarak yenilenir"],
+      "browser_settings": "Tarayıcı Ayarları",
+      "browser_settings_intro": "Çerezleri tarayıcı ayarlarınız aracılığıyla da kontrol edebilirsiniz:",
+      "browser_controls": "Tarayıcı Kontrolleri",
+      "browser_controls_list": ["Tüm çerezleri engelle", "Üçüncü taraf çerezleri engelle", "Mevcut çerezleri sil", "Çerez tercihlerini ayarla"],
+      "mobile_devices": "Mobil Cihazlar",
+      "mobile_devices_list": ["iOS Safari ayarları", "Android Chrome ayarları", "Mobil uygulama tercihleri", "Gizlilik ayarları"],
+      "updates": "Bu Politikanın Güncellemeleri",
+      "updates_intro": "Politika Güncellemeleri:",
+      "updates_list": ["Bu politika periyodik olarak güncellenebilir", "Değişiklikler bu sayfada yayınlanacak", "Önemli değişiklikler e-posta ile bildirilecek", "Kullanıma devam etmek değişiklikleri kabul etmek anlamına gelir"],
+      "contact": "İletişim Bilgileri",
+      "contact_intro": "Çerez politikamız hakkında sorularınız için:",
+      "contact_email": "E-posta:",
+      "contact_web": "Web:",
+      "contact_cookie_settings": "Çerez Ayarları:",
+      "last_updated": "Son Güncelleme:",
+      "version": "Sürüm:"
     },
     "terms": {
       "title": "Kullanım Şartları",
-      "effective_date": "Yürürlük tarihi: 03 Eylül 2025",
+      "effective_date": "Yürürlük Tarihi: 3 Eylül 2025",
+      "intro": "Bu kullanım şartları, Kuzamo platformunu kullanırken uymanız gereken kuralları ve koşulları tanımlar. Platformu kullanarak bu şartları kabul etmiş sayılırsınız.",
       "service_scope": "Hizmetin Kapsamı",
-      "scope_text": "Kuzamo; AI destekli içerik planlama, taslak üretimi ve çoklu platform yayınlama iş akışlarını kolaylaştıran bir web uygulamasıdır. Blog, sosyal medya ve e-posta içeriklerinizi tek yerden yönetmenizi sağlar.",
+      "service_scope_text": "Kuzamo; AI destekli içerik planlama, taslak üretimi ve çoklu platform yayınlama iş akışlarını kolaylaştıran bir web uygulamasıdır. Blog, sosyal medya ve e-posta içeriklerinizi tek yerden yönetmenizi sağlar.",
       "account_responsibility": "Hesap ve Sorumluluk",
-      "responsibility_list": [
-        "Hesap güvenliği ve şifre korunması kullanıcı sorumluluğundadır.",
-        "Üçüncü taraf platformlara (WordPress, LinkedIn, X, Instagram vb.) yapılan yayınlarda ilgili platform şartları geçerlidir.",
-        "AI destekli içerik önerileri rehber niteliğindedir, nihai sorumluluk kullanıcıya aittir."
-      ],
+      "account_responsibility_intro": "Platform kullanımı sırasında aşağıdaki sorumluluklarınız vardır:",
+      "account_security": "Hesap Güvenliği",
+      "account_security_list": ["Hesap güvenliği ve parola koruması kullanıcı sorumluluğundadır", "Güçlü parola kullanımı ve düzenli güncellemeler önerilir", "Şüpheli aktiviteler derhal bildirilmelidir"],
+      "platform_integrations": "Platform Entegrasyonları",
+      "platform_integrations_list": ["Üçüncü taraf platform şartları geçerlidir", "WordPress, LinkedIn, X, Instagram vb. platform kuralları", "Her platformun kendi kullanım şartlarına uyum"],
+      "ai_content_responsibility": "AI İçerik Sorumluluğu",
+      "ai_content_responsibility_list": ["AI önerileri sadece rehber niteliğindedir", "Nihai içerik sorumluluğu kullanıcıya aittir", "İçerik kalitesi ve uygunluğu doğrulanmalıdır"],
       "acceptable_use": "Kabul Edilebilir Kullanım",
-      "use_list": [
-        "Spam, zararlı yazılım dağıtımı veya yasa dışı içerik yasaktır.",
-        "Toplu e-posta gönderimlerinde alıcıdan açık rıza alınmalıdır.",
-        "AI önerilerini kullanırken telif hakkı ve etik kurallara uyulmalıdır."
-      ],
-      "pricing_cancellation": "Ücretlendirme ve İptal",
-      "pricing_text": "Planlar Fiyatlandırma sayfasında belirtilir. Abonelik iptallerinde yürürlükteki mevzuat uygulanır.",
-      "liability_limit": "Sorumluluk Sınırı",
-      "liability_text": "Dolaylı zararlar, veri kaybı ve AI önerilerinden kaynaklanan sonuçlardan Kuzamo sorumlu değildir. Hizmet 'olduğu gibi' sunulur.",
-      "changes": "Değişiklikler",
-      "terms_text": "Şartlar duyurularak güncellenebilir. Güncel sürüm bu sayfada yayınlanır.",
-      "contact": "İletişim"
+      "acceptable_use_intro": "Platformu kullanırken aşağıdaki kurallara uymalısınız:",
+      "permitted_uses": "İzin Verilen Kullanımlar",
+      "permitted_uses_list": ["Yasal ve etik içerik üretimi", "İş ve eğitim amaçlı kullanım", "Yaratıcı ve özgün içerik geliştirme", "Profesyonel iletişim ve pazarlama"],
+      "prohibited_uses": "Yasaklanan Kullanımlar",
+      "prohibited_uses_list": ["Spam ve zararlı içerik dağıtımı", "Telif hakkı ihlali ve kopyalama", "Yanıltıcı veya yanlış bilgi yayınlama", "Platform güvenliğini tehdit eden aktiviteler"],
+      "email_usage_rules": "E-posta Kullanım Kuralları",
+      "email_usage_warning": "Önemli: Toplu e-posta gönderimi için aşağıdaki kurallara uyulmalıdır:",
+      "email_usage_list": ["Alıcılardan açık rıza alınmalıdır", "Abonelikten çıkma seçeneği sağlanmalıdır", "Gönderen bilgileri doğru olmalıdır", "KVKK ve GDPR uyumu sağlanmalıdır"],
+      "pricing_cancellation": "Fiyatlandırma ve İptal",
+      "plan_details": "Plan Detayları:",
+      "pricing_text": "Güncel planlar ve fiyatlar",
+      "pricing_page": "Fiyatlandırma",
+      "pricing_page_link": "sayfasında detaylandırılmıştır.",
+      "subscription_cancellation": "Abonelik İptali:",
+      "subscription_cancellation_text": "Mevcut mevzuat geçerlidir",
+      "payment": "Ödeme:",
+      "payment_text": "Güvenli ödeme sistemleri kullanılır",
+      "invoice": "Fatura:",
+      "invoice_text": "Elektronik fatura sistemi mevcuttur",
+      "liability_limit": "Sorumluluğun Sınırlandırılması",
+      "liability_warning": "Önemli Uyarı:",
+      "liability_intro": "Kuzamo aşağıdaki durumlarda sorumlu değildir:",
+      "liability_list": ["Dolaylı zararlar ve kayıplar", "AI önerilerinden kaynaklanan sonuçlar", "Üçüncü taraf platform sorunları", "Kullanıcı hataları ve kötüye kullanım"],
+      "liability_note": "Not:",
+      "liability_note_text": "Hizmet \"olduğu gibi\" sunulur ve hiçbir garanti verilmez.",
+      "service_quality": "Hizmet Kalitesi",
+      "performance": "Performans",
+      "performance_list": ["%99.9 çalışma süresi hedefi", "Hızlı yanıt süreleri", "7/24 sistem izleme", "Proaktif sorun tespiti"],
+      "security": "Güvenlik",
+      "security_list": ["SSL şifreleme", "Düzenli güvenlik testleri", "Veri yedekleme", "Erişim kontrolü"],
+      "changes": "Değişiklikler ve Güncellemeler",
+      "update_process": "Güncelleme Süreci:",
+      "changes_list": ["Şartlar duyurularla güncellenebilir", "Önemli değişiklikler e-posta ile bildirilir", "Mevcut sürüm bu sayfada yayınlanır", "Değişiklikler 30 gün önceden duyurulur"],
+      "contact": "İletişim ve Destek",
+      "contact_intro": "Kullanım şartları hakkında sorularınız için:",
+      "contact_email": "E-posta:",
+      "contact_web": "Web:",
+      "contact_support": "Destek:",
+      "last_updated": "Son Güncelleme:",
+      "version": "Sürüm:"
     }
   }
 }

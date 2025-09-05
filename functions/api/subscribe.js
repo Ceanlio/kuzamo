@@ -19,8 +19,8 @@ export async function onRequestPost(context) {
     const company = (body?.company || '').toString().trim();
     const lang = (body?.lang || '').toString().trim().toLowerCase() === 'en' ? 'en' : 'tr';
 
-    // Validate name (letters, spaces, apostrophes and dashes)
-    const nameOk = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,80}$/u.test(name);
+    // Validate name (letters, spaces, apostrophes, dashes, and Turkish characters)
+    const nameOk = /^[A-Za-zÀ-ÖØ-öø-ÿÇĞIİÖŞÜçğıiöşü' -]{2,80}$/u.test(name);
     // Validate email length and shape
     const emailOk = email.length > 3 && email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!nameOk || !emailOk) { return json({ error: 'Invalid name or email' }, 400); }
@@ -35,8 +35,29 @@ export async function onRequestPost(context) {
     // Rate limit & duplicate guard
     const ip = request.headers.get('cf-connecting-ip') || '0.0.0.0';
     if (!checkRate(ip)) { return json({ error: 'Too many requests' }, 429); }
-    if (!markPending(email)) {
-      return json({ error: 'Already requested. Please check your inbox.' }, 409);
+    
+    // Check for existing email in KV storage
+    if (env.SUBSCRIBERS) {
+      const existingEmail = await env.SUBSCRIBERS.get(email);
+      if (existingEmail) {
+        const emailData = JSON.parse(existingEmail);
+        const now = Math.floor(Date.now() / 1000);
+        
+        if (emailData.status === 'pending' && emailData.exp > now) {
+          return json({ error: 'Already requested. Please check your inbox.' }, 409);
+        } else if (emailData.status === 'confirmed') {
+          return json({ error: 'Email already confirmed. You are already on our list.' }, 409);
+        } else if (emailData.status === 'unsubscribed') {
+          return json({ error: 'This email has been unsubscribed. Please contact support if you want to resubscribe.' }, 409);
+        }
+        // If status is 'pending' but expired, or any other status, allow resubscription
+      }
+      // If no KV storage entry exists, allow subscription (email was unsubscribed and deleted)
+    } else {
+      // No KV storage available, fallback to in-memory check
+      if (!markPending(email)) {
+        return json({ error: 'Already requested. Please check your inbox.' }, 409);
+      }
     }
 
     const expiryHours = parseInt(env.CONFIRMATION_EXPIRY_HOURS || '24', 10);
@@ -54,19 +75,30 @@ export async function onRequestPost(context) {
     const fromEmail = env.FROM_EMAIL || 'onboarding@resend.dev';
     const replyTo = env.REPLY_TO || 'support@kuzamo.com';
 
-    const subject = lang === 'en' ? 'Welcome to Kuzamo! Please confirm your email' : 'Kuzamo’ya hoş geldiniz! Lütfen e‑postanızı doğrulayın';
+    // Generate unsubscribe token
+    const unsubscribeToken = await signJWT({ 
+      email, 
+      action: 'unsubscribe',
+      exp: Math.floor(Date.now() / 1000) + (365 * 24 * 60 * 60) // 1 year
+    }, env.JWT_SECRET);
+    
+    const baseUrl = env.BASE_URL || new URL('/', request.url).origin;
+    const unsubscribeUrl = `${baseUrl}/unsubscribe.html?token=${encodeURIComponent(unsubscribeToken)}`;
+
+    const subject = lang === 'en' ? 'Welcome to Kuzamo! Please confirm your email' : 'Kuzamo\'ya hoş geldiniz! Lütfen e-postanızı doğrulayın';
     const html = buildBrandedEmail({
       lang,
-      title: lang === 'en' ? 'Confirm Your Email' : 'E‑postanızı Doğrulayın',
+      title: lang === 'en' ? 'Confirm Your Email' : 'E-postanızı Doğrulayın',
       greeting: lang === 'en' ? `Hi ${escapeHtml(name)},` : `Merhaba ${escapeHtml(name)},`,
       body: lang === 'en'
-        ? 'We’re excited to have you on board. Please confirm your email address to activate your access.'
-        : 'Aramıza hoş geldiniz. Erişiminizi aktifleştirmek için lütfen e‑posta adresinizi doğrulayın.',
-      ctaText: lang === 'en' ? 'Confirm Email' : 'E‑postayı Doğrula',
+        ? 'We\'re excited to have you on board. Please confirm your email address to activate your access.'
+        : 'Aramıza hoş geldiniz. Erişiminizi aktifleştirmek için lütfen e-posta adresinizi doğrulayın.',
+      ctaText: lang === 'en' ? 'Confirm Email' : 'E-postayı Doğrula',
       ctaUrl: confirmationLink,
       footer: lang === 'en'
         ? 'If you did not request this, you can safely ignore this email.'
-        : 'Bu talebi siz oluşturmadıysanız bu e‑postayı yok sayabilirsiniz.'
+        : 'Bu talebi siz oluşturmadıysanız bu e-postayı yok sayabilirsiniz.',
+      unsubscribeUrl
     });
 
     const sendRes = await fetch('https://api.resend.com/emails', {
@@ -80,13 +112,39 @@ export async function onRequestPost(context) {
         to: [email],
         subject,
         html,
-        reply_to: replyTo
+        reply_to: replyTo,
+        headers: {
+          'List-Unsubscribe': `<${unsubscribeUrl}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+          'X-Mailer': 'Kuzamo Email System',
+          'X-Priority': '3'
+        }
       })
     });
 
     const apiResp = await safeJson(sendRes);
     if (!sendRes.ok) {
       return json({ error: 'Failed to send email', details: apiResp || null }, 500);
+    }
+
+    // Store email in KV storage as pending
+    if (env.SUBSCRIBERS) {
+      const emailData = {
+        email,
+        name,
+        company,
+        status: 'pending',
+        exp,
+        lang,
+        createdAt: Math.floor(Date.now() / 1000),
+        tokenId: apiResp?.id || null
+      };
+      await env.SUBSCRIBERS.put(email, JSON.stringify(emailData), { 
+        expirationTtl: expiryHours * 60 * 60 // TTL in seconds
+      });
+      
+      // Clear from in-memory storage to avoid conflicts
+      pendingEmails.delete(email);
     }
 
     return json({ message: 'Confirmation email sent successfully', email, id: apiResp?.id || null });
@@ -152,7 +210,7 @@ async function hasMxRecord(domain){
   } catch { return false; }
 }
 
-function buildBrandedEmail({ lang, title, greeting, body, ctaText, ctaUrl, footer }){
+function buildBrandedEmail({ lang, title, greeting, body, ctaText, ctaUrl, footer, unsubscribeUrl, showCta = true }){
   const brand = {
     bg: '#f5f7ff',
     card: '#ffffff',
@@ -162,6 +220,14 @@ function buildBrandedEmail({ lang, title, greeting, body, ctaText, ctaUrl, foote
     brandDark: '#4338ca'
   };
   const copyright = lang === 'en' ? '© 2025 Kuzamo. All rights reserved.' : '© 2025 Kuzamo. Tüm hakları saklıdır.';
+  const unsubscribeText = lang === 'en' ? 'Unsubscribe' : 'Abonelikten Çık';
+  
+  const ctaButton = showCta && ctaText && ctaUrl ? 
+    `<p><a href="${ctaUrl}" style="display:inline-block;padding:12px 18px;border-radius:10px;background:${brand.brand};color:#fff;text-decoration:none;font-weight:600">${escapeHtml(ctaText)}</a></p>` : '';
+  
+  const unsubscribeLink = unsubscribeUrl ? 
+    `<p style="margin:16px 0 0 0;text-align:center;"><a href="${unsubscribeUrl}" style="color:${brand.muted};text-decoration:underline;font-size:12px">${unsubscribeText}</a></p>` : '';
+
   return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${escapeHtml(title)}</title></head>
   <body style="margin:0;padding:0;background:${brand.bg};font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:${brand.text};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${brand.bg};padding:32px 16px;">
@@ -179,16 +245,17 @@ function buildBrandedEmail({ lang, title, greeting, body, ctaText, ctaUrl, foote
                 <h1 style="margin:0 0 8px 0;font-size:24px;line-height:1.3">${escapeHtml(title)}</h1>
                 <p style="margin:0 0 4px 0;color:${brand.muted}">${escapeHtml(greeting)}</p>
                 <p style="margin:8px 0 16px 0;color:${brand.muted}">${escapeHtml(body)}</p>
-                <p>
-                  <a href="${ctaUrl}" style="display:inline-block;padding:12px 18px;border-radius:10px;background:${brand.brand};color:#fff;text-decoration:none;font-weight:600">${escapeHtml(ctaText)}</a>
-                </p>
+                ${ctaButton}
               </td>
             </tr>
             <tr>
               <td style="padding:8px 24px 24px 24px;color:${brand.muted};font-size:13px">${escapeHtml(footer)}</td>
             </tr>
           </table>
-          <div style="max-width:600px;margin-top:12px;color:${brand.muted};font-size:12px">${escapeHtml(copyright)}</div>
+          <div style="max-width:600px;margin-top:12px;color:${brand.muted};font-size:12px;text-align:center">
+            ${escapeHtml(copyright)}
+            ${unsubscribeLink}
+          </div>
         </td>
       </tr>
     </table>

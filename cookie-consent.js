@@ -38,19 +38,22 @@ class CookieConsent {
           }
         },
         banner: {
-          title: '🍪 Çerez Kullanımı',
+          title: 'Çerez Kullanımı',
           description: 'Kuzamo olarak, web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz.',
           privacyLink: 'Gizlilik Politikamız',
+          moreInfoHTML: '<a href="/privacy.html" class="text-brand-600 dark:text-brand-400 hover:underline">Gizlilik Politikamız</a>\'nda detayları bulabilirsiniz.',
           settingsBtn: 'Çerez Ayarları',
           policyLink: 'Çerez Politikası',
           acceptAll: 'Tümünü Kabul Et',
-          acceptNecessary: 'Sadece Gerekli'
+          acceptNecessary: 'Sadece Gerekli',
+          rejectAll: 'Tümünü Reddet'
         },
         modal: {
-          title: '🍪 Çerez Ayarları',
+          title: 'Çerez Ayarları',
           description: 'Aşağıdaki çerez kategorilerini etkinleştirebilir veya devre dışı bırakabilirsiniz. Gerekli çerezler her zaman etkindir çünkü web sitesinin temel işlevleri için gereklidir.',
           savePreferences: 'Tercihleri Kaydet',
           acceptAll: 'Tümünü Kabul Et',
+          rejectAll: 'Tümünü Reddet',
           required: 'Gerekli'
         }
       },
@@ -82,25 +85,29 @@ class CookieConsent {
           }
         },
         banner: {
-          title: '🍪 Cookie Usage',
+          title: 'Cookie Usage',
           description: 'At Kuzamo, we use cookies to enhance your experience on our website.',
           privacyLink: 'Privacy Policy',
+          moreInfoHTML: ' See details in our <a href="/privacy.html" class="text-brand-600 dark:text-brand-400 hover:underline">Privacy Policy</a>.',
           settingsBtn: 'Cookie Settings',
           policyLink: 'Cookie Policy',
           acceptAll: 'Accept All',
-          acceptNecessary: 'Necessary Only'
+          acceptNecessary: 'Necessary Only',
+          rejectAll: 'Reject All'
         },
         modal: {
-          title: '🍪 Cookie Settings',
+          title: 'Cookie Settings',
           description: 'You can enable or disable the following cookie categories. Necessary cookies are always enabled as they are required for the basic functions of the website.',
           savePreferences: 'Save Preferences',
           acceptAll: 'Accept All',
+          rejectAll: 'Reject All',
           required: 'Required'
         }
       }
     };
     
     this.cookieTypes = this.translations[this.currentLanguage].cookieTypes;
+    this.consentVersion = '1.1';
     this.init();
   }
   
@@ -239,48 +246,51 @@ class CookieConsent {
     
     const banner = document.createElement('div');
     banner.id = 'cookie-consent-banner';
-    banner.className = 'fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg transform translate-y-full transition-transform duration-300';
+    // Compact widget card bottom-right
+    banner.className = 'fixed bottom-4 right-4 z-50 max-w-sm w-[92vw] sm:w-96 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-xl rounded-2xl overflow-hidden transform translate-y-6 opacity-0 transition-all duration-300';
     
     const t = this.translations[this.currentLanguage].banner;
-    
+    const moreInfoText = this.translations[this.currentLanguage].banner.moreInfoHTML || '';
+
     banner.innerHTML = `
-      <div class="max-w-7xl mx-auto px-6 py-4">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="p-4">
+        <div class="flex items-start gap-3">
+          <div class="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white">⚙️</div>
           <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              ${t.title}
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-              ${t.description} 
-              <a href="/privacy.html" class="text-brand-600 dark:text-brand-400 hover:underline">${t.privacyLink}</a>'nda detayları bulabilirsiniz.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <button id="cookie-settings-btn" class="text-sm text-brand-600 dark:text-brand-400 hover:underline">
+            <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100">${(t.title || '').trim()}</h3>
+            <p class="mt-1 text-xs text-gray-600 dark:text-gray-300">${t.description}${moreInfoText}</p>
+            <div class="mt-2 flex flex-wrap gap-3 items-center">
+              <button id="cookie-settings-btn" class="text-xs font-medium text-brand-600 dark:text-brand-400 hover:underline">
                 ${t.settingsBtn}
               </button>
-              <a href="/cookie-policy.html" class="text-sm text-brand-600 dark:text-brand-400 hover:underline">
+              <a href="/cookie-policy.html" class="text-xs font-medium text-brand-600 dark:text-brand-400 hover:underline">
                 ${t.policyLink}
               </a>
             </div>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <button id="cookie-accept-all" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm font-medium">
-              ${t.acceptAll}
-            </button>
-            <button id="cookie-accept-necessary" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">
-              ${t.acceptNecessary}
-            </button>
-          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-3 gap-2">
+          <button id="cookie-accept-all" class="px-3 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-xs font-medium">
+            ${t.acceptAll}
+          </button>
+          <button id="cookie-accept-necessary" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-xs font-medium">
+            ${t.acceptNecessary}
+          </button>
+          <button id="cookie-reject-all" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-xs font-medium">
+            ${t.rejectAll}
+          </button>
         </div>
       </div>
     `;
     
     document.body.appendChild(banner);
     
-    // Show banner with animation
-    setTimeout(() => {
-      banner.classList.remove('translate-y-full');
-    }, 100);
+    // Animate in
+    requestAnimationFrame(() => {
+      banner.classList.remove('translate-y-6');
+      banner.classList.remove('opacity-0');
+      banner.classList.add('opacity-100');
+    });
     
     // Add event listeners
     this.addBannerEventListeners(banner);
@@ -298,7 +308,8 @@ class CookieConsent {
     
     const description = banner.querySelector('p');
     if (description) {
-      description.innerHTML = `${t.description} <a href="/privacy.html" class="text-brand-600 dark:text-brand-400 hover:underline">${t.privacyLink}</a>'nda detayları bulabilirsiniz.`;
+      const moreInfoText = this.translations[this.currentLanguage].banner.moreInfoHTML || '';
+      description.innerHTML = `${t.description}${moreInfoText}`;
     }
     
     const settingsBtn = banner.querySelector('#cookie-settings-btn');
@@ -312,6 +323,8 @@ class CookieConsent {
     
     const acceptNecessaryBtn = banner.querySelector('#cookie-accept-necessary');
     if (acceptNecessaryBtn) acceptNecessaryBtn.textContent = t.acceptNecessary;
+    const rejectAllBtn = banner.querySelector('#cookie-reject-all');
+    if (rejectAllBtn) rejectAllBtn.textContent = t.rejectAll;
   }
   
   showSettingsModal() {
@@ -390,6 +403,9 @@ class CookieConsent {
           <button id="accept-all-cookies" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium">
             ${t.acceptAll}
           </button>
+          <button id="reject-all-cookies" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium">
+            ${t.rejectAll}
+          </button>
         </div>
       </div>
     `;
@@ -420,6 +436,8 @@ class CookieConsent {
     
     const acceptAllBtn = modal.querySelector('#accept-all-cookies');
     if (acceptAllBtn) acceptAllBtn.textContent = t.acceptAll;
+    const rejectAllBtn = modal.querySelector('#reject-all-cookies');
+    if (rejectAllBtn) rejectAllBtn.textContent = t.rejectAll;
     
     // Update cookie type descriptions
     Object.values(this.cookieTypes).forEach(type => {
@@ -449,7 +467,13 @@ class CookieConsent {
       this.showSettingsModal();
     });
     
-
+    // Reject all cookies
+    const rejectBtn = banner.querySelector('#cookie-reject-all');
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', () => {
+        this.rejectAll();
+      });
+    }
   }
   
   addModalEventListeners(modal) {
@@ -476,6 +500,14 @@ class CookieConsent {
       this.acceptAll();
       modal.remove();
     });
+    // Reject all from modal
+    const rejectAll = modal.querySelector('#reject-all-cookies');
+    if (rejectAll) {
+      rejectAll.addEventListener('click', () => {
+        this.rejectAll();
+        modal.remove();
+      });
+    }
     
     // Handle checkbox changes
     Object.keys(this.cookieTypes).forEach(typeName => {
@@ -522,12 +554,34 @@ class CookieConsent {
     this.hideBanner();
   }
   
+  rejectAll() {
+    Object.keys(this.cookiePreferences).forEach(key => {
+      this.cookiePreferences[key] = this.cookieTypes[key].required ? true : false;
+    });
+    this.savePreferences();
+    this.applyPreferences();
+    this.hideBanner();
+  }
+  
   savePreferences() {
-    localStorage.setItem('cookie-consent', JSON.stringify({
+    const record = {
       preferences: this.cookiePreferences,
       timestamp: new Date().toISOString(),
-      version: '1.0'
-    }));
+      version: this.consentVersion
+    };
+    localStorage.setItem('cookie-consent', JSON.stringify(record));
+    try {
+      fetch('/api/consent-log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          preferences: this.cookiePreferences,
+          version: this.consentVersion,
+          gpc: !!(navigator && navigator.globalPrivacyControl),
+          lang: this.currentLanguage
+        })
+      }).catch(() => {});
+    } catch {}
   }
   
   loadPreferences() {
@@ -569,10 +623,22 @@ class CookieConsent {
   
   enableAnalytics() {
     // Enable Google Analytics or other analytics tools
-    if (typeof gtag !== 'undefined') {
-      gtag('consent', 'update', {
-        'analytics_storage': 'granted'
-      });
+    if (typeof gtag === 'undefined' && !document.getElementById('ga-script')) {
+      const mid = window.GA_MEASUREMENT_ID || '';
+      if (mid) {
+        const s = document.createElement('script');
+        s.id = 'ga-script';
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(mid)}`;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', mid);
+      }
+    } else if (typeof gtag !== 'undefined') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
     }
     
     // Enable other analytics cookies
@@ -624,11 +690,31 @@ class CookieConsent {
   setCookie(name, value, days) {
     const expires = new Date();
     expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+    const isSecure = (location.protocol === 'https:');
+    const secureAttr = isSecure ? ';Secure' : '';
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax${secureAttr}`;
   }
   
   removeCookie(name) {
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+  }
+  
+  applyGpcIfPresent() {
+    try {
+      if (navigator && navigator.globalPrivacyControl) {
+        this.cookiePreferences.analytics = false;
+        this.cookiePreferences.marketing = false;
+        this.savePreferences();
+        this.applyPreferences();
+      }
+    } catch {}
+  }
+  
+  optOutSaleShare() {
+    this.cookiePreferences.analytics = false;
+    this.cookiePreferences.marketing = false;
+    this.savePreferences();
+    this.applyPreferences();
   }
   
   // Public method to check if specific cookie type is allowed

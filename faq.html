@@ -8,12 +8,13 @@
   <meta property="og:title" content="Kuzamo — SSS" />
   <meta property="og:description" content="Kuzamo hakkında sık sorulan sorular ve detaylı bilgiler." />
   <meta property="og:image" content="/og-image.png" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <script>(function(){const t=localStorage.getItem('theme');const d=matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');})();</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81'}}}}}</script>
 </head>
 <body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+  <script src="main.js" defer></script>
   <!-- Navbar -->
   <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -46,28 +47,32 @@
   </header>
 
       <main class="max-w-4xl mx-auto px-6 py-20">
-    <h1 class="text-3xl font-bold text-center">Sık Sorulan Sorular</h1>
+    <h1 class="text-3xl font-bold text-center" data-lang="faq.title">Sık Sorulan Sorular</h1>
+    <p class="mt-2 text-center text-gray-600 dark:text-gray-300 faq-subtitle" data-lang="faq_page.subtitle">Yanıtı bulamazsanız bize yazın.</p>
     <div class="mt-8 space-y-4">
       <details class="group rounded-xl border border-gray-200 dark:border-gray-800 p-4">
-        <summary class="cursor-pointer font-medium">AI içerik üretimi nasıl çalışır?</summary>
-        <div class="mt-2 text-gray-600 dark:text-gray-300">Kuzamo, verdiğiniz brief ve hedef kitlenize göre AI destekli içerik önerileri sunar. Blog yazıları, sosyal medya gönderileri ve e-posta konuları için ton, uzunluk ve stil önerileri alırsınız.</div>
+        <summary class="cursor-pointer font-medium" data-lang="faq.questions.ai_content.question">AI içerik üretimi nasıl çalışır?</summary>
+        <div class="mt-2 text-gray-600 dark:text-gray-300" data-lang="faq.questions.ai_content.answer">Kuzamo, verdiğiniz brief ve hedef kitlenize göre AI destekli içerik önerileri sunar. Blog yazıları, sosyal medya gönderileri ve e-posta konuları için ton, uzunluk ve stil önerileri alırsınız.</div>
       </details>
       <details class="group rounded-xl border border-gray-200 dark:border-gray-800 p-4">
-        <summary class="cursor-pointer font-medium">Hangi platformları destekliyor?</summary>
-        <div class="mt-2 text-gray-600 dark:text-gray-300">WordPress, LinkedIn, X (Twitter), Instagram, Facebook ve e-posta platformları ile entegrasyon sağlıyoruz. Yeni platformlar sürekli ekleniyor.</div>
+        <summary class="cursor-pointer font-medium" data-lang="faq.questions.platforms.question">Hangi platformları destekliyor?</summary>
+        <div class="mt-2 text-gray-600 dark:text-gray-300" data-lang="faq.questions.platforms.answer">WordPress, LinkedIn, X (Twitter), Instagram, Facebook ve e-posta platformları ile entegrasyon sağlıyoruz. Yeni platformlar sürekli ekleniyor.</div>
       </details>
       <details class="group rounded-xl border border-gray-200 dark:border-gray-800 p-4">
-        <summary class="cursor-pointer font-medium">Ekip işbirliği özellikleri neler?</summary>
-        <div class="mt-2 text-gray-600 dark:text-gray-300">İçerik onay akışları, görev atama, yorum ve geri bildirim sistemi, gerçek zamanlı düzenleme ve versiyon takibi sunuyoruz.</div>
+        <summary class="cursor-pointer font-medium" data-lang="faq.questions.collaboration.question">Ekip işbirliği özellikleri neler?</summary>
+        <div class="mt-2 text-gray-600 dark:text-gray-300" data-lang="faq.questions.collaboration.answer">İçerik onay akışları, görev atama, yorum ve geri bildirim sistemi, gerçek zamanlı düzenleme ve versiyon takibi sunuyoruz.</div>
       </details>
       <details class="group rounded-xl border border-gray-200 dark:border-gray-800 p-4">
-        <summary class="cursor-pointer font-medium">Analitik ve raporlama var mı?</summary>
-        <div class="mt-2 text-gray-600 dark:text-gray-300">Evet, içerik performansınızı takip edebilir, hangi içeriklerin daha iyi sonuç verdiğini görebilir ve AI önerilerini bu verilerle iyileştirebilirsiniz.</div>
+        <summary class="cursor-pointer font-medium" data-lang="faq.questions.analytics.question">Analitik ve raporlama var mı?</summary>
+        <div class="mt-2 text-gray-600 dark:text-gray-300" data-lang="faq.questions.analytics.answer">Evet, içerik performansınızı takip edebilir, hangi içeriklerin daha iyi sonuç verdiğini görebilir ve AI önerilerini bu verilerle iyileştirebilirsiniz.</div>
       </details>
       <details class="group rounded-xl border border-gray-200 dark:border-gray-800 p-4">
-        <summary class="cursor-pointer font-medium">Çoklu dil desteği var mı?</summary>
-        <div class="mt-2 text-gray-600 dark:text-gray-300">Evet, Türkçe ve İngilizce dillerinde AI destekli içerik üretimi yapabilirsiniz. Hedef kitlenize uygun dil seçenekleri sunuyoruz.</div>
+        <summary class="cursor-pointer font-medium" data-lang="faq.questions.languages.question">Çoklu dil desteği var mı?</summary>
+        <div class="mt-2 text-gray-600 dark:text-gray-300" data-lang="faq.questions.languages.answer">Evet, Türkçe ve İngilizce dillerinde AI destekli içerik üretimi yapabilirsiniz. Hedef kitlenize uygun dil seçenekleri sunuyoruz.</div>
       </details>
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 text-white px-6 py-3 font-medium hover:bg-brand-700 faq-cta" data-lang="faq_page.cta">Daha fazla sorunuz mu var? İletişime geçin</a>
     </div>
   </main>
 
@@ -80,7 +85,6 @@
           <span class="text-xl font-bold text-brand-600">Kuzamo</span>
         </div>
         <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
-        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
       </div>
               <div class="text-sm space-y-2">
           <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
@@ -124,136 +128,6 @@
       }
     });
   </script>
-  <script>
-    // Load language data and render content
-    (function() {
-      // Get saved language preference or auto-detect
-      const userLang = navigator.language || navigator.userLanguage;
-      let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
-      
-      // Set initial language to prevent flicker
-      if (currentLang === 'en') {
-        document.documentElement.lang = 'en';
-      }
-      
-      fetch('languages.json')
-        .then(response => response.json())
-        .then(data => {
-          const langToggle = document.getElementById('langToggle');
-          
-          // Update toggle button text
-          if (langToggle) {
-            langToggle.textContent = currentLang.toUpperCase();
-          }
-
-          function renderContent(lang) {
-            // Navbar - Only update navigation links, preserve logo
-            const aboutLink = document.querySelector('nav a[href="/about.html"]');
-            const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
-            const faqLink = document.querySelector('nav a[href="/faq.html"]');
-            const contactLink = document.querySelector('nav a[href="/contact.html"]');
-            
-            if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
-            if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
-            if (faqLink) faqLink.textContent = data[lang].navbar.faq;
-            if (contactLink) contactLink.textContent = data[lang].navbar.contact;
-            
-            // FAQ page content
-            const title = document.querySelector('h1');
-            if (title) title.textContent = data[lang].faq.title;
-            
-            // FAQ questions and answers
-            const faqItems = document.querySelectorAll('details');
-            
-            if (faqItems.length >= 5) {
-              // AI Content question
-              const aiContentSummary = faqItems[0].querySelector('summary');
-              const aiContentAnswer = faqItems[0].querySelector('div');
-              if (aiContentSummary) aiContentSummary.textContent = data[lang].faq.questions.ai_content.question;
-              if (aiContentAnswer) aiContentAnswer.textContent = data[lang].faq.questions.ai_content.answer;
-              
-              // Platforms question
-              const platformsSummary = faqItems[1].querySelector('summary');
-              const platformsAnswer = faqItems[1].querySelector('div');
-              if (platformsSummary) platformsSummary.textContent = data[lang].faq.questions.platforms.question;
-              if (platformsAnswer) platformsAnswer.textContent = data[lang].faq.questions.platforms.answer;
-              
-              // Collaboration question
-              const collaborationSummary = faqItems[2].querySelector('summary');
-              const collaborationAnswer = faqItems[2].querySelector('div');
-              if (collaborationSummary) collaborationSummary.textContent = data[lang].faq.questions.collaboration.question;
-              if (collaborationAnswer) collaborationAnswer.textContent = data[lang].faq.questions.collaboration.answer;
-              
-              // Analytics question
-              const analyticsSummary = faqItems[3].querySelector('summary');
-              const analyticsAnswer = faqItems[3].querySelector('div');
-              if (analyticsSummary) analyticsSummary.textContent = data[lang].faq.questions.analytics.question;
-              if (analyticsAnswer) analyticsAnswer.textContent = data[lang].faq.questions.analytics.answer;
-              
-              // Languages question
-              const languagesSummary = faqItems[4].querySelector('summary');
-              const languagesAnswer = faqItems[4].querySelector('div');
-              if (languagesSummary) languagesSummary.textContent = data[lang].faq.questions.languages.question;
-              if (languagesAnswer) languagesAnswer.textContent = data[lang].faq.questions.languages.answer;
-            }
-            
-            // Footer
-            const footerDescription = document.querySelector('.footer-description');
-            if (footerDescription) {
-              footerDescription.textContent = data[lang].footer.description;
-            }
-            
-            const footerAddress = document.querySelector('.footer-address');
-            if (footerAddress) {
-              footerAddress.textContent = data[lang].footer.address;
-            }
-            
-            const footerCopyright = document.querySelector('.footer-copyright');
-            if (footerCopyright) {
-              footerCopyright.textContent = data[lang].footer.copyright;
-            }
-            
-            // Footer links
-            const footerAboutLink = document.querySelector('.footer-about');
-            if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
-            
-            const footerPricingLink = document.querySelector('.footer-pricing');
-            if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
-            
-            const footerFaqLink = document.querySelector('.footer-faq');
-            if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
-            
-            const footerContactLink = document.querySelector('.footer-contact');
-            if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
-            
-            const footerPrivacyLink = document.querySelector('.footer-privacy');
-            if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
-            
-            const footerTermsLink = document.querySelector('.footer-terms');
-            if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
-          }
-
-          renderContent(currentLang);
-
-          if (langToggle) {
-            langToggle.addEventListener('click', function() {
-              currentLang = currentLang === 'en' ? 'tr' : 'en';
-              localStorage.setItem('language', currentLang);
-              document.documentElement.lang = currentLang;
-              renderContent(currentLang);
-              langToggle.textContent = currentLang.toUpperCase();
-              
-              // Trigger language change event for cookie consent widget
-              document.dispatchEvent(new CustomEvent('languageChanged', { 
-                detail: { language: currentLang } 
-              }));
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Error loading language data:', error);
-        });
-    })();
-  </script>
+  
 </body>
 </html>

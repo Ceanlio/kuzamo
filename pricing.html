@@ -8,12 +8,13 @@
   <meta property="og:title" content="Kuzamo — Fiyatlandırma" />
   <meta property="og:description" content="Erken erişim döneminde esnek planlar." />
   <meta property="og:image" content="/og-image.png" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <script>(function(){const t=localStorage.getItem('theme');const d=matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');})();</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81'}}}}}</script>
 </head>
 <body class="h-full bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+  <script src="main.js" defer></script>
   <!-- Navbar (same as about) -->
   <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 w-full z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -47,40 +48,201 @@
 
       <main class="bg-white dark:bg-gray-900 py-20">
     <div class="max-w-7xl mx-auto px-6">
-      <h1 class="text-3xl font-bold text-center">Fiyatlandırma</h1>
-      <p class="mt-3 text-center text-gray-600 dark:text-gray-300 pricing-subtitle">AI destekli içerik planlama ve yayınlama için esnek planlar.</p>
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-          <h2 class="text-xl font-semibold starter-title">Başlangıç</h2>
-          <p class="mt-2 text-3xl font-bold starter-price">₺0</p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 starter-features">
-            <li>• 1 ekip üyesi</li>
-            <li>• 3 proje</li>
-            <li>• Temel AI önerileri</li>
-          </ul>
-          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 starter-button">Başla</a>
+      <h1 class="text-3xl font-bold text-center" data-lang="pricing.title">Fiyatlandırma</h1>
+      <p class="mt-3 text-center text-gray-600 dark:text-gray-300 pricing-subtitle" data-lang="pricing.subtitle">AI destekli içerik planlama ve yayınlama için esnek planlar.</p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <div id="pricingToggle" class="inline-flex rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <button class="px-4 py-2 text-sm billing-month active bg-gray-100 dark:bg-gray-800" data-mode="monthly" data-lang="pricing.billing.monthly">Aylık</button>
+          <button class="px-4 py-2 text-sm billing-year" data-mode="yearly" data-lang="pricing.billing.yearly">Yıllık</button>
         </div>
-        <div class="rounded-2xl border-2 border-brand-600 p-6 shadow">
-          <h2 class="text-xl font-semibold team-title">Ekip</h2>
-          <p class="mt-2 text-3xl font-bold team-price">₺299/ay</p>
+        <span class="text-xs text-brand-700 dark:text-brand-300 bg-brand-50 dark:bg-brand-900/30 rounded-full px-3 py-1 billing-save" data-lang="pricing.billing.save_badge">2 ay ücretsiz</span>
+      </div>
+      <div class="mt-10 grid md:grid-cols-4 gap-6">
+        <!-- Free -->
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 bg-white/80 dark:bg-gray-900/70 shadow-sm">
+          <h2 class="text-xl font-semibold free-title" data-lang="pricing.free.title">Ücretsiz</h2>
+          <p class="mt-2 text-3xl font-bold free-price price-amount" data-monthly="₺0" data-yearly="₺0" data-lang="pricing.free.price">₺0</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 free-features">
+            <li>• 1 kullanıcı</li>
+            <li>• 2 proje</li>
+            <li>• Aylık 20 içerik planı</li>
+            <li>• 100 AI kredi/ay</li>
+            <li>• 2 bağlı kanal (ör. Instagram, X)</li>
+            <li>• Zamanlama: 7 gün ileri</li>
+          </ul>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 free-button" data-lang="pricing.free.button">Başla</a>
+        </div>
+        <!-- Pro (Most popular) -->
+        <div class="relative rounded-2xl border-2 border-brand-600 p-6 shadow bg-gradient-to-b from-brand-50 to-white dark:from-brand-900/20 dark:to-gray-900">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 text-white text-xs px-3 py-1 badge-popular" data-lang="pricing.popular_badge">En popüler</span>
+          <h2 class="text-xl font-semibold team-title" data-lang="pricing.team.title">Pro</h2>
+          <p class="mt-2 text-3xl font-bold team-price price-amount" data-monthly="₺399/ay" data-yearly="₺3.990/yıl" data-lang="pricing.team.price">₺399/ay</p>
           <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 team-features">
-            <li>• 5 ekip üyesi</li>
-            <li>• Sınırsız proje</li>
-            <li>• Gelişmiş AI özellikleri</li>
+            <li>• 5 kullanıcı</li>
+            <li>• Sınırsıza yakın proje (50)</li>
+            <li>• Aylık 200 içerik planı</li>
+            <li>• 2.000 AI kredi/ay</li>
+            <li>• 10 bağlı kanal</li>
+            <li>• Onay akışları: çok adımlı</li>
+            <li>• Gelişmiş raporlama ve takvim</li>
+            <li>• E-posta desteği (48 saat SLA)</li>
           </ul>
-          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-brand-600 text-white team-button">Deneyin</a>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-brand-600 text-white team-button" data-lang="pricing.team.button">Deneyin</a>
         </div>
-        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-          <h2 class="text-xl font-semibold enterprise-title">Kurumsal</h2>
-          <p class="mt-2 text-3xl font-bold enterprise-price">Özel</p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 enterprise-features">
-            <li>• SSO, SLA</li>
-            <li>• Özel AI modelleri</li>
-            <li>• Öncelikli destek</li>
+        <!-- Business -->
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 bg-white/80 dark:bg-gray-900/70 shadow-sm">
+          <h2 class="text-xl font-semibold business-title" data-lang="pricing.business.title">Business</h2>
+          <p class="mt-2 text-3xl font-bold business-price price-amount" data-monthly="₺799/ay" data-yearly="₺7.990/yıl" data-lang="pricing.business.price">₺799/ay</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 business-features">
+            <li>• 15 kullanıcı</li>
+            <li>• Sınırsız proje</li>
+            <li>• Aylık 600 içerik planı</li>
+            <li>• 8.000 AI kredi/ay</li>
+            <li>• 20 bağlı kanal</li>
+            <li>• Gelişmiş onay akışları + roller</li>
+            <li>• Entegrasyonlar: Slack, Notion, Google Drive</li>
+            <li>• Öncelikli destek (24 saat SLA)</li>
           </ul>
-          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 enterprise-button">İletişime Geçin</a>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 business-button" data-lang="pricing.business.button">Satın Al</a>
+        </div>
+        <!-- Enterprise -->
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 bg-white/80 dark:bg-gray-900/70 shadow-sm">
+          <h2 class="text-xl font-semibold enterprise-title" data-lang="pricing.enterprise.title">Kurumsal</h2>
+          <p class="mt-2 text-3xl font-bold enterprise-price price-amount" data-monthly="Özel" data-yearly="Özel" data-lang="pricing.enterprise.price">Özel</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 enterprise-features">
+            <li>• SSO (SAML/OAuth), SCIM</li>
+            <li>• Özel AI modelleri ve veri eğitimi</li>
+            <li>• Güvenlik, denetim kayıtları, IP kısıtlama</li>
+            <li>• Özel SLA ve hesap yöneticisi</li>
+            <li>• Özel entegrasyonlar ve yerinde eğitim</li>
+          </ul>
+          <a href="/contact.html" class="mt-6 inline-block px-5 py-2 rounded-lg bg-gray-200 dark:bg-gray-800 enterprise-button" data-lang="pricing.enterprise.button">İletişime Geçin</a>
         </div>
       </div>
+      
+      <!-- Comparison Table -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold text-center text-gray-900 dark:text-gray-100 comparison-title" data-lang="pricing.comparison_title">Plan Karşılaştırması</h2>
+        <div class="mt-6 overflow-x-auto">
+          <table class="min-w-full border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">
+              <tr>
+                <th class="px-4 py-3 text-left feature-col" data-lang="pricing.comparison_cols.feature">Özellik</th>
+                <th class="px-4 py-3 text-center col-free" data-lang="pricing.comparison_cols.free">Ücretsiz</th>
+                <th class="px-4 py-3 text-center col-team" data-lang="pricing.comparison_cols.team">Pro</th>
+                <th class="px-4 py-3 text-center col-business" data-lang="pricing.comparison_cols.business">Business</th>
+                <th class="px-4 py-3 text-center col-enterprise" data-lang="pricing.comparison_cols.enterprise">Kurumsal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800 text-sm">
+              <tr>
+                <td class="px-4 py-3 row-users" data-lang="pricing.comparison_rows.users">Kullanıcı sayısı</td>
+                <td class="px-4 py-3 text-center">1</td>
+                <td class="px-4 py-3 text-center">5</td>
+                <td class="px-4 py-3 text-center">15</td>
+                <td class="px-4 py-3 text-center val-unlimited">Sınırsız</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-projects" data-lang="pricing.comparison_rows.projects">Proje sayısı</td>
+                <td class="px-4 py-3 text-center">2</td>
+                <td class="px-4 py-3 text-center">50</td>
+                <td class="px-4 py-3 text-center val-unlimited">Sınırsız</td>
+                <td class="px-4 py-3 text-center val-unlimited">Sınırsız</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-ai" data-lang="pricing.comparison_rows.ai">AI içerik stüdyosu</td>
+                <td class="px-4 py-3 text-center val-ai-basic">Temel</td>
+                <td class="px-4 py-3 text-center val-ai-advanced">Gelişmiş</td>
+                <td class="px-4 py-3 text-center val-ai-advanced">Gelişmiş</td>
+                <td class="px-4 py-3 text-center val-ai-custom">Özel modeller</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-ai-credits" data-lang="pricing.comparison_rows.ai_credits">AI kredi/ay</td>
+                <td class="px-4 py-3 text-center">100</td>
+                <td class="px-4 py-3 text-center">2.000</td>
+                <td class="px-4 py-3 text-center">8.000</td>
+                <td class="px-4 py-3 text-center val-custom">Custom</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-channels" data-lang="pricing.comparison_rows.channels">Bağlı kanal limiti</td>
+                <td class="px-4 py-3 text-center">2</td>
+                <td class="px-4 py-3 text-center">10</td>
+                <td class="px-4 py-3 text-center">20</td>
+                <td class="px-4 py-3 text-center val-unlimited">Sınırsız</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-monthly-content" data-lang="pricing.comparison_rows.monthly_content">Aylık planlanabilir içerik</td>
+                <td class="px-4 py-3 text-center">20</td>
+                <td class="px-4 py-3 text-center">200</td>
+                <td class="px-4 py-3 text-center">600</td>
+                <td class="px-4 py-3 text-center val-unlimited">Sınırsız</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-approvals" data-lang="pricing.comparison_rows.approvals">Onay akışları</td>
+                <td class="px-4 py-3 text-center val-approval-none">-</td>
+                <td class="px-4 py-3 text-center val-approval-multi-step">Multi-step</td>
+                <td class="px-4 py-3 text-center val-approval-multi-step-roles">Multi-step + roles</td>
+                <td class="px-4 py-3 text-center val-approval-enterprise">Enterprise</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-support" data-lang="pricing.comparison_rows.support">Öncelikli destek</td>
+                <td class="px-4 py-3 text-center val-no">-</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-sso" data-lang="pricing.comparison_rows.sso">SSO (SAML/OAuth)</td>
+                <td class="px-4 py-3 text-center val-no">-</td>
+                <td class="px-4 py-3 text-center val-no">-</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 row-audit" data-lang="pricing.comparison_rows.audit">Denetim kayıtları</td>
+                <td class="px-4 py-3 text-center val-no">-</td>
+                <td class="px-4 py-3 text-center val-no">-</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+                <td class="px-4 py-3 text-center val-yes">✔︎</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Pricing FAQ -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold text-center text-gray-900 dark:text-gray-100 pricing-faq-title" data-lang="pricing.faq_title">Sık Sorulan Sorular</h2>
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <details class="rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+            <summary class="cursor-pointer font-medium pricing-faq-q1" data-lang="pricing.faq.q1">Yıllık ödeme indirimi var mı?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300 pricing-faq-a1" data-lang="pricing.faq.a1">Evet, yıllık ödemede iki ay ücretsiz olacak şekilde indirim sunuyoruz.</div>
+          </details>
+          <details class="rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+            <summary class="cursor-pointer font-medium pricing-faq-q2" data-lang="pricing.faq.q2">Planlar arası geçiş yapabilir miyim?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300 pricing-faq-a2" data-lang="pricing.faq.a2">İstediğiniz zaman yükseltme veya düşürme yapabilirsiniz; ücret farkı dönemsel olarak yansır.</div>
+          </details>
+          <details class="rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+            <summary class="cursor-pointer font-medium pricing-faq-q3" data-lang="pricing.faq.q3">Kurumsal planda neler var?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300 pricing-faq-a3" data-lang="pricing.faq.a3">SSO, özel AI modelleri, SLA, güvenlik ve eğitim paketleri dahildir.</div>
+          </details>
+          <details class="rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+            <summary class="cursor-pointer font-medium pricing-faq-q4" data-lang="pricing.faq.q4">Deneme sürümü var mı?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300 pricing-faq-a4" data-lang="pricing.faq.a4">Erken erişim döneminde Ücretsiz plan mevcuttur.</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="mt-16 text-center">
+        <div class="rounded-3xl bg-gradient-to-r from-brand-500 to-brand-700 text-white p-8">
+          <h3 class="text-xl md:text-2xl font-bold pricing-cta-title" data-lang="pricing.cta.title">Ekibiniz için doğru planı seçin</h3>
+          <p class="mt-2 text-brand-100 pricing-cta-desc" data-lang="pricing.cta.desc">Sorularınız mı var? Hemen bize ulaşın; size en uygun planı birlikte belirleyelim.</p>
+          <div class="mt-6">
+            <a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg bg-white text-brand-700 px-6 py-3 font-medium hover:bg-brand-50 pricing-cta-button" data-lang="pricing.cta.button">İletişime Geçin</a>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -93,7 +255,6 @@
           <span class="text-xl font-bold text-brand-600">Kuzamo</span>
         </div>
         <p class="mt-3 text-sm footer-description">Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı. Blog, sosyal medya ve e-postalarınızı tek yerden yönetin.</p>
-        <p class="mt-3 text-xs footer-address">Adres: (Şirket adı) (Adres satırı) (İl/Ülke)</p>
       </div>
               <div class="text-sm space-y-2">
           <a href="/about.html" class="block hover:text-brand-600 footer-about">Hakkımızda</a>
@@ -137,195 +298,5 @@
       }
     });
   </script>
-  <script>
-    // Auto-detect language and theme
-    (function() {
-      const userLang = navigator.language || navigator.userLanguage;
-      const theme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const langToggle = document.getElementById('langToggle');
-
-      // Set initial theme
-      if (theme === 'dark' || (!theme && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      }
-
-      // Set initial language
-      if (userLang.includes('en')) {
-        langToggle.textContent = 'EN';
-      } else {
-        langToggle.textContent = 'TR';
-      }
-
-      // Language switcher
-      langToggle.addEventListener('click', function() {
-        if (langToggle.textContent === 'EN') {
-          langToggle.textContent = 'TR';
-          // Logic to switch to Turkish
-        } else {
-          langToggle.textContent = 'EN';
-          // Logic to switch to English
-        }
-      });
-    })();
-  </script>
-      <script>
-      // Load language data and render content
-      (function() {
-        // Get saved language preference or auto-detect
-        const userLang = navigator.language || navigator.userLanguage;
-        let currentLang = localStorage.getItem('language') || (userLang.includes('en') ? 'en' : 'tr');
-        
-        // Set initial language to prevent flicker
-        if (currentLang === 'en') {
-          document.documentElement.lang = 'en';
-        }
-        
-        fetch('languages.json')
-          .then(response => response.json())
-          .then(data => {
-            const langToggle = document.getElementById('langToggle');
-            
-            // Update toggle button text
-            if (langToggle) {
-              langToggle.textContent = currentLang.toUpperCase();
-            }
-
-            function renderContent(lang) {
-              // Navbar - Only update navigation links, preserve logo
-              const aboutLink = document.querySelector('nav a[href="/about.html"]');
-              const pricingLink = document.querySelector('nav a[href="/pricing.html"]');
-              const faqLink = document.querySelector('nav a[href="/faq.html"]');
-              const contactLink = document.querySelector('nav a[href="/contact.html"]');
-              
-              if (aboutLink) aboutLink.textContent = data[lang].navbar.about;
-              if (pricingLink) pricingLink.textContent = data[lang].navbar.pricing;
-              if (faqLink) faqLink.textContent = data[lang].navbar.faq;
-              if (contactLink) contactLink.textContent = data[lang].navbar.contact;
-              
-              // Pricing page content
-              const title = document.querySelector('h1');
-              if (title) title.textContent = data[lang].pricing.title;
-              
-              const subtitle = document.querySelector('.pricing-subtitle');
-              if (subtitle) subtitle.textContent = data[lang].pricing.subtitle;
-              
-              // Starter plan
-              const starterTitle = document.querySelector('.starter-title');
-              if (starterTitle) starterTitle.textContent = data[lang].pricing.starter.title;
-              
-              const starterPrice = document.querySelector('.starter-price');
-              if (starterPrice) starterPrice.textContent = data[lang].pricing.starter.price;
-              
-              const starterButton = document.querySelector('.starter-button');
-              if (starterButton) starterButton.textContent = data[lang].pricing.starter.button;
-              
-              // Team plan
-              const teamTitle = document.querySelector('.team-title');
-              if (teamTitle) teamTitle.textContent = data[lang].pricing.team.title;
-              
-              const teamPrice = document.querySelector('.team-price');
-              if (teamPrice) teamPrice.textContent = data[lang].pricing.team.price;
-              
-              const teamButton = document.querySelector('.team-button');
-              if (teamButton) teamButton.textContent = data[lang].pricing.team.button;
-              
-              // Enterprise plan
-              const enterpriseTitle = document.querySelector('.enterprise-title');
-              if (enterpriseTitle) enterpriseTitle.textContent = data[lang].pricing.enterprise.title;
-              
-              const enterprisePrice = document.querySelector('.enterprise-price');
-              if (enterprisePrice) enterprisePrice.textContent = data[lang].pricing.enterprise.price;
-              
-              const enterpriseButton = document.querySelector('.enterprise-button');
-              if (enterpriseButton) enterpriseButton.textContent = data[lang].pricing.enterprise.button;
-              
-              // Features lists
-              const starterFeatures = document.querySelectorAll('.starter-features li');
-              const teamFeatures = document.querySelectorAll('.team-features li');
-              const enterpriseFeatures = document.querySelectorAll('.enterprise-features li');
-              
-              if (starterFeatures.length >= 3) {
-                data[lang].pricing.starter.features.forEach((feature, index) => {
-                  if (starterFeatures[index]) {
-                    starterFeatures[index].textContent = '• ' + feature;
-                  }
-                });
-              }
-              
-              if (teamFeatures.length >= 3) {
-                data[lang].pricing.team.features.forEach((feature, index) => {
-                  if (teamFeatures[index]) {
-                    teamFeatures[index].textContent = '• ' + feature;
-                  }
-                });
-              }
-              
-              if (enterpriseFeatures.length >= 3) {
-                data[lang].pricing.enterprise.features.forEach((feature, index) => {
-                  if (enterpriseFeatures[index]) {
-                    enterpriseFeatures[index].textContent = '• ' + feature;
-                  }
-                });
-              }
-              
-              // Footer
-              const footerDescription = document.querySelector('.footer-description');
-              if (footerDescription) {
-                footerDescription.textContent = data[lang].footer.description;
-              }
-              
-              const footerAddress = document.querySelector('.footer-address');
-              if (footerAddress) {
-                footerAddress.textContent = data[lang].footer.address;
-              }
-              
-              const footerCopyright = document.querySelector('.footer-copyright');
-              if (footerCopyright) {
-                footerCopyright.textContent = data[lang].footer.copyright;
-              }
-              
-              // Footer links
-              const footerAboutLink = document.querySelector('.footer-about');
-              if (footerAboutLink) footerAboutLink.textContent = data[lang].footer.links.about;
-              
-              const footerPricingLink = document.querySelector('.footer-pricing');
-              if (footerPricingLink) footerPricingLink.textContent = data[lang].footer.links.pricing;
-              
-              const footerFaqLink = document.querySelector('.footer-faq');
-              if (footerFaqLink) footerFaqLink.textContent = data[lang].footer.links.faq;
-              
-              const footerContactLink = document.querySelector('.footer-contact');
-              if (footerContactLink) footerContactLink.textContent = data[lang].footer.links.contact;
-              
-              const footerPrivacyLink = document.querySelector('.footer-privacy');
-              if (footerPrivacyLink) footerPrivacyLink.textContent = data[lang].footer.links.privacy;
-              
-              const footerTermsLink = document.querySelector('.footer-terms');
-              if (footerTermsLink) footerTermsLink.textContent = data[lang].footer.links.terms;
-            }
-
-            renderContent(currentLang);
-
-            if (langToggle) {
-              langToggle.addEventListener('click', function() {
-                currentLang = currentLang === 'en' ? 'tr' : 'en';
-                localStorage.setItem('language', currentLang);
-                document.documentElement.lang = currentLang;
-                renderContent(currentLang);
-                langToggle.textContent = currentLang.toUpperCase();
-                
-                // Trigger language change event for cookie consent widget
-                document.dispatchEvent(new CustomEvent('languageChanged', { 
-                  detail: { language: currentLang } 
-                }));
-              });
-            }
-          })
-          .catch(error => {
-            console.error('Error loading language data:', error);
-          });
-      })();
-    </script>
 </body>
 </html>

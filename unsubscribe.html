@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang="unsubscribe_title">Unsubscribe - Kuzamo</title>
+  <meta name="description" content="Unsubscribe from Kuzamo emails">
+  <link rel="icon" href="/favicon.ico">
+  <!-- Tailwind CSS CDN - For production, consider using Tailwind CLI or PostCSS plugin -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f4ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900">
+  <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="flex justify-center">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-lg">K</span>
+          </div>
+          <span class="text-2xl font-bold text-gray-900 dark:text-white">Kuzamo</span>
+        </div>
+      </div>
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white" data-lang="unsubscribe_title">
+        Unsubscribe
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400" data-lang="unsubscribe_description">
+        Manage your email preferences
+      </p>
+      <!-- Language Toggle -->
+      <div class="mt-4 flex justify-center">
+        <button id="langToggle" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+          <span data-lang="lang_turkish">Türkçe</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <!-- Success State -->
+        <div id="successState" class="hidden">
+          <div class="text-center">
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900">
+              <svg class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white" data-lang="unsubscribe_success_title">
+              Successfully Unsubscribed
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400" data-lang="unsubscribe_success_message">
+              You have been successfully unsubscribed from our emails. You will no longer receive notifications from us.
+            </p>
+            <div class="mt-6">
+              <a href="/index.html" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors" data-lang="unsubscribe_back_home">
+                Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden">
+          <div class="text-center">
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900">
+              <svg class="h-6 w-6 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white" data-lang="unsubscribe_error_title">
+              Unsubscribe Failed
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400" data-lang="unsubscribe_error_message">
+              There was an error processing your unsubscribe request. The link may be invalid or expired.
+            </p>
+            <div class="mt-6">
+              <a href="/index.html" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors" data-lang="unsubscribe_back_home">
+                Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState">
+          <div class="text-center">
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-brand-100 dark:bg-brand-900">
+              <svg class="animate-spin h-6 w-6 text-brand-600 dark:text-brand-400" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white" data-lang="unsubscribe_loading">
+              Processing Unsubscribe...
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400" data-lang="unsubscribe_loading_message">
+              Please wait while we process your request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for language system to initialize
+      setTimeout(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+        const error = urlParams.get('error');
+      
+      const loadingState = document.getElementById('loadingState');
+      const successState = document.getElementById('successState');
+      const errorState = document.getElementById('errorState');
+      
+      if (success === '1') {
+        loadingState.classList.add('hidden');
+        successState.classList.remove('hidden');
+      } else if (error === '1') {
+        loadingState.classList.add('hidden');
+        errorState.classList.remove('hidden');
+      } else {
+        // Auto-process unsubscribe if token is present
+        const token = urlParams.get('token');
+        if (token) {
+          processUnsubscribe(token);
+        } else {
+          loadingState.classList.add('hidden');
+          errorState.classList.remove('hidden');
+        }
+      }
+      }, 100); // Small delay to ensure language system is ready
+    });
+    
+    async function processUnsubscribe(token) {
+      try {
+        const response = await fetch(`/api/unsubscribe?token=${encodeURIComponent(token)}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        const loadingState = document.getElementById('loadingState');
+        const successState = document.getElementById('successState');
+        const errorState = document.getElementById('errorState');
+        
+        if (response.ok) {
+          loadingState.classList.add('hidden');
+          successState.classList.remove('hidden');
+        } else {
+          loadingState.classList.add('hidden');
+          errorState.classList.remove('hidden');
+        }
+      } catch (error) {
+        console.error('Unsubscribe error:', error);
+        const loadingState = document.getElementById('loadingState');
+        const errorState = document.getElementById('errorState');
+        loadingState.classList.add('hidden');
+        errorState.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
