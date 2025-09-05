@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kuzamo.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block access to sensitive areas
+Disallow: /functions/
+Disallow: /_headers
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /cookie-consent.js
+Disallow: /main.js
+Disallow: /languages.json
+
+# Allow access to important files
+Allow: /favicon.ico
+Allow: /og-image.png
+Allow: /style.css

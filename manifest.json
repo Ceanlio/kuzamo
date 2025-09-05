@@ -1,0 +1,20 @@
+{
+  "name": "Kuzamo - AI Destekli İçerik Planlama",
+  "short_name": "Kuzamo",
+  "description": "Küçük ekipler için AI destekli içerik planlama ve yayınlama iş akışı",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "tr",
+  "dir": "ltr"
+}
